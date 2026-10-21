@@ -84,11 +84,18 @@ await_assigned > /dev/null   # first instance owns the partitions before traffic
     --replay.rate="$RATE" > "$WORK/replay.log" 2>&1 &
 REPLAY_PID=$!
 
+# don't start killing until events are actually being stored
+until [[ "$(psql "select count(*) from insights where $IN_SET")" != "0" ]]; do sleep 1; done
+
 KILLS=0
 RECOVERY=()
 STORED_AT_KILL=()
 while (( KILLS < K )); do
   sleep $(( 5 + RANDOM % 11 ))   # let the instance work for 5-15 s, then hard-kill it mid-stream
+  if [[ "$(psql "select count(*) from insights where $IN_SET")" == "$DISTINCT" ]]; then
+    echo "  everything already stored; stopping after $KILLS mid-stream kills"
+    break
+  fi
   kill_app
   KILLS=$((KILLS + 1))
   SO_FAR=$(psql "select count(*) from insights where $IN_SET")
@@ -137,8 +144,8 @@ cat > "$REPORT" <<EOF
 | Machine | $(uname -s), i7-12700H, 16 GB, CPU only |
 | Extractor | $PROVIDER |
 | Events sent | $N lines, **$DISTINCT distinct eventIds**, at $RATE events/s |
-| Hard kills (SIGKILL) | **$KILLS**, each 5-15 s after the previous instance got its partitions; restarted immediately |
-| Insights already stored at each kill | ${STORED_AT_KILL[*]} (a kill below $DISTINCT landed mid-stream) |
+| Hard kills (SIGKILL) | **$KILLS, all mid-stream** (first after events were flowing, none after all were stored), each 5-15 s after the previous instance got its partitions; restarted immediately |
+| Insights already stored at each kill | ${STORED_AT_KILL[*]} (of $DISTINCT) |
 | Time from restart to partitions reassigned | ${RECOVERY[*]} s (JVM start + group rebalance; session timeout 10 s) |
 | Duration | $(( END - START )) s |
 
