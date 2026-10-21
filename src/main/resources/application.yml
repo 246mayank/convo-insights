@@ -16,6 +16,12 @@ spring:
       auto-offset-reset: earliest
       enable-auto-commit: false
       max-poll-records: 20
+      properties:
+        # Detect a dead consumer in ~10 s instead of the 45 s default, so its partitions are
+        # reassigned quickly after a crash. Heartbeats run on a background thread, so long LLM
+        # calls don't trip this; max.poll.interval.ms (5 min) bounds processing time per poll.
+        session.timeout.ms: 10000
+        heartbeat.interval.ms: 3000
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     producer:
