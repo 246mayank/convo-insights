@@ -10,6 +10,8 @@ M=${1:-120}
 C=${2:-1}
 MODEL=${3:-qwen2.5:3b}
 OFFSET_LINE=${OFFSET_LINE:-15001}
+PORT=${PORT:-0}                      # 8080 lets Prometheus scrape the run
+REPORT=${REPORT:-bench/pilot.md}
 cd "$(dirname "$0")/.."
 TS=$(date +%Y%m%d-%H%M%S)
 WORK=target/pilot-$TS
@@ -29,7 +31,7 @@ DISTINCT=$(wc -l < "$WORK/ids.txt")
 
 "$JAVA" -jar target/convo-insights-0.0.1-SNAPSHOT.jar --spring.kafka.consumer.group-id="pilot-$TS" \
     --insights.llm.provider=ollama --insights.llm.ollama.model="$MODEL" \
-    --spring.kafka.listener.concurrency="$C" --server.port=0 > "$WORK/app.log" 2>&1 &
+    --spring.kafka.listener.concurrency="$C" --server.port="$PORT" > "$WORK/app.log" 2>&1 &
 APP=$!
 trap 'kill $APP 2>/dev/null || true' EXIT
 until grep -q "partitions assigned" "$WORK/app.log"; do sleep 1; done
@@ -44,13 +46,17 @@ P50=$(psql "select percentile_disc(0.5) within group (order by llm_latency_ms) $
 P95=$(psql "select percentile_disc(0.95) within group (order by llm_latency_ms) $Q")
 FALLBACK=$(psql "select round(100.0 * count(*) filter (where extractor = 'RULES') / count(*), 1) $Q")
 REASONS=$(psql "select coalesce(string_agg(fallback_reason || '=' || n, ', '), 'none') from (select fallback_reason, count(*) n $Q and fallback_reason is not null group by 1) r")
+if [[ "$PORT" != "0" ]]; then
+  curl -s "localhost:$PORT/actuator/prometheus" > "${REPORT%.md}-prometheus.txt" || true
+  curl -s "localhost:$PORT/api/insights/stats" > "${REPORT%.md}-stats.json" || true
+fi
 RATE=$(python -I -c "print(round(($DISTINCT - 1) / float('$SECS'), 3))")
 psql "drop table $T" >/dev/null
 
 LINE="| $MODEL | $C | $DISTINCT | $SECS | **$RATE** | $P50 | $P95 | $FALLBACK% ($REASONS) | \`$(git rev-parse --short HEAD)\` |"
 echo "$LINE"
-if [[ ! -f bench/pilot.md ]]; then
-  cat > bench/pilot.md <<EOF
+if [[ ! -f "$REPORT" ]]; then
+  cat > "$REPORT" <<EOF
 # Throughput pilot (full pipeline, real model)
 
 Kafka -> consumer -> PII redaction -> Ollama -> validation -> Postgres + outbox, on real TWCS conversations.
@@ -62,4 +68,5 @@ Machine: i7-12700H, 16 GB, CPU only, Ollama 0.40.7 (default parallelism). Comman
 |---|---:|---:|---:|---:|---:|---:|---|---|
 EOF
 fi
-echo "$LINE" >> bench/pilot.md
+echo "$LINE" >> "$REPORT"
+echo "Started $TS, finished $(date +%Y%m%d-%H%M%S), lines $OFFSET_LINE-$((OFFSET_LINE + M - 1)) of data/conversations.jsonl." >> "$REPORT"
