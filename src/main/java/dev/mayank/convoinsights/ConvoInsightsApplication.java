@@ -2,16 +2,19 @@ package dev.mayank.convoinsights;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.util.Arrays;
 
 @SpringBootApplication
+@EnableScheduling
 public class ConvoInsightsApplication {
 
 	public static void main(String[] args) {
 		var ctx = SpringApplication.run(ConvoInsightsApplication.class, args);
-		// Replay mode is a one-shot producer: close the context once the runner has finished.
-		if (Arrays.asList(ctx.getEnvironment().getActiveProfiles()).contains("replay")) {
+		// Replay and re-drive are one-shot tools: close the context once their runner has finished.
+		var profiles = Arrays.asList(ctx.getEnvironment().getActiveProfiles());
+		if (profiles.contains("replay") || profiles.contains("redrive")) {
 			System.exit(SpringApplication.exit(ctx));
 		}
 	}

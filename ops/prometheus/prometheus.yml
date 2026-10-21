@@ -1,0 +1,15 @@
+global:
+  scrape_interval: 5s
+  evaluation_interval: 5s
+
+scrape_configs:
+  # The service when it runs on the host (java -jar ...).
+  - job_name: convo-insights-host
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets: ["host.docker.internal:8080"]
+  # The service when it runs in compose (--profile app).
+  - job_name: convo-insights-compose
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets: ["app:8080"]

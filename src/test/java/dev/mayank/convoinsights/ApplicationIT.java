@@ -5,8 +5,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 
 @Import(TestcontainersConfiguration.class)
-@SpringBootTest
-class ConvoInsightsApplicationTests {
+@SpringBootTest(properties = "insights.llm.provider=rules")
+class ApplicationIT {
 
 	@Test
 	void contextLoads() {

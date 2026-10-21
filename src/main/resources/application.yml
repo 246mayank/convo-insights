@@ -43,6 +43,10 @@ insights:
     raw: conversations.raw
     enriched: insights.enriched
     dead-letter: conversations.raw.DLT
+  outbox:
+    relay-enabled: true
+    poll-ms: 200
+    batch-size: 200
   retry:
     max-attempts: 3
     initial-interval-ms: 1000
@@ -51,9 +55,10 @@ insights:
     provider: ${LLM_PROVIDER:ollama}
     prompt-version: v1
     timeout: 20s
+    circuit-open-for: 30s
     max-input-chars: 2000
     ollama:
       base-url: ${OLLAMA_URL:http://localhost:11434}
-      model: ${OLLAMA_MODEL:qwen2.5:1.5b}
+      model: ${OLLAMA_MODEL:qwen2.5:3b}
       num-ctx: 2048
       num-predict: 160

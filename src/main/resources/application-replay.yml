@@ -5,3 +5,6 @@ spring:
   kafka:
     listener:
       auto-startup: false
+insights:
+  outbox:
+    relay-enabled: false

@@ -5,5 +5,7 @@ public enum FallbackReason {
     MALFORMED_JSON,
     SCHEMA_VIOLATION,
     TIMEOUT,
-    HTTP_ERROR
+    HTTP_ERROR,
+    /** The circuit breaker is open after repeated timeouts or errors; the model was not called. */
+    CIRCUIT_OPEN
 }

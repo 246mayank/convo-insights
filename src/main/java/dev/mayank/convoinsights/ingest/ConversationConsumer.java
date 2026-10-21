@@ -9,9 +9,9 @@ import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Component;
 
 /**
- * At-least-once consumer. The offset is acknowledged only after the insight is persisted and the
- * enriched record is acked by the broker. A crash anywhere before that means redelivery, which the
- * dedupe in {@link InsightService} turns into a no-op (plus a re-publish of the stored insight).
+ * At-least-once consumer. The offset is acknowledged only after the insight and its outbox row
+ * have committed together. A crash before that means redelivery, which the dedupe in
+ * {@link InsightService} turns into a no-op; publishing downstream is the outbox relay's job.
  */
 @Component
 public class ConversationConsumer {
@@ -20,22 +20,21 @@ public class ConversationConsumer {
 
     private final EventParser parser;
     private final InsightService service;
-    private final InsightPublisher publisher;
 
-    public ConversationConsumer(EventParser parser, InsightService service, InsightPublisher publisher) {
+    public ConversationConsumer(EventParser parser, InsightService service) {
         this.parser = parser;
         this.service = service;
-        this.publisher = publisher;
     }
 
-    @KafkaListener(id = "conversations", topics = "${insights.topics.raw}")
+    // idIsGroup = false: without it the listener id silently becomes the consumer group and
+    // spring.kafka.consumer.group-id is ignored.
+    @KafkaListener(id = "conversations", idIsGroup = false, topics = "${insights.topics.raw}")
     public void onMessage(ConsumerRecord<String, String> record, Acknowledgment ack) {
         ConversationEvent event = parser.parse(record.value());
         InsightService.Outcome outcome = service.process(event);
-        publisher.publish(outcome.insight());
         ack.acknowledge();
         if (outcome.duplicate()) {
-            log.info("duplicate eventId={} partition={} offset={} (re-published, not re-extracted)",
+            log.info("duplicate eventId={} partition={} offset={} (already stored, skipped)",
                     event.eventId(), record.partition(), record.offset());
         } else {
             log.debug("processed eventId={} intent={} partition={} offset={}",

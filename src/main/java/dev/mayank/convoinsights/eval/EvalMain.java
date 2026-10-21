@@ -41,7 +41,7 @@ public final class EvalMain {
     public static void main(String[] argv) throws IOException {
         Map<String, String> args = parseArgs(argv);
         String extractorName = args.getOrDefault("extractor", "rules");
-        String model = args.getOrDefault("model", "qwen2.5:1.5b");
+        String model = args.getOrDefault("model", "qwen2.5:3b");
         String prompt = args.getOrDefault("prompt", "v1");
         int limit = Integer.parseInt(args.getOrDefault("limit", "0"));
         String dataset = required(args, "dataset");

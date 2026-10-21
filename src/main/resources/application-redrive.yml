@@ -1,0 +1,10 @@
+# Re-drive mode: no web server, no listeners, no outbox relay. Exits when done.
+spring:
+  main:
+    web-application-type: none
+  kafka:
+    listener:
+      auto-startup: false
+insights:
+  outbox:
+    relay-enabled: false
