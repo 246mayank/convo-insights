@@ -1,0 +1,7 @@
+# Producer-only mode: no web server, no listeners. The process exits once the file is replayed.
+spring:
+  main:
+    web-application-type: none
+  kafka:
+    listener:
+      auto-startup: false

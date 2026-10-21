@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: convo-insights
+  datasource:
+    url: jdbc:postgresql://localhost:5432/insights
+    username: insights
+    password: insights
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: convo-insights
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      max-poll-records: 20
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      acks: all
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        enable.idempotence: true
+        linger.ms: 5
+    listener:
+      ack-mode: manual_immediate
+      concurrency: 3
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+
+insights:
+  topics:
+    raw: conversations.raw
+    enriched: insights.enriched
+    dead-letter: conversations.raw.DLT
+  retry:
+    max-attempts: 3
+    initial-interval-ms: 1000
+    multiplier: 2.0
+  llm:
+    provider: rules
