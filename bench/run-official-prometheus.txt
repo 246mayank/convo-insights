@@ -1,0 +1,1216 @@
+# HELP application_ready_time_seconds Time taken for the application to be ready to service requests
+# TYPE application_ready_time_seconds gauge
+application_ready_time_seconds{main_application_class="dev.mayank.convoinsights.ConvoInsightsApplication"} 21.212
+# HELP application_started_time_seconds Time taken to start the application
+# TYPE application_started_time_seconds gauge
+application_started_time_seconds{main_application_class="dev.mayank.convoinsights.ConvoInsightsApplication"} 21.186
+# HELP disk_free_bytes Usable space for path
+# TYPE disk_free_bytes gauge
+disk_free_bytes{path="D:\\twilio project\\convo-insights\\."} 1.80500176896E11
+# HELP disk_total_bytes Total space for path
+# TYPE disk_total_bytes gauge
+disk_total_bytes{path="D:\\twilio project\\convo-insights\\."} 3.22568187904E11
+# HELP executor_active_threads The approximate number of threads that are actively executing tasks
+# TYPE executor_active_threads gauge
+executor_active_threads{name="applicationTaskExecutor"} 0.0
+executor_active_threads{name="taskScheduler"} 0.0
+# HELP executor_completed_tasks_total The approximate total number of tasks that have completed execution
+# TYPE executor_completed_tasks_total counter
+executor_completed_tasks_total{name="applicationTaskExecutor"} 0.0
+executor_completed_tasks_total{name="taskScheduler"} 87324.0
+# HELP executor_pool_core_threads The core number of threads for the pool
+# TYPE executor_pool_core_threads gauge
+executor_pool_core_threads{name="applicationTaskExecutor"} 8.0
+executor_pool_core_threads{name="taskScheduler"} 1.0
+# HELP executor_pool_max_threads The maximum allowed number of threads in the pool
+# TYPE executor_pool_max_threads gauge
+executor_pool_max_threads{name="applicationTaskExecutor"} 2.147483647E9
+executor_pool_max_threads{name="taskScheduler"} 2.147483647E9
+# HELP executor_pool_size_threads The current number of threads in the pool
+# TYPE executor_pool_size_threads gauge
+executor_pool_size_threads{name="applicationTaskExecutor"} 0.0
+executor_pool_size_threads{name="taskScheduler"} 1.0
+# HELP executor_queue_remaining_tasks The number of additional elements that this queue can ideally accept without blocking
+# TYPE executor_queue_remaining_tasks gauge
+executor_queue_remaining_tasks{name="applicationTaskExecutor"} 2.147483647E9
+executor_queue_remaining_tasks{name="taskScheduler"} 2.147483647E9
+# HELP executor_queued_tasks The approximate number of tasks that are queued for execution
+# TYPE executor_queued_tasks gauge
+executor_queued_tasks{name="applicationTaskExecutor"} 0.0
+executor_queued_tasks{name="taskScheduler"} 1.0
+# HELP hikaricp_connections Total connections
+# TYPE hikaricp_connections gauge
+hikaricp_connections{pool="HikariPool-1"} 10.0
+# HELP hikaricp_connections_acquire_seconds Connection acquire time
+# TYPE hikaricp_connections_acquire_seconds summary
+hikaricp_connections_acquire_seconds_count{pool="HikariPool-1"} 111216
+hikaricp_connections_acquire_seconds_sum{pool="HikariPool-1"} 1302.8334242
+# HELP hikaricp_connections_acquire_seconds_max Connection acquire time
+# TYPE hikaricp_connections_acquire_seconds_max gauge
+hikaricp_connections_acquire_seconds_max{pool="HikariPool-1"} 0.001984
+# HELP hikaricp_connections_active Active connections
+# TYPE hikaricp_connections_active gauge
+hikaricp_connections_active{pool="HikariPool-1"} 0.0
+# HELP hikaricp_connections_creation_seconds Connection creation time
+# TYPE hikaricp_connections_creation_seconds summary
+hikaricp_connections_creation_seconds_count{pool="HikariPool-1"} 118
+hikaricp_connections_creation_seconds_sum{pool="HikariPool-1"} 3.702
+# HELP hikaricp_connections_creation_seconds_max Connection creation time
+# TYPE hikaricp_connections_creation_seconds_max gauge
+hikaricp_connections_creation_seconds_max{pool="HikariPool-1"} 0.0
+# HELP hikaricp_connections_idle Idle connections
+# TYPE hikaricp_connections_idle gauge
+hikaricp_connections_idle{pool="HikariPool-1"} 10.0
+# HELP hikaricp_connections_max Max connections
+# TYPE hikaricp_connections_max gauge
+hikaricp_connections_max{pool="HikariPool-1"} 10.0
+# HELP hikaricp_connections_min Min connections
+# TYPE hikaricp_connections_min gauge
+hikaricp_connections_min{pool="HikariPool-1"} 10.0
+# HELP hikaricp_connections_pending Pending threads
+# TYPE hikaricp_connections_pending gauge
+hikaricp_connections_pending{pool="HikariPool-1"} 0.0
+# HELP hikaricp_connections_timeout_total Connection timeout total count
+# TYPE hikaricp_connections_timeout_total counter
+hikaricp_connections_timeout_total{pool="HikariPool-1"} 1.0
+# HELP hikaricp_connections_usage_seconds Connection usage time
+# TYPE hikaricp_connections_usage_seconds summary
+hikaricp_connections_usage_seconds_count{pool="HikariPool-1"} 111215
+hikaricp_connections_usage_seconds_sum{pool="HikariPool-1"} 1643.575
+# HELP hikaricp_connections_usage_seconds_max Connection usage time
+# TYPE hikaricp_connections_usage_seconds_max gauge
+hikaricp_connections_usage_seconds_max{pool="HikariPool-1"} 0.023
+# HELP http_server_requests_active_seconds  
+# TYPE http_server_requests_active_seconds summary
+http_server_requests_active_seconds_count{exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN"} 2
+http_server_requests_active_seconds_sum{exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.0929034
+# HELP http_server_requests_active_seconds_max  
+# TYPE http_server_requests_active_seconds_max gauge
+http_server_requests_active_seconds_max{exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.0483458
+# HELP http_server_requests_seconds  
+# TYPE http_server_requests_seconds summary
+http_server_requests_seconds_count{error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health"} 2
+http_server_requests_seconds_sum{error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health"} 0.2304676
+http_server_requests_seconds_count{error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 3684
+http_server_requests_seconds_sum{error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 254.6645574
+# HELP http_server_requests_seconds_max  
+# TYPE http_server_requests_seconds_max gauge
+http_server_requests_seconds_max{error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/health"} 0.0
+http_server_requests_seconds_max{error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 0.0862934
+# HELP insights_dlt_total Records sent to the dead-letter topic
+# TYPE insights_dlt_total counter
+insights_dlt_total 0.0
+# HELP insights_duplicates_total Redelivered events skipped by the eventId dedupe
+# TYPE insights_duplicates_total counter
+insights_duplicates_total 12200.0
+# HELP insights_llm_circuit_state LLM circuit breaker: 0 closed, 1 open, 2 half-open
+# TYPE insights_llm_circuit_state gauge
+insights_llm_circuit_state 0.0
+# HELP insights_llm_latency_seconds Time spent waiting on the model, including answers that were rejected
+# TYPE insights_llm_latency_seconds histogram
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.001"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.001048576"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.001398101"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.001747626"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.002097151"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.002446676"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.002796201"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.003145726"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.003495251"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.003844776"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.004194304"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.005592405"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.006990506"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.008388607"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.009786708"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.011184809"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.01258291"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.013981011"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.015379112"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.016777216"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.022369621"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.027962026"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.033554431"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.039146836"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.044739241"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.050331646"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.055924051"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.061516456"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.067108864"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.089478485"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.111848106"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.134217727"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.156587348"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.178956969"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.20132659"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.223696211"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.246065832"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.268435456"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.357913941"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.447392426"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.536870911"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.626349396"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.715827881"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.805306366"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.894784851"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="0.984263336"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="1.073741824"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="1.431655765"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="1.789569706"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="2.147483647"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="2.505397588"} 0
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="2.863311529"} 1
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="3.22122547"} 31
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="3.579139411"} 352
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="3.937053352"} 1240
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="4.294967296"} 2160
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="5.726623061"} 3517
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="7.158278826"} 3844
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="8.589934591"} 3959
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="10.021590356"} 3993
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="11.453246121"} 3999
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="12.884901886"} 3999
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="14.316557651"} 3999
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="15.748213416"} 3999
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="17.179869184"} 3999
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="22.906492245"} 4000
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="28.633115306"} 4000
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="30.0"} 4000
+insights_llm_latency_seconds_bucket{model="ollama/qwen2.5:3b",le="+Inf"} 4000
+insights_llm_latency_seconds_count{model="ollama/qwen2.5:3b"} 4000
+insights_llm_latency_seconds_sum{model="ollama/qwen2.5:3b"} 18196.283
+# HELP insights_llm_latency_seconds_max Time spent waiting on the model, including answers that were rejected
+# TYPE insights_llm_latency_seconds_max gauge
+insights_llm_latency_seconds_max{model="ollama/qwen2.5:3b"} 9.922
+# HELP insights_outbox_pending Outbox rows not yet published
+# TYPE insights_outbox_pending gauge
+insights_outbox_pending 0.0
+# HELP insights_pii_redactions_total  
+# TYPE insights_pii_redactions_total counter
+insights_pii_redactions_total{type="CARD"} 4.0
+insights_pii_redactions_total{type="HANDLE"} 15077.0
+insights_pii_redactions_total{type="ID"} 69.0
+insights_pii_redactions_total{type="PHONE"} 139.0
+insights_pii_redactions_total{type="URL"} 3195.0
+# HELP insights_processed_total  
+# TYPE insights_processed_total counter
+insights_processed_total{extractor="LLM"} 4000.0
+# HELP insights_processing_seconds Dedupe check through commit of insight + outbox row
+# TYPE insights_processing_seconds histogram
+insights_processing_seconds_bucket{le="0.001"} 0
+insights_processing_seconds_bucket{le="0.001048576"} 0
+insights_processing_seconds_bucket{le="0.001398101"} 0
+insights_processing_seconds_bucket{le="0.001747626"} 0
+insights_processing_seconds_bucket{le="0.002097151"} 0
+insights_processing_seconds_bucket{le="0.002446676"} 0
+insights_processing_seconds_bucket{le="0.002796201"} 0
+insights_processing_seconds_bucket{le="0.003145726"} 0
+insights_processing_seconds_bucket{le="0.003495251"} 0
+insights_processing_seconds_bucket{le="0.003844776"} 0
+insights_processing_seconds_bucket{le="0.004194304"} 0
+insights_processing_seconds_bucket{le="0.005592405"} 0
+insights_processing_seconds_bucket{le="0.006990506"} 0
+insights_processing_seconds_bucket{le="0.008388607"} 0
+insights_processing_seconds_bucket{le="0.009786708"} 0
+insights_processing_seconds_bucket{le="0.011184809"} 0
+insights_processing_seconds_bucket{le="0.01258291"} 0
+insights_processing_seconds_bucket{le="0.013981011"} 0
+insights_processing_seconds_bucket{le="0.015379112"} 0
+insights_processing_seconds_bucket{le="0.016777216"} 0
+insights_processing_seconds_bucket{le="0.022369621"} 0
+insights_processing_seconds_bucket{le="0.027962026"} 0
+insights_processing_seconds_bucket{le="0.033554431"} 0
+insights_processing_seconds_bucket{le="0.039146836"} 0
+insights_processing_seconds_bucket{le="0.044739241"} 0
+insights_processing_seconds_bucket{le="0.050331646"} 0
+insights_processing_seconds_bucket{le="0.055924051"} 0
+insights_processing_seconds_bucket{le="0.061516456"} 0
+insights_processing_seconds_bucket{le="0.067108864"} 0
+insights_processing_seconds_bucket{le="0.089478485"} 0
+insights_processing_seconds_bucket{le="0.111848106"} 0
+insights_processing_seconds_bucket{le="0.134217727"} 0
+insights_processing_seconds_bucket{le="0.156587348"} 0
+insights_processing_seconds_bucket{le="0.178956969"} 0
+insights_processing_seconds_bucket{le="0.20132659"} 0
+insights_processing_seconds_bucket{le="0.223696211"} 0
+insights_processing_seconds_bucket{le="0.246065832"} 0
+insights_processing_seconds_bucket{le="0.268435456"} 0
+insights_processing_seconds_bucket{le="0.357913941"} 0
+insights_processing_seconds_bucket{le="0.447392426"} 0
+insights_processing_seconds_bucket{le="0.536870911"} 0
+insights_processing_seconds_bucket{le="0.626349396"} 0
+insights_processing_seconds_bucket{le="0.715827881"} 0
+insights_processing_seconds_bucket{le="0.805306366"} 0
+insights_processing_seconds_bucket{le="0.894784851"} 0
+insights_processing_seconds_bucket{le="0.984263336"} 0
+insights_processing_seconds_bucket{le="1.073741824"} 0
+insights_processing_seconds_bucket{le="1.431655765"} 0
+insights_processing_seconds_bucket{le="1.789569706"} 0
+insights_processing_seconds_bucket{le="2.147483647"} 0
+insights_processing_seconds_bucket{le="2.505397588"} 0
+insights_processing_seconds_bucket{le="2.863311529"} 1
+insights_processing_seconds_bucket{le="3.22122547"} 26
+insights_processing_seconds_bucket{le="3.579139411"} 332
+insights_processing_seconds_bucket{le="3.937053352"} 1195
+insights_processing_seconds_bucket{le="4.294967296"} 2132
+insights_processing_seconds_bucket{le="5.726623061"} 3507
+insights_processing_seconds_bucket{le="7.158278826"} 3842
+insights_processing_seconds_bucket{le="8.589934591"} 3959
+insights_processing_seconds_bucket{le="10.021590356"} 3993
+insights_processing_seconds_bucket{le="11.453246121"} 3999
+insights_processing_seconds_bucket{le="12.884901886"} 3999
+insights_processing_seconds_bucket{le="14.316557651"} 3999
+insights_processing_seconds_bucket{le="15.748213416"} 3999
+insights_processing_seconds_bucket{le="17.179869184"} 3999
+insights_processing_seconds_bucket{le="22.906492245"} 4000
+insights_processing_seconds_bucket{le="28.633115306"} 4000
+insights_processing_seconds_bucket{le="30.0"} 4000
+insights_processing_seconds_bucket{le="+Inf"} 4000
+insights_processing_seconds_count 4000
+insights_processing_seconds_sum 18258.1192094
+# HELP insights_processing_seconds_max Dedupe check through commit of insight + outbox row
+# TYPE insights_processing_seconds_max gauge
+insights_processing_seconds_max 9.9326878
+# HELP jdbc_connections_active Current number of active connections that have been allocated from the data source.
+# TYPE jdbc_connections_active gauge
+jdbc_connections_active{name="dataSource"} 0.0
+# HELP jdbc_connections_idle Number of established but idle connections.
+# TYPE jdbc_connections_idle gauge
+jdbc_connections_idle{name="dataSource"} 10.0
+# HELP jdbc_connections_max Maximum number of active connections that can be allocated at the same time.
+# TYPE jdbc_connections_max gauge
+jdbc_connections_max{name="dataSource"} 10.0
+# HELP jdbc_connections_min Minimum number of idle connections in the pool.
+# TYPE jdbc_connections_min gauge
+jdbc_connections_min{name="dataSource"} 10.0
+# HELP jvm_info JVM version info
+# TYPE jvm_info gauge
+jvm_info{runtime="OpenJDK Runtime Environment",vendor="Microsoft",version="21.0.4+7-LTS"} 1
+# HELP jvm_buffer_count_buffers An estimate of the number of buffers in the pool
+# TYPE jvm_buffer_count_buffers gauge
+jvm_buffer_count_buffers{id="direct"} 22.0
+jvm_buffer_count_buffers{id="mapped"} 0.0
+jvm_buffer_count_buffers{id="mapped - 'non-volatile memory'"} 0.0
+# HELP jvm_buffer_memory_used_bytes An estimate of the memory that the Java virtual machine is using for this buffer pool
+# TYPE jvm_buffer_memory_used_bytes gauge
+jvm_buffer_memory_used_bytes{id="direct"} 1.1115243E7
+jvm_buffer_memory_used_bytes{id="mapped"} 0.0
+jvm_buffer_memory_used_bytes{id="mapped - 'non-volatile memory'"} 0.0
+# HELP jvm_buffer_total_capacity_bytes An estimate of the total capacity of the buffers in this pool
+# TYPE jvm_buffer_total_capacity_bytes gauge
+jvm_buffer_total_capacity_bytes{id="direct"} 1.1115243E7
+jvm_buffer_total_capacity_bytes{id="mapped"} 0.0
+jvm_buffer_total_capacity_bytes{id="mapped - 'non-volatile memory'"} 0.0
+# HELP jvm_classes_loaded_classes The number of classes that are currently loaded in the Java virtual machine
+# TYPE jvm_classes_loaded_classes gauge
+jvm_classes_loaded_classes 23911.0
+# HELP jvm_classes_loaded_count_classes_total The number of classes loaded in the Java virtual machine
+# TYPE jvm_classes_loaded_count_classes_total counter
+jvm_classes_loaded_count_classes_total 24341.0
+# HELP jvm_classes_unloaded_classes_total The number of classes unloaded in the Java virtual machine
+# TYPE jvm_classes_unloaded_classes_total counter
+jvm_classes_unloaded_classes_total 430.0
+# HELP jvm_compilation_time_ms_total The approximate accumulated elapsed time spent in compilation
+# TYPE jvm_compilation_time_ms_total counter
+jvm_compilation_time_ms_total{compiler="HotSpot 64-Bit Tiered Compilers"} 136881.0
+# HELP jvm_gc_concurrent_phase_time_seconds Time spent in concurrent phase
+# TYPE jvm_gc_concurrent_phase_time_seconds summary
+jvm_gc_concurrent_phase_time_seconds_count{action="end of concurrent GC pause",cause="No GC",gc="G1 Concurrent GC"} 90
+jvm_gc_concurrent_phase_time_seconds_sum{action="end of concurrent GC pause",cause="No GC",gc="G1 Concurrent GC"} 0.523
+# HELP jvm_gc_concurrent_phase_time_seconds_max Time spent in concurrent phase
+# TYPE jvm_gc_concurrent_phase_time_seconds_max gauge
+jvm_gc_concurrent_phase_time_seconds_max{action="end of concurrent GC pause",cause="No GC",gc="G1 Concurrent GC"} 0.0
+# HELP jvm_gc_live_data_size_bytes Size of long-lived heap memory pool after reclamation
+# TYPE jvm_gc_live_data_size_bytes gauge
+jvm_gc_live_data_size_bytes 4.1171456E7
+# HELP jvm_gc_max_data_size_bytes Max size of long-lived heap memory pool
+# TYPE jvm_gc_max_data_size_bytes gauge
+jvm_gc_max_data_size_bytes 4.219469824E9
+# HELP jvm_gc_memory_allocated_bytes_total Incremented for an increase in the size of the (young) heap memory pool after one GC to before the next
+# TYPE jvm_gc_memory_allocated_bytes_total counter
+jvm_gc_memory_allocated_bytes_total 8.665432056E9
+# HELP jvm_gc_memory_promoted_bytes_total Count of positive increases in the size of the old generation memory pool before GC to after GC
+# TYPE jvm_gc_memory_promoted_bytes_total counter
+jvm_gc_memory_promoted_bytes_total 1.3573376E7
+# HELP jvm_gc_overhead An approximation of the percent of CPU time used by GC activities over the last lookback period or since monitoring began, whichever is shorter, in the range [0..1]
+# TYPE jvm_gc_overhead gauge
+jvm_gc_overhead 1.3333333333333333E-5
+# HELP jvm_gc_pause_seconds Time spent in GC pause
+# TYPE jvm_gc_pause_seconds summary
+jvm_gc_pause_seconds_count{action="end of minor GC",cause="G1 Evacuation Pause",gc="G1 Young Generation"} 121
+jvm_gc_pause_seconds_sum{action="end of minor GC",cause="G1 Evacuation Pause",gc="G1 Young Generation"} 0.397
+jvm_gc_pause_seconds_count{action="end of minor GC",cause="G1 Humongous Allocation",gc="G1 Young Generation"} 2
+jvm_gc_pause_seconds_sum{action="end of minor GC",cause="G1 Humongous Allocation",gc="G1 Young Generation"} 0.014
+jvm_gc_pause_seconds_count{action="end of minor GC",cause="Metadata GC Threshold",gc="G1 Young Generation"} 1
+jvm_gc_pause_seconds_sum{action="end of minor GC",cause="Metadata GC Threshold",gc="G1 Young Generation"} 0.007
+# HELP jvm_gc_pause_seconds_max Time spent in GC pause
+# TYPE jvm_gc_pause_seconds_max gauge
+jvm_gc_pause_seconds_max{action="end of minor GC",cause="G1 Evacuation Pause",gc="G1 Young Generation"} 0.002
+jvm_gc_pause_seconds_max{action="end of minor GC",cause="G1 Humongous Allocation",gc="G1 Young Generation"} 0.0
+jvm_gc_pause_seconds_max{action="end of minor GC",cause="Metadata GC Threshold",gc="G1 Young Generation"} 0.0
+# HELP jvm_memory_committed_bytes The amount of memory in bytes that is committed for the Java virtual machine to use
+# TYPE jvm_memory_committed_bytes gauge
+jvm_memory_committed_bytes{area="heap",id="G1 Eden Space"} 9.2274688E7
+jvm_memory_committed_bytes{area="heap",id="G1 Old Gen"} 5.24288E7
+jvm_memory_committed_bytes{area="heap",id="G1 Survivor Space"} 2097152.0
+jvm_memory_committed_bytes{area="nonheap",id="CodeHeap 'non-nmethods'"} 4456448.0
+jvm_memory_committed_bytes{area="nonheap",id="CodeHeap 'non-profiled nmethods'"} 1.5859712E7
+jvm_memory_committed_bytes{area="nonheap",id="CodeHeap 'profiled nmethods'"} 2.94912E7
+jvm_memory_committed_bytes{area="nonheap",id="Compressed Class Space"} 1.7563648E7
+jvm_memory_committed_bytes{area="nonheap",id="Metaspace"} 1.33824512E8
+# HELP jvm_memory_max_bytes The maximum amount of memory in bytes that can be used for memory management
+# TYPE jvm_memory_max_bytes gauge
+jvm_memory_max_bytes{area="heap",id="G1 Eden Space"} -1.0
+jvm_memory_max_bytes{area="heap",id="G1 Old Gen"} 4.219469824E9
+jvm_memory_max_bytes{area="heap",id="G1 Survivor Space"} -1.0
+jvm_memory_max_bytes{area="nonheap",id="CodeHeap 'non-nmethods'"} 7667712.0
+jvm_memory_max_bytes{area="nonheap",id="CodeHeap 'non-profiled nmethods'"} 1.22028032E8
+jvm_memory_max_bytes{area="nonheap",id="CodeHeap 'profiled nmethods'"} 1.21962496E8
+jvm_memory_max_bytes{area="nonheap",id="Compressed Class Space"} 1.073741824E9
+jvm_memory_max_bytes{area="nonheap",id="Metaspace"} -1.0
+# HELP jvm_memory_usage_after_gc The percentage of long-lived heap pool used after the last GC event, in the range [0..1]
+# TYPE jvm_memory_usage_after_gc gauge
+jvm_memory_usage_after_gc{area="heap",pool="long-lived"} 0.009773853521934798
+# HELP jvm_memory_used_bytes The amount of used memory
+# TYPE jvm_memory_used_bytes gauge
+jvm_memory_used_bytes{area="heap",id="G1 Eden Space"} 6291456.0
+jvm_memory_used_bytes{area="heap",id="G1 Old Gen"} 4.124048E7
+jvm_memory_used_bytes{area="heap",id="G1 Survivor Space"} 1091784.0
+jvm_memory_used_bytes{area="nonheap",id="CodeHeap 'non-nmethods'"} 2096512.0
+jvm_memory_used_bytes{area="nonheap",id="CodeHeap 'non-profiled nmethods'"} 1.5847424E7
+jvm_memory_used_bytes{area="nonheap",id="CodeHeap 'profiled nmethods'"} 1.3333888E7
+jvm_memory_used_bytes{area="nonheap",id="Compressed Class Space"} 1.6760936E7
+jvm_memory_used_bytes{area="nonheap",id="Metaspace"} 1.31921432E8
+# HELP jvm_threads_daemon_threads The current number of live daemon threads
+# TYPE jvm_threads_daemon_threads gauge
+jvm_threads_daemon_threads 31.0
+# HELP jvm_threads_live_threads The current number of live threads including both daemon and non-daemon threads
+# TYPE jvm_threads_live_threads gauge
+jvm_threads_live_threads 38.0
+# HELP jvm_threads_peak_threads The peak live thread count since the Java virtual machine started or peak was reset
+# TYPE jvm_threads_peak_threads gauge
+jvm_threads_peak_threads 41.0
+# HELP jvm_threads_started_threads_total The total number of application threads started in the JVM
+# TYPE jvm_threads_started_threads_total counter
+jvm_threads_started_threads_total 4276.0
+# HELP jvm_threads_states_threads The current number of threads
+# TYPE jvm_threads_states_threads gauge
+jvm_threads_states_threads{state="blocked"} 0.0
+jvm_threads_states_threads{state="new"} 0.0
+jvm_threads_states_threads{state="runnable"} 12.0
+jvm_threads_states_threads{state="terminated"} 0.0
+jvm_threads_states_threads{state="timed-waiting"} 15.0
+jvm_threads_states_threads{state="waiting"} 11.0
+# HELP kafka_app_info_start_time_ms Metric indicating start-time-ms
+# TYPE kafka_app_info_start_time_ms gauge
+kafka_app_info_start_time_ms{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 1.792597353462E12
+kafka_app_info_start_time_ms{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 1.792597444587E12
+# HELP kafka_consumer_commit_sync_time_ns_total The total time the consumer has spent in commitSync in nanoseconds
+# TYPE kafka_consumer_commit_sync_time_ns_total counter
+kafka_consumer_commit_sync_time_ns_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 1.164464547E11
+# HELP kafka_consumer_committed_time_ns_total The total time the consumer has spent in committed in nanoseconds
+# TYPE kafka_consumer_committed_time_ns_total counter
+kafka_consumer_committed_time_ns_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_connection_close_total The total number of connections closed
+# TYPE kafka_consumer_connection_close_total counter
+kafka_consumer_connection_close_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 3.0
+# HELP kafka_consumer_connection_close_rate The number of connections closed per second
+# TYPE kafka_consumer_connection_close_rate gauge
+kafka_consumer_connection_close_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_connection_count The current number of active connections.
+# TYPE kafka_consumer_connection_count gauge
+kafka_consumer_connection_count{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 2.0
+# HELP kafka_consumer_connection_creation_total The total number of new connections established
+# TYPE kafka_consumer_connection_creation_total counter
+kafka_consumer_connection_creation_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 5.0
+# HELP kafka_consumer_connection_creation_rate The number of new connections established per second
+# TYPE kafka_consumer_connection_creation_rate gauge
+kafka_consumer_connection_creation_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_coordinator_assigned_partitions The number of partitions currently assigned to this consumer
+# TYPE kafka_consumer_coordinator_assigned_partitions gauge
+kafka_consumer_coordinator_assigned_partitions{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 6.0
+# HELP kafka_consumer_coordinator_commit_total The total number of commit calls
+# TYPE kafka_consumer_coordinator_commit_total counter
+kafka_consumer_coordinator_commit_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 16200.0
+# HELP kafka_consumer_coordinator_commit_latency_avg The average time taken for a commit request
+# TYPE kafka_consumer_coordinator_commit_latency_avg gauge
+kafka_consumer_coordinator_commit_latency_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 6.5
+# HELP kafka_consumer_coordinator_commit_latency_max The max time taken for a commit request
+# TYPE kafka_consumer_coordinator_commit_latency_max gauge
+kafka_consumer_coordinator_commit_latency_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 13.0
+# HELP kafka_consumer_coordinator_commit_rate The number of commit calls per second
+# TYPE kafka_consumer_coordinator_commit_rate gauge
+kafka_consumer_coordinator_commit_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.23340335433963522
+# HELP kafka_consumer_coordinator_failed_rebalance_total The total number of failed rebalance events
+# TYPE kafka_consumer_coordinator_failed_rebalance_total counter
+kafka_consumer_coordinator_failed_rebalance_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 2.0
+# HELP kafka_consumer_coordinator_failed_rebalance_rate_per_hour The number of failed rebalance events per hour
+# TYPE kafka_consumer_coordinator_failed_rebalance_rate_per_hour gauge
+kafka_consumer_coordinator_failed_rebalance_rate_per_hour{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_coordinator_heartbeat_total The total number of heartbeats
+# TYPE kafka_consumer_coordinator_heartbeat_total counter
+kafka_consumer_coordinator_heartbeat_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 6026.0
+# HELP kafka_consumer_coordinator_heartbeat_rate The number of heartbeats per second
+# TYPE kafka_consumer_coordinator_heartbeat_rate gauge
+kafka_consumer_coordinator_heartbeat_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.3290962195071784
+# HELP kafka_consumer_coordinator_heartbeat_response_time_max The max time taken to receive a response to a heartbeat request
+# TYPE kafka_consumer_coordinator_heartbeat_response_time_max gauge
+kafka_consumer_coordinator_heartbeat_response_time_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 231.0
+# HELP kafka_consumer_coordinator_join_total The total number of group joins
+# TYPE kafka_consumer_coordinator_join_total counter
+kafka_consumer_coordinator_join_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 2.0
+# HELP kafka_consumer_coordinator_join_rate The number of group joins per second
+# TYPE kafka_consumer_coordinator_join_rate gauge
+kafka_consumer_coordinator_join_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_coordinator_join_time_avg The average time taken for a group rejoin
+# TYPE kafka_consumer_coordinator_join_time_avg gauge
+kafka_consumer_coordinator_join_time_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+# HELP kafka_consumer_coordinator_join_time_max The max time taken for a group rejoin
+# TYPE kafka_consumer_coordinator_join_time_max gauge
+kafka_consumer_coordinator_join_time_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+# HELP kafka_consumer_coordinator_last_heartbeat_seconds_ago The number of seconds since the last coordinator heartbeat was sent
+# TYPE kafka_consumer_coordinator_last_heartbeat_seconds_ago gauge
+kafka_consumer_coordinator_last_heartbeat_seconds_ago{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 2.0
+# HELP kafka_consumer_coordinator_last_rebalance_seconds_ago The number of seconds since the last successful rebalance event
+# TYPE kafka_consumer_coordinator_last_rebalance_seconds_ago gauge
+kafka_consumer_coordinator_last_rebalance_seconds_ago{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 11927.0
+# HELP kafka_consumer_coordinator_partition_assigned_latency_avg The average time taken for a partition-assigned rebalance listener callback
+# TYPE kafka_consumer_coordinator_partition_assigned_latency_avg gauge
+kafka_consumer_coordinator_partition_assigned_latency_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+# HELP kafka_consumer_coordinator_partition_assigned_latency_max The max time taken for a partition-assigned rebalance listener callback
+# TYPE kafka_consumer_coordinator_partition_assigned_latency_max gauge
+kafka_consumer_coordinator_partition_assigned_latency_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+# HELP kafka_consumer_coordinator_partition_lost_latency_avg The average time taken for a partition-lost rebalance listener callback
+# TYPE kafka_consumer_coordinator_partition_lost_latency_avg gauge
+kafka_consumer_coordinator_partition_lost_latency_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+# HELP kafka_consumer_coordinator_partition_lost_latency_max The max time taken for a partition-lost rebalance listener callback
+# TYPE kafka_consumer_coordinator_partition_lost_latency_max gauge
+kafka_consumer_coordinator_partition_lost_latency_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+# HELP kafka_consumer_coordinator_partition_revoked_latency_avg The average time taken for a partition-revoked rebalance listener callback
+# TYPE kafka_consumer_coordinator_partition_revoked_latency_avg gauge
+kafka_consumer_coordinator_partition_revoked_latency_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+# HELP kafka_consumer_coordinator_partition_revoked_latency_max The max time taken for a partition-revoked rebalance listener callback
+# TYPE kafka_consumer_coordinator_partition_revoked_latency_max gauge
+kafka_consumer_coordinator_partition_revoked_latency_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+# HELP kafka_consumer_coordinator_rebalance_total The total number of successful rebalance events, each event is composed of several failed re-trials until it succeeded
+# TYPE kafka_consumer_coordinator_rebalance_total counter
+kafka_consumer_coordinator_rebalance_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 2.0
+# HELP kafka_consumer_coordinator_rebalance_latency_total The total number of milliseconds this consumer has spent in successful rebalances since creation
+# TYPE kafka_consumer_coordinator_rebalance_latency_total counter
+kafka_consumer_coordinator_rebalance_latency_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 6217.0
+# HELP kafka_consumer_coordinator_rebalance_latency_avg The average time taken for a group to complete a successful rebalance, which may be composed of several failed re-trials until it succeeded
+# TYPE kafka_consumer_coordinator_rebalance_latency_avg gauge
+kafka_consumer_coordinator_rebalance_latency_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+# HELP kafka_consumer_coordinator_rebalance_latency_max The max time taken for a group to complete a successful rebalance, which may be composed of several failed re-trials until it succeeded
+# TYPE kafka_consumer_coordinator_rebalance_latency_max gauge
+kafka_consumer_coordinator_rebalance_latency_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+# HELP kafka_consumer_coordinator_rebalance_rate_per_hour The number of successful rebalance events per hour, each event is composed of several failed re-trials until it succeeded
+# TYPE kafka_consumer_coordinator_rebalance_rate_per_hour gauge
+kafka_consumer_coordinator_rebalance_rate_per_hour{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_coordinator_sync_total The total number of group syncs
+# TYPE kafka_consumer_coordinator_sync_total counter
+kafka_consumer_coordinator_sync_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 2.0
+# HELP kafka_consumer_coordinator_sync_rate The number of group syncs per second
+# TYPE kafka_consumer_coordinator_sync_rate gauge
+kafka_consumer_coordinator_sync_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_coordinator_sync_time_avg The average time taken for a group sync
+# TYPE kafka_consumer_coordinator_sync_time_avg gauge
+kafka_consumer_coordinator_sync_time_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+# HELP kafka_consumer_coordinator_sync_time_max The max time taken for a group sync
+# TYPE kafka_consumer_coordinator_sync_time_max gauge
+kafka_consumer_coordinator_sync_time_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+# HELP kafka_consumer_failed_authentication_total The total number of connections with failed authentication
+# TYPE kafka_consumer_failed_authentication_total counter
+kafka_consumer_failed_authentication_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_failed_authentication_rate The number of connections with failed authentication per second
+# TYPE kafka_consumer_failed_authentication_rate gauge
+kafka_consumer_failed_authentication_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_failed_reauthentication_total The total number of failed re-authentication of connections
+# TYPE kafka_consumer_failed_reauthentication_total counter
+kafka_consumer_failed_reauthentication_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_failed_reauthentication_rate The number of failed re-authentication of connections per second
+# TYPE kafka_consumer_failed_reauthentication_rate gauge
+kafka_consumer_failed_reauthentication_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_fetch_manager_bytes_consumed_total The total number of bytes consumed for a topic. Note: For topic names with periods (.), an additional metric with underscores is emitted. However, the periods replaced metric is deprecated. Please use the metric with actual topic name instead.
+# TYPE kafka_consumer_fetch_manager_bytes_consumed_total counter
+kafka_consumer_fetch_manager_bytes_consumed_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 1.2255185E7
+kafka_consumer_fetch_manager_bytes_consumed_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 1.2255185E7
+# HELP kafka_consumer_fetch_manager_bytes_consumed_rate The average number of bytes consumed per second for a topic. Note: For topic names with periods (.), an additional metric with underscores is emitted. However, the periods replaced metric is deprecated. Please use the metric with actual topic name instead.
+# TYPE kafka_consumer_fetch_manager_bytes_consumed_rate gauge
+kafka_consumer_fetch_manager_bytes_consumed_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 3010.620202684353
+kafka_consumer_fetch_manager_bytes_consumed_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 3010.620202684353
+# HELP kafka_consumer_fetch_manager_fetch_total The total number of fetch requests.
+# TYPE kafka_consumer_fetch_manager_fetch_total counter
+kafka_consumer_fetch_manager_fetch_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 11.0
+# HELP kafka_consumer_fetch_manager_fetch_latency_avg The average time taken for a fetch request.
+# TYPE kafka_consumer_fetch_manager_fetch_latency_avg gauge
+kafka_consumer_fetch_manager_fetch_latency_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 519.5714285714286
+# HELP kafka_consumer_fetch_manager_fetch_latency_max The max time taken for any fetch request.
+# TYPE kafka_consumer_fetch_manager_fetch_latency_max gauge
+kafka_consumer_fetch_manager_fetch_latency_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 631.0
+# HELP kafka_consumer_fetch_manager_fetch_rate The number of fetch requests per second.
+# TYPE kafka_consumer_fetch_manager_fetch_rate gauge
+kafka_consumer_fetch_manager_fetch_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.10004716509211485
+# HELP kafka_consumer_fetch_manager_fetch_size_avg The average number of bytes fetched per request for a topic. Note: For topic names with periods (.), an additional metric with underscores is emitted. However, the periods replaced metric is deprecated. Please use the metric with actual topic name instead.
+# TYPE kafka_consumer_fetch_manager_fetch_size_avg gauge
+kafka_consumer_fetch_manager_fetch_size_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 210626.0
+kafka_consumer_fetch_manager_fetch_size_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 210626.0
+# HELP kafka_consumer_fetch_manager_fetch_size_max The maximum number of bytes fetched per request for a topic. Note: For topic names with periods (.), an additional metric with underscores is emitted. However, the periods replaced metric is deprecated. Please use the metric with actual topic name instead.
+# TYPE kafka_consumer_fetch_manager_fetch_size_max gauge
+kafka_consumer_fetch_manager_fetch_size_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 210626.0
+kafka_consumer_fetch_manager_fetch_size_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 210626.0
+# HELP kafka_consumer_fetch_manager_fetch_throttle_time_avg The average throttle time in ms
+# TYPE kafka_consumer_fetch_manager_fetch_throttle_time_avg gauge
+kafka_consumer_fetch_manager_fetch_throttle_time_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_fetch_manager_fetch_throttle_time_max The maximum throttle time in ms
+# TYPE kafka_consumer_fetch_manager_fetch_throttle_time_max gauge
+kafka_consumer_fetch_manager_fetch_throttle_time_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_fetch_manager_preferred_read_replica The current read replica for the partition, or -1 if reading from leader. Note: For topic names with periods (.), an additional metric with underscores is emitted. However, the periods replaced metric is deprecated. Please use the metric with actual topic name instead.
+# TYPE kafka_consumer_fetch_manager_preferred_read_replica gauge
+kafka_consumer_fetch_manager_preferred_read_replica{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="0",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} -1.0
+kafka_consumer_fetch_manager_preferred_read_replica{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="0",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} -1.0
+kafka_consumer_fetch_manager_preferred_read_replica{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} -1.0
+kafka_consumer_fetch_manager_preferred_read_replica{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} -1.0
+kafka_consumer_fetch_manager_preferred_read_replica{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="2",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} -1.0
+kafka_consumer_fetch_manager_preferred_read_replica{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="2",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} -1.0
+kafka_consumer_fetch_manager_preferred_read_replica{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="3",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} -1.0
+kafka_consumer_fetch_manager_preferred_read_replica{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="3",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} -1.0
+kafka_consumer_fetch_manager_preferred_read_replica{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="4",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} -1.0
+kafka_consumer_fetch_manager_preferred_read_replica{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="4",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} -1.0
+kafka_consumer_fetch_manager_preferred_read_replica{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="5",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} -1.0
+kafka_consumer_fetch_manager_preferred_read_replica{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="5",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} -1.0
+# HELP kafka_consumer_fetch_manager_records_consumed_total The total number of records consumed for a topic. Note: For topic names with periods (.), an additional metric with underscores is emitted. However, the periods replaced metric is deprecated. Please use the metric with actual topic name instead.
+# TYPE kafka_consumer_fetch_manager_records_consumed_total counter
+kafka_consumer_fetch_manager_records_consumed_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 16202.0
+kafka_consumer_fetch_manager_records_consumed_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 16202.0
+# HELP kafka_consumer_fetch_manager_records_consumed_rate The average number of records consumed per second for a topic. Note: For topic names with periods (.), an additional metric with underscores is emitted. However, the periods replaced metric is deprecated. Please use the metric with actual topic name instead.
+# TYPE kafka_consumer_fetch_manager_records_consumed_rate gauge
+kafka_consumer_fetch_manager_records_consumed_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 4.145166592815998
+kafka_consumer_fetch_manager_records_consumed_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 4.145166592815998
+# HELP kafka_consumer_fetch_manager_records_lag The latest lag of the partition. Note: For topic names with periods (.), an additional metric with underscores is emitted. However, the periods replaced metric is deprecated. Please use the metric with actual topic name instead.
+# TYPE kafka_consumer_fetch_manager_records_lag gauge
+kafka_consumer_fetch_manager_records_lag{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="0",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 0.0
+kafka_consumer_fetch_manager_records_lag{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="0",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 0.0
+kafka_consumer_fetch_manager_records_lag{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 0.0
+kafka_consumer_fetch_manager_records_lag{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 0.0
+kafka_consumer_fetch_manager_records_lag{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="2",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 0.0
+kafka_consumer_fetch_manager_records_lag{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="2",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 0.0
+kafka_consumer_fetch_manager_records_lag{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="3",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 0.0
+kafka_consumer_fetch_manager_records_lag{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="3",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 0.0
+kafka_consumer_fetch_manager_records_lag{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="4",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 0.0
+kafka_consumer_fetch_manager_records_lag{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="4",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 0.0
+kafka_consumer_fetch_manager_records_lag{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="5",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 0.0
+kafka_consumer_fetch_manager_records_lag{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="5",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 0.0
+# HELP kafka_consumer_fetch_manager_records_lag_avg The average lag of the partition. Note: For topic names with periods (.), an additional metric with underscores is emitted. However, the periods replaced metric is deprecated. Please use the metric with actual topic name instead.
+# TYPE kafka_consumer_fetch_manager_records_lag_avg gauge
+kafka_consumer_fetch_manager_records_lag_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="0",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lag_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="0",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lag_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lag_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lag_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="2",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lag_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="2",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lag_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="3",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lag_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="3",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lag_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="4",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lag_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="4",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lag_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="5",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 0.0
+kafka_consumer_fetch_manager_records_lag_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="5",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 0.0
+# HELP kafka_consumer_fetch_manager_records_lag_max The max lag of the partition. Note: For topic names with periods (.), an additional metric with underscores is emitted. However, the periods replaced metric is deprecated. Please use the metric with actual topic name instead.
+# TYPE kafka_consumer_fetch_manager_records_lag_max gauge
+kafka_consumer_fetch_manager_records_lag_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="0",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lag_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="0",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lag_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lag_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lag_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="2",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lag_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="2",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lag_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="3",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lag_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="3",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lag_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="4",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lag_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="4",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lag_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="5",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 0.0
+kafka_consumer_fetch_manager_records_lag_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="5",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 0.0
+# HELP kafka_consumer_fetch_manager_records_lead The latest lead of the partition. Note: For topic names with periods (.), an additional metric with underscores is emitted. However, the periods replaced metric is deprecated. Please use the metric with actual topic name instead.
+# TYPE kafka_consumer_fetch_manager_records_lead gauge
+kafka_consumer_fetch_manager_records_lead{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="0",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 2727.0
+kafka_consumer_fetch_manager_records_lead{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="0",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 2727.0
+kafka_consumer_fetch_manager_records_lead{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 2725.0
+kafka_consumer_fetch_manager_records_lead{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 2725.0
+kafka_consumer_fetch_manager_records_lead{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="2",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 2679.0
+kafka_consumer_fetch_manager_records_lead{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="2",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 2679.0
+kafka_consumer_fetch_manager_records_lead{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="3",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 2682.0
+kafka_consumer_fetch_manager_records_lead{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="3",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 2682.0
+kafka_consumer_fetch_manager_records_lead{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="4",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 2700.0
+kafka_consumer_fetch_manager_records_lead{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="4",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 2700.0
+kafka_consumer_fetch_manager_records_lead{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="5",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 2687.0
+kafka_consumer_fetch_manager_records_lead{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="5",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 2687.0
+# HELP kafka_consumer_fetch_manager_records_lead_avg The average lead of the partition. Note: For topic names with periods (.), an additional metric with underscores is emitted. However, the periods replaced metric is deprecated. Please use the metric with actual topic name instead.
+# TYPE kafka_consumer_fetch_manager_records_lead_avg gauge
+kafka_consumer_fetch_manager_records_lead_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="0",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lead_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="0",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lead_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lead_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lead_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="2",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lead_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="2",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lead_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="3",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lead_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="3",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lead_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="4",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lead_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="4",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lead_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="5",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 2687.0
+kafka_consumer_fetch_manager_records_lead_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="5",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 2687.0
+# HELP kafka_consumer_fetch_manager_records_lead_min The min lead of the partition. Note: For topic names with periods (.), an additional metric with underscores is emitted. However, the periods replaced metric is deprecated. Please use the metric with actual topic name instead.
+# TYPE kafka_consumer_fetch_manager_records_lead_min gauge
+kafka_consumer_fetch_manager_records_lead_min{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="0",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lead_min{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="0",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lead_min{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lead_min{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lead_min{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="2",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lead_min{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="2",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lead_min{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="3",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lead_min{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="3",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lead_min{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="4",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} NaN
+kafka_consumer_fetch_manager_records_lead_min{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="4",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} NaN
+kafka_consumer_fetch_manager_records_lead_min{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="5",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 2687.0
+kafka_consumer_fetch_manager_records_lead_min{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",partition="5",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 2687.0
+# HELP kafka_consumer_fetch_manager_records_per_request_avg The average number of records in each request for a topic. Note: For topic names with periods (.), an additional metric with underscores is emitted. However, the periods replaced metric is deprecated. Please use the metric with actual topic name instead.
+# TYPE kafka_consumer_fetch_manager_records_per_request_avg gauge
+kafka_consumer_fetch_manager_records_per_request_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations.raw"} 290.0
+kafka_consumer_fetch_manager_records_per_request_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1",topic="conversations_raw"} 290.0
+# HELP kafka_consumer_incoming_byte_total The total number of bytes read off all sockets
+# TYPE kafka_consumer_incoming_byte_total counter
+kafka_consumer_incoming_byte_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 1.7231912E7
+# HELP kafka_consumer_incoming_byte_rate The number of bytes read off all sockets per second
+# TYPE kafka_consumer_incoming_byte_rate gauge
+kafka_consumer_incoming_byte_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 16.59341526962655
+# HELP kafka_consumer_io_ratio The fraction of time the I/O thread spent doing I/O
+# TYPE kafka_consumer_io_ratio gauge
+kafka_consumer_io_ratio{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 2.28412412862604E-4
+# HELP kafka_consumer_io_time_ns_total The total time the I/O thread spent doing I/O
+# TYPE kafka_consumer_io_time_ns_total counter
+kafka_consumer_io_time_ns_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 6.1593157E9
+# HELP kafka_consumer_io_time_ns_avg The average length of time for I/O per select call in nanoseconds.
+# TYPE kafka_consumer_io_time_ns_avg gauge
+kafka_consumer_io_time_ns_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 22047.286821705427
+# HELP kafka_consumer_io_wait_ratio The fraction of time the I/O thread spent waiting
+# TYPE kafka_consumer_io_wait_ratio gauge
+kafka_consumer_io_wait_ratio{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.050170739503357
+# HELP kafka_consumer_io_wait_time_ns_total The total time the I/O thread spent waiting
+# TYPE kafka_consumer_io_wait_time_ns_total counter
+kafka_consumer_io_wait_time_ns_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 1.247796733E11
+# HELP kafka_consumer_io_wait_time_ns_avg The average length of time the I/O thread spent waiting for a socket ready for reads or writes in nanoseconds.
+# TYPE kafka_consumer_io_wait_time_ns_avg gauge
+kafka_consumer_io_wait_time_ns_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 4842682.015503876
+# HELP kafka_consumer_last_poll_seconds_ago The number of seconds since the last poll() invocation.
+# TYPE kafka_consumer_last_poll_seconds_ago gauge
+kafka_consumer_last_poll_seconds_ago{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 3.0
+# HELP kafka_consumer_network_io_total The total number of network operations (reads or writes) on all connections
+# TYPE kafka_consumer_network_io_total counter
+kafka_consumer_network_io_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 44865.0
+# HELP kafka_consumer_network_io_rate The number of network operations (reads or writes) on all connections per second
+# TYPE kafka_consumer_network_io_rate gauge
+kafka_consumer_network_io_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 1.3010224196388678
+# HELP kafka_consumer_node_incoming_byte_total The total number of incoming bytes
+# TYPE kafka_consumer_node_incoming_byte_total counter
+kafka_consumer_node_incoming_byte_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 1113.0
+kafka_consumer_node_incoming_byte_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 1.6451004E7
+kafka_consumer_node_incoming_byte_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-2147483646",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 779795.0
+# HELP kafka_consumer_node_incoming_byte_rate The number of incoming bytes per second
+# TYPE kafka_consumer_node_incoming_byte_rate gauge
+kafka_consumer_node_incoming_byte_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+kafka_consumer_node_incoming_byte_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 3.2076459806231994
+kafka_consumer_node_incoming_byte_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-2147483646",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 14.659052030423455
+# HELP kafka_consumer_node_outgoing_byte_total The total number of outgoing bytes
+# TYPE kafka_consumer_node_outgoing_byte_total counter
+kafka_consumer_node_outgoing_byte_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 230.0
+kafka_consumer_node_outgoing_byte_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 7532.0
+kafka_consumer_node_outgoing_byte_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-2147483646",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 3856925.0
+# HELP kafka_consumer_node_outgoing_byte_rate The number of outgoing bytes per second
+# TYPE kafka_consumer_node_outgoing_byte_rate gauge
+kafka_consumer_node_outgoing_byte_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+kafka_consumer_node_outgoing_byte_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 14.944362977658932
+kafka_consumer_node_outgoing_byte_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-2147483646",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 88.74549898809369
+# HELP kafka_consumer_node_request_total The total number of requests sent
+# TYPE kafka_consumer_node_request_total counter
+kafka_consumer_node_request_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 3.0
+kafka_consumer_node_request_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 79.0
+kafka_consumer_node_request_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-2147483646",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 22237.0
+# TYPE kafka_consumer_node_request_latency_avg gauge
+kafka_consumer_node_request_latency_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+kafka_consumer_node_request_latency_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 519.5714285714286
+kafka_consumer_node_request_latency_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-2147483646",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+# TYPE kafka_consumer_node_request_latency_max gauge
+kafka_consumer_node_request_latency_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+kafka_consumer_node_request_latency_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 631.0
+kafka_consumer_node_request_latency_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-2147483646",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+# HELP kafka_consumer_node_request_rate The number of requests sent per second
+# TYPE kafka_consumer_node_request_rate gauge
+kafka_consumer_node_request_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+kafka_consumer_node_request_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.17254022343958936
+kafka_consumer_node_request_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-2147483646",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.5519924298181054
+# HELP kafka_consumer_node_request_size_avg The average size of requests sent.
+# TYPE kafka_consumer_node_request_size_avg gauge
+kafka_consumer_node_request_size_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+kafka_consumer_node_request_size_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 86.625
+kafka_consumer_node_request_size_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-2147483646",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 160.78571428571428
+# HELP kafka_consumer_node_request_size_max The maximum size of any request sent.
+# TYPE kafka_consumer_node_request_size_max gauge
+kafka_consumer_node_request_size_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+kafka_consumer_node_request_size_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 189.0
+kafka_consumer_node_request_size_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-2147483646",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 184.0
+# HELP kafka_consumer_node_response_total The total number of responses received
+# TYPE kafka_consumer_node_response_total counter
+kafka_consumer_node_response_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 3.0
+kafka_consumer_node_response_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 78.0
+kafka_consumer_node_response_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-2147483646",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 22237.0
+# HELP kafka_consumer_node_response_rate The number of responses received per second
+# TYPE kafka_consumer_node_response_rate gauge
+kafka_consumer_node_response_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+kafka_consumer_node_response_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.15276504735716467
+kafka_consumer_node_response_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",node_id="node-2147483646",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.5527188503447913
+# HELP kafka_consumer_outgoing_byte_total The total number of outgoing bytes sent to all servers
+# TYPE kafka_consumer_outgoing_byte_total counter
+kafka_consumer_outgoing_byte_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 3864687.0
+# HELP kafka_consumer_outgoing_byte_rate The number of outgoing bytes sent to all servers per second
+# TYPE kafka_consumer_outgoing_byte_rate gauge
+kafka_consumer_outgoing_byte_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 97.85265592556576
+# HELP kafka_consumer_poll_idle_ratio_avg The average fraction of time the consumer's poll() is idle as opposed to waiting for the user code to process records.
+# TYPE kafka_consumer_poll_idle_ratio_avg gauge
+kafka_consumer_poll_idle_ratio_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_reauthentication_latency_avg The average latency observed due to re-authentication
+# TYPE kafka_consumer_reauthentication_latency_avg gauge
+kafka_consumer_reauthentication_latency_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+# HELP kafka_consumer_reauthentication_latency_max The max latency observed due to re-authentication
+# TYPE kafka_consumer_reauthentication_latency_max gauge
+kafka_consumer_reauthentication_latency_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} NaN
+# HELP kafka_consumer_request_total The total number of requests sent
+# TYPE kafka_consumer_request_total counter
+kafka_consumer_request_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 22319.0
+# HELP kafka_consumer_request_rate The number of requests sent per second
+# TYPE kafka_consumer_request_rate gauge
+kafka_consumer_request_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.6570820301206403
+# HELP kafka_consumer_request_size_avg The average size of requests sent.
+# TYPE kafka_consumer_request_size_avg gauge
+kafka_consumer_request_size_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 148.92
+# HELP kafka_consumer_request_size_max The maximum size of any request sent.
+# TYPE kafka_consumer_request_size_max gauge
+kafka_consumer_request_size_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 189.0
+# HELP kafka_consumer_response_total The total number of responses received
+# TYPE kafka_consumer_response_total counter
+kafka_consumer_response_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 22318.0
+# HELP kafka_consumer_response_rate The number of responses received per second
+# TYPE kafka_consumer_response_rate gauge
+kafka_consumer_response_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.6447877464010316
+# HELP kafka_consumer_select_total The total number of times the I/O layer checked for new I/O to perform
+# TYPE kafka_consumer_select_total counter
+kafka_consumer_select_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 215907.0
+# HELP kafka_consumer_select_rate The number of times the I/O layer checked for new I/O to perform per second
+# TYPE kafka_consumer_select_rate gauge
+kafka_consumer_select_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 10.361112895971214
+# HELP kafka_consumer_successful_authentication_total The total number of connections with successful authentication
+# TYPE kafka_consumer_successful_authentication_total counter
+kafka_consumer_successful_authentication_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_successful_authentication_no_reauth_total The total number of connections with successful authentication where the client does not support re-authentication
+# TYPE kafka_consumer_successful_authentication_no_reauth_total counter
+kafka_consumer_successful_authentication_no_reauth_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_successful_authentication_rate The number of connections with successful authentication per second
+# TYPE kafka_consumer_successful_authentication_rate gauge
+kafka_consumer_successful_authentication_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_successful_reauthentication_total The total number of successful re-authentication of connections
+# TYPE kafka_consumer_successful_reauthentication_total counter
+kafka_consumer_successful_reauthentication_total{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_successful_reauthentication_rate The number of successful re-authentication of connections per second
+# TYPE kafka_consumer_successful_reauthentication_rate gauge
+kafka_consumer_successful_reauthentication_rate{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 0.0
+# HELP kafka_consumer_time_between_poll_avg The average delay between invocations of poll() in milliseconds.
+# TYPE kafka_consumer_time_between_poll_avg gauge
+kafka_consumer_time_between_poll_avg{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 65851.5
+# HELP kafka_consumer_time_between_poll_max The max delay between invocations of poll() in milliseconds.
+# TYPE kafka_consumer_time_between_poll_max gauge
+kafka_consumer_time_between_poll_max{client_id="consumer-pilot-20261021-211207-1",kafka_version="4.2.1",spring_id="kafkaConsumerFactory.consumer-pilot-20261021-211207-1"} 88456.0
+# HELP kafka_producer_batch_size_avg The average number of bytes sent per partition per-request.
+# TYPE kafka_producer_batch_size_avg gauge
+kafka_producer_batch_size_avg{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 538.6666666666666
+# HELP kafka_producer_batch_size_max The max number of bytes sent per partition per-request.
+# TYPE kafka_producer_batch_size_max gauge
+kafka_producer_batch_size_max{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 610.0
+# HELP kafka_producer_batch_split_total The total number of batch splits
+# TYPE kafka_producer_batch_split_total counter
+kafka_producer_batch_split_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_batch_split_rate The average number of batch splits per second
+# TYPE kafka_producer_batch_split_rate gauge
+kafka_producer_batch_split_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_buffer_available_bytes The total amount of buffer memory that is not being used (either unallocated or in the free list).
+# TYPE kafka_producer_buffer_available_bytes gauge
+kafka_producer_buffer_available_bytes{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 3.3554432E7
+# HELP kafka_producer_buffer_exhausted_total The total number of record sends that are dropped due to buffer exhaustion
+# TYPE kafka_producer_buffer_exhausted_total counter
+kafka_producer_buffer_exhausted_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_buffer_exhausted_rate The average per-second number of record sends that are dropped due to buffer exhaustion
+# TYPE kafka_producer_buffer_exhausted_rate gauge
+kafka_producer_buffer_exhausted_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_buffer_total_bytes The maximum amount of buffer memory the client can use (whether or not it is currently used).
+# TYPE kafka_producer_buffer_total_bytes gauge
+kafka_producer_buffer_total_bytes{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 3.3554432E7
+# HELP kafka_producer_bufferpool_wait_ratio The fraction of time an appender waits for space allocation.
+# TYPE kafka_producer_bufferpool_wait_ratio gauge
+kafka_producer_bufferpool_wait_ratio{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_bufferpool_wait_time_ns_total The total time in nanoseconds an appender waits for space allocation.
+# TYPE kafka_producer_bufferpool_wait_time_ns_total counter
+kafka_producer_bufferpool_wait_time_ns_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_compression_rate_avg The average compression rate of record batches, defined as the average ratio of the compressed batch size over the uncompressed size.
+# TYPE kafka_producer_compression_rate_avg gauge
+kafka_producer_compression_rate_avg{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 1.0
+# HELP kafka_producer_connection_close_total The total number of connections closed
+# TYPE kafka_producer_connection_close_total counter
+kafka_producer_connection_close_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 2.0
+# HELP kafka_producer_connection_close_rate The number of connections closed per second
+# TYPE kafka_producer_connection_close_rate gauge
+kafka_producer_connection_close_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_connection_count The current number of active connections.
+# TYPE kafka_producer_connection_count gauge
+kafka_producer_connection_count{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 1.0
+# HELP kafka_producer_connection_creation_total The total number of new connections established
+# TYPE kafka_producer_connection_creation_total counter
+kafka_producer_connection_creation_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 3.0
+# HELP kafka_producer_connection_creation_rate The number of new connections established per second
+# TYPE kafka_producer_connection_creation_rate gauge
+kafka_producer_connection_creation_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_failed_authentication_total The total number of connections with failed authentication
+# TYPE kafka_producer_failed_authentication_total counter
+kafka_producer_failed_authentication_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_failed_authentication_rate The number of connections with failed authentication per second
+# TYPE kafka_producer_failed_authentication_rate gauge
+kafka_producer_failed_authentication_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_failed_reauthentication_total The total number of failed re-authentication of connections
+# TYPE kafka_producer_failed_reauthentication_total counter
+kafka_producer_failed_reauthentication_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_failed_reauthentication_rate The number of failed re-authentication of connections per second
+# TYPE kafka_producer_failed_reauthentication_rate gauge
+kafka_producer_failed_reauthentication_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_flush_time_ns_total Total time producer has spent in flush in nanoseconds.
+# TYPE kafka_producer_flush_time_ns_total counter
+kafka_producer_flush_time_ns_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 9.4873099E9
+# HELP kafka_producer_incoming_byte_total The total number of bytes read off all sockets
+# TYPE kafka_producer_incoming_byte_total counter
+kafka_producer_incoming_byte_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 282764.0
+# HELP kafka_producer_incoming_byte_rate The number of bytes read off all sockets per second
+# TYPE kafka_producer_incoming_byte_rate gauge
+kafka_producer_incoming_byte_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 15.059133719529973
+# HELP kafka_producer_io_ratio The fraction of time the I/O thread spent doing I/O
+# TYPE kafka_producer_io_ratio gauge
+kafka_producer_io_ratio{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 3.5113381415334694E-5
+# HELP kafka_producer_io_time_ns_total The total time the I/O thread spent doing I/O
+# TYPE kafka_producer_io_time_ns_total counter
+kafka_producer_io_time_ns_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 6.722401E8
+# HELP kafka_producer_io_time_ns_avg The average length of time for I/O per select call in nanoseconds.
+# TYPE kafka_producer_io_time_ns_avg gauge
+kafka_producer_io_time_ns_avg{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 38475.0
+# HELP kafka_producer_io_wait_ratio The fraction of time the I/O thread spent waiting
+# TYPE kafka_producer_io_wait_ratio gauge
+kafka_producer_io_wait_ratio{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 1.084961918040891
+# HELP kafka_producer_io_wait_time_ns_total The total time the I/O thread spent waiting
+# TYPE kafka_producer_io_wait_time_ns_total counter
+kafka_producer_io_wait_time_ns_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 1.96166054894E13
+# HELP kafka_producer_io_wait_time_ns_avg The average length of time the I/O thread spent waiting for a socket ready for reads or writes in nanoseconds.
+# TYPE kafka_producer_io_wait_time_ns_avg gauge
+kafka_producer_io_wait_time_ns_avg{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 1.1888319527777777E9
+# HELP kafka_producer_metadata_age The age in seconds of the current producer metadata being used.
+# TYPE kafka_producer_metadata_age gauge
+kafka_producer_metadata_age{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 207.743
+# HELP kafka_producer_metadata_wait_time_ns_total Total time producer has spent waiting on topic metadata in nanoseconds.
+# TYPE kafka_producer_metadata_wait_time_ns_total counter
+kafka_producer_metadata_wait_time_ns_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 4.18693E7
+# HELP kafka_producer_network_io_total The total number of network operations (reads or writes) on all connections
+# TYPE kafka_producer_network_io_total counter
+kafka_producer_network_io_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 8132.0
+# HELP kafka_producer_network_io_rate The number of network operations (reads or writes) on all connections per second
+# TYPE kafka_producer_network_io_rate gauge
+kafka_producer_network_io_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.45634895483412985
+# HELP kafka_producer_node_incoming_byte_total The total number of incoming bytes
+# TYPE kafka_producer_node_incoming_byte_total counter
+kafka_producer_node_incoming_byte_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 1080.0
+kafka_producer_node_incoming_byte_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 281684.0
+# HELP kafka_producer_node_incoming_byte_rate The number of incoming bytes per second
+# TYPE kafka_producer_node_incoming_byte_rate gauge
+kafka_producer_node_incoming_byte_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+kafka_producer_node_incoming_byte_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 15.059133719529973
+# HELP kafka_producer_node_outgoing_byte_total The total number of outgoing bytes
+# TYPE kafka_producer_node_outgoing_byte_total counter
+kafka_producer_node_outgoing_byte_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 200.0
+kafka_producer_node_outgoing_byte_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 2430845.0
+# HELP kafka_producer_node_outgoing_byte_rate The number of outgoing bytes per second
+# TYPE kafka_producer_node_outgoing_byte_rate gauge
+kafka_producer_node_outgoing_byte_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+kafka_producer_node_outgoing_byte_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 139.78426476366724
+# HELP kafka_producer_node_request_total The total number of requests sent
+# TYPE kafka_producer_node_request_total counter
+kafka_producer_node_request_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 3.0
+kafka_producer_node_request_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 4063.0
+# TYPE kafka_producer_node_request_latency_avg gauge
+kafka_producer_node_request_latency_avg{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} NaN
+kafka_producer_node_request_latency_avg{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 1.3333333333333333
+# TYPE kafka_producer_node_request_latency_max gauge
+kafka_producer_node_request_latency_max{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} NaN
+kafka_producer_node_request_latency_max{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 4.0
+# HELP kafka_producer_node_request_rate The number of requests sent per second
+# TYPE kafka_producer_node_request_rate gauge
+kafka_producer_node_request_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+kafka_producer_node_request_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.22815712420620335
+# HELP kafka_producer_node_request_size_avg The average size of requests sent.
+# TYPE kafka_producer_node_request_size_avg gauge
+kafka_producer_node_request_size_avg{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} NaN
+kafka_producer_node_request_size_avg{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 612.6666666666666
+# HELP kafka_producer_node_request_size_max The maximum size of any request sent.
+# TYPE kafka_producer_node_request_size_max gauge
+kafka_producer_node_request_size_max{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} NaN
+kafka_producer_node_request_size_max{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 684.0
+# HELP kafka_producer_node_response_total The total number of responses received
+# TYPE kafka_producer_node_response_total counter
+kafka_producer_node_response_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 3.0
+kafka_producer_node_response_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 4063.0
+# HELP kafka_producer_node_response_rate The number of responses received per second
+# TYPE kafka_producer_node_response_rate gauge
+kafka_producer_node_response_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node--1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+kafka_producer_node_response_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",node_id="node-1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.228310502283105
+# HELP kafka_producer_outgoing_byte_total The total number of outgoing bytes sent to all servers
+# TYPE kafka_producer_outgoing_byte_total counter
+kafka_producer_outgoing_byte_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 2431045.0
+# HELP kafka_producer_outgoing_byte_rate The number of outgoing bytes sent to all servers per second
+# TYPE kafka_producer_outgoing_byte_rate gauge
+kafka_producer_outgoing_byte_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 139.78426476366724
+# HELP kafka_producer_produce_throttle_time_avg The average time in ms a request was throttled by a broker
+# TYPE kafka_producer_produce_throttle_time_avg gauge
+kafka_producer_produce_throttle_time_avg{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_produce_throttle_time_max The maximum time in ms a request was throttled by a broker
+# TYPE kafka_producer_produce_throttle_time_max gauge
+kafka_producer_produce_throttle_time_max{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_reauthentication_latency_avg The average latency observed due to re-authentication
+# TYPE kafka_producer_reauthentication_latency_avg gauge
+kafka_producer_reauthentication_latency_avg{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} NaN
+# HELP kafka_producer_reauthentication_latency_max The max latency observed due to re-authentication
+# TYPE kafka_producer_reauthentication_latency_max gauge
+kafka_producer_reauthentication_latency_max{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} NaN
+# HELP kafka_producer_record_error_total The total number of record sends that resulted in errors
+# TYPE kafka_producer_record_error_total counter
+kafka_producer_record_error_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_record_error_rate The average per-second number of record sends that resulted in errors
+# TYPE kafka_producer_record_error_rate gauge
+kafka_producer_record_error_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_record_queue_time_avg The average time in ms record batches spent in the send buffer.
+# TYPE kafka_producer_record_queue_time_avg gauge
+kafka_producer_record_queue_time_avg{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_record_queue_time_max The maximum time in ms record batches spent in the send buffer.
+# TYPE kafka_producer_record_queue_time_max gauge
+kafka_producer_record_queue_time_max{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_record_retry_total The total number of retried record sends
+# TYPE kafka_producer_record_retry_total counter
+kafka_producer_record_retry_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_record_retry_rate The average per-second number of retried record sends
+# TYPE kafka_producer_record_retry_rate gauge
+kafka_producer_record_retry_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_record_send_total The total number of records sent.
+# TYPE kafka_producer_record_send_total counter
+kafka_producer_record_send_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 4000.0
+# HELP kafka_producer_record_send_rate The average number of records sent per second.
+# TYPE kafka_producer_record_send_rate gauge
+kafka_producer_record_send_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.22815712420620335
+# HELP kafka_producer_record_size_avg The average record size
+# TYPE kafka_producer_record_size_avg gauge
+kafka_producer_record_size_avg{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 554.6666666666666
+# HELP kafka_producer_record_size_max The maximum record size
+# TYPE kafka_producer_record_size_max gauge
+kafka_producer_record_size_max{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 626.0
+# HELP kafka_producer_records_per_request_avg The average number of records per request.
+# TYPE kafka_producer_records_per_request_avg gauge
+kafka_producer_records_per_request_avg{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 1.0
+# HELP kafka_producer_request_total The total number of requests sent
+# TYPE kafka_producer_request_total counter
+kafka_producer_request_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 4066.0
+# HELP kafka_producer_request_latency_avg The average request latency in ms
+# TYPE kafka_producer_request_latency_avg gauge
+kafka_producer_request_latency_avg{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 1.3333333333333333
+# HELP kafka_producer_request_latency_max The maximum request latency in ms
+# TYPE kafka_producer_request_latency_max gauge
+kafka_producer_request_latency_max{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 4.0
+# HELP kafka_producer_request_rate The number of requests sent per second
+# TYPE kafka_producer_request_rate gauge
+kafka_producer_request_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.22817447741706492
+# HELP kafka_producer_request_size_avg The average size of requests sent.
+# TYPE kafka_producer_request_size_avg gauge
+kafka_producer_request_size_avg{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 612.6666666666666
+# HELP kafka_producer_request_size_max The maximum size of any request sent.
+# TYPE kafka_producer_request_size_max gauge
+kafka_producer_request_size_max{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 684.0
+# HELP kafka_producer_requests_in_flight The current number of in-flight requests awaiting a response.
+# TYPE kafka_producer_requests_in_flight gauge
+kafka_producer_requests_in_flight{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_response_total The total number of responses received
+# TYPE kafka_producer_response_total counter
+kafka_producer_response_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 4066.0
+# HELP kafka_producer_response_rate The number of responses received per second
+# TYPE kafka_producer_response_rate gauge
+kafka_producer_response_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.2281686927201511
+# HELP kafka_producer_select_total The total number of times the I/O layer checked for new I/O to perform
+# TYPE kafka_producer_select_total counter
+kafka_producer_select_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 16203.0
+# HELP kafka_producer_select_rate The number of times the I/O layer checked for new I/O to perform per second
+# TYPE kafka_producer_select_rate gauge
+kafka_producer_select_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.9126284968248134
+# HELP kafka_producer_successful_authentication_total The total number of connections with successful authentication
+# TYPE kafka_producer_successful_authentication_total counter
+kafka_producer_successful_authentication_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_successful_authentication_no_reauth_total The total number of connections with successful authentication where the client does not support re-authentication
+# TYPE kafka_producer_successful_authentication_no_reauth_total counter
+kafka_producer_successful_authentication_no_reauth_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_successful_authentication_rate The number of connections with successful authentication per second
+# TYPE kafka_producer_successful_authentication_rate gauge
+kafka_producer_successful_authentication_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_successful_reauthentication_total The total number of successful re-authentication of connections
+# TYPE kafka_producer_successful_reauthentication_total counter
+kafka_producer_successful_reauthentication_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_successful_reauthentication_rate The number of successful re-authentication of connections per second
+# TYPE kafka_producer_successful_reauthentication_rate gauge
+kafka_producer_successful_reauthentication_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_topic_byte_total The total number of bytes sent for a topic.
+# TYPE kafka_producer_topic_byte_total counter
+kafka_producer_topic_byte_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1",topic="insights.enriched"} 2129896.0
+# HELP kafka_producer_topic_byte_rate The average number of bytes sent per second for a topic.
+# TYPE kafka_producer_topic_byte_rate gauge
+kafka_producer_topic_byte_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1",topic="insights.enriched"} 122.9006375724082
+# HELP kafka_producer_topic_compression_rate The average compression rate of record batches for a topic, defined as the average ratio of the compressed batch size over the uncompressed size.
+# TYPE kafka_producer_topic_compression_rate gauge
+kafka_producer_topic_compression_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1",topic="insights.enriched"} 1.0
+# HELP kafka_producer_topic_record_error_total The total number of record sends that resulted in errors for a topic
+# TYPE kafka_producer_topic_record_error_total counter
+kafka_producer_topic_record_error_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1",topic="insights.enriched"} 0.0
+# HELP kafka_producer_topic_record_error_rate The average per-second number of record sends that resulted in errors for a topic
+# TYPE kafka_producer_topic_record_error_rate gauge
+kafka_producer_topic_record_error_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1",topic="insights.enriched"} 0.0
+# HELP kafka_producer_topic_record_retry_total The total number of retried record sends for a topic
+# TYPE kafka_producer_topic_record_retry_total counter
+kafka_producer_topic_record_retry_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1",topic="insights.enriched"} 0.0
+# HELP kafka_producer_topic_record_retry_rate The average per-second number of retried record sends for a topic
+# TYPE kafka_producer_topic_record_retry_rate gauge
+kafka_producer_topic_record_retry_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1",topic="insights.enriched"} 0.0
+# HELP kafka_producer_topic_record_send_total The total number of records sent for a topic.
+# TYPE kafka_producer_topic_record_send_total counter
+kafka_producer_topic_record_send_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1",topic="insights.enriched"} 4000.0
+# HELP kafka_producer_topic_record_send_rate The average number of records sent per second for a topic.
+# TYPE kafka_producer_topic_record_send_rate gauge
+kafka_producer_topic_record_send_rate{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1",topic="insights.enriched"} 0.22817447741706492
+# HELP kafka_producer_txn_abort_time_ns_total Total time producer has spent in abortTransaction in nanoseconds.
+# TYPE kafka_producer_txn_abort_time_ns_total counter
+kafka_producer_txn_abort_time_ns_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_txn_begin_time_ns_total Total time producer has spent in beginTransaction in nanoseconds.
+# TYPE kafka_producer_txn_begin_time_ns_total counter
+kafka_producer_txn_begin_time_ns_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_txn_commit_time_ns_total Total time producer has spent in commitTransaction in nanoseconds.
+# TYPE kafka_producer_txn_commit_time_ns_total counter
+kafka_producer_txn_commit_time_ns_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_txn_init_time_ns_total Total time producer has spent in initTransactions in nanoseconds.
+# TYPE kafka_producer_txn_init_time_ns_total counter
+kafka_producer_txn_init_time_ns_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_txn_prepare_time_ns_total Total time producer has spent in prepareTransaction in nanoseconds.
+# TYPE kafka_producer_txn_prepare_time_ns_total counter
+kafka_producer_txn_prepare_time_ns_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_txn_send_offsets_time_ns_total Total time producer has spent in sendOffsetsToTransaction in nanoseconds.
+# TYPE kafka_producer_txn_send_offsets_time_ns_total counter
+kafka_producer_txn_send_offsets_time_ns_total{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP kafka_producer_waiting_threads The number of user threads blocked waiting for buffer memory to enqueue their records
+# TYPE kafka_producer_waiting_threads gauge
+kafka_producer_waiting_threads{client_id="convo-insights-producer-1",kafka_version="4.2.1",spring_id="kafkaProducerFactory.convo-insights-producer-1"} 0.0
+# HELP logback_events_total Number of log events that were enabled by the effective log level
+# TYPE logback_events_total counter
+logback_events_total{level="debug"} 0.0
+logback_events_total{level="error"} 0.0
+logback_events_total{level="info"} 12284.0
+logback_events_total{level="trace"} 0.0
+logback_events_total{level="warn"} 12.0
+# HELP process_cpu_time_ns_total The "cpu time" used by the Java Virtual Machine process
+# TYPE process_cpu_time_ns_total counter
+process_cpu_time_ns_total 5.95015625E11
+# HELP process_cpu_usage The "recent cpu usage" for the Java Virtual Machine process
+# TYPE process_cpu_usage gauge
+process_cpu_usage 9.417732395681462E-4
+# HELP process_start_time_seconds Start time of the process since unix epoch.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.792597330588E9
+# HELP process_uptime_seconds The uptime of the Java virtual machine
+# TYPE process_uptime_seconds gauge
+process_uptime_seconds 19736.248
+# HELP spring_data_repository_invocations_seconds Duration of repository invocations
+# TYPE spring_data_repository_invocations_seconds summary
+spring_data_repository_invocations_seconds_count{exception="None",method="countPending",repository="OutboxRepository",state="SUCCESS"} 3686
+spring_data_repository_invocations_seconds_sum{exception="None",method="countPending",repository="OutboxRepository",state="SUCCESS"} 8.8763709
+spring_data_repository_invocations_seconds_count{exception="None",method="findByEventId",repository="InsightRepository",state="SUCCESS"} 16201
+spring_data_repository_invocations_seconds_sum{exception="None",method="findByEventId",repository="InsightRepository",state="SUCCESS"} 25.5786219
+spring_data_repository_invocations_seconds_count{exception="None",method="lockPendingBatch",repository="OutboxRepository",state="SUCCESS"} 87324
+spring_data_repository_invocations_seconds_sum{exception="None",method="lockPendingBatch",repository="OutboxRepository",state="SUCCESS"} 1469.2068532
+spring_data_repository_invocations_seconds_count{exception="None",method="save",repository="OutboxRepository",state="SUCCESS"} 4000
+spring_data_repository_invocations_seconds_sum{exception="None",method="save",repository="OutboxRepository",state="SUCCESS"} 4.5914424
+spring_data_repository_invocations_seconds_count{exception="None",method="saveAll",repository="OutboxRepository",state="SUCCESS"} 4000
+spring_data_repository_invocations_seconds_sum{exception="None",method="saveAll",repository="OutboxRepository",state="SUCCESS"} 0.3124092
+spring_data_repository_invocations_seconds_count{exception="None",method="saveAndFlush",repository="InsightRepository",state="SUCCESS"} 4000
+spring_data_repository_invocations_seconds_sum{exception="None",method="saveAndFlush",repository="InsightRepository",state="SUCCESS"} 7.2323459
+# HELP spring_data_repository_invocations_seconds_max Duration of repository invocations
+# TYPE spring_data_repository_invocations_seconds_max gauge
+spring_data_repository_invocations_seconds_max{exception="None",method="countPending",repository="OutboxRepository",state="SUCCESS"} 0.0036203
+spring_data_repository_invocations_seconds_max{exception="None",method="findByEventId",repository="InsightRepository",state="SUCCESS"} 0.0016968
+spring_data_repository_invocations_seconds_max{exception="None",method="lockPendingBatch",repository="OutboxRepository",state="SUCCESS"} 0.0035566
+spring_data_repository_invocations_seconds_max{exception="None",method="save",repository="OutboxRepository",state="SUCCESS"} 0.0013909
+spring_data_repository_invocations_seconds_max{exception="None",method="saveAll",repository="OutboxRepository",state="SUCCESS"} 7.18E-5
+spring_data_repository_invocations_seconds_max{exception="None",method="saveAndFlush",repository="InsightRepository",state="SUCCESS"} 0.0023938
+# HELP spring_kafka_listener_seconds Kafka Listener Timer
+# TYPE spring_kafka_listener_seconds summary
+spring_kafka_listener_seconds_count{exception="CannotCreateTransactionException",name="conversations-0",result="failure"} 1
+spring_kafka_listener_seconds_sum{exception="CannotCreateTransactionException",name="conversations-0",result="failure"} 1299.9733601
+spring_kafka_listener_seconds_count{exception="none",name="conversations-0",result="success"} 16200
+spring_kafka_listener_seconds_sum{exception="none",name="conversations-0",result="success"} 18401.6244309
+# HELP spring_kafka_listener_seconds_max Kafka Listener Timer
+# TYPE spring_kafka_listener_seconds_max gauge
+spring_kafka_listener_seconds_max{exception="CannotCreateTransactionException",name="conversations-0",result="failure"} 0.0
+spring_kafka_listener_seconds_max{exception="none",name="conversations-0",result="success"} 9.9401621
+# HELP spring_kafka_template_seconds KafkaTemplate Timer
+# TYPE spring_kafka_template_seconds summary
+spring_kafka_template_seconds_count{exception="none",name="kafkaTemplate",result="success"} 4000
+spring_kafka_template_seconds_sum{exception="none",name="kafkaTemplate",result="success"} 9.7848336
+# HELP spring_kafka_template_seconds_max KafkaTemplate Timer
+# TYPE spring_kafka_template_seconds_max gauge
+spring_kafka_template_seconds_max{exception="none",name="kafkaTemplate",result="success"} 0.0026282
+# HELP system_cpu_count The number of processors available to the Java virtual machine
+# TYPE system_cpu_count gauge
+system_cpu_count 20.0
+# HELP system_cpu_usage The "recent cpu usage" of the system the application is running in
+# TYPE system_cpu_usage gauge
+system_cpu_usage 0.29998104192822495
+# HELP tasks_scheduled_execution_active_seconds  
+# TYPE tasks_scheduled_execution_active_seconds summary
+tasks_scheduled_execution_active_seconds_count{code_function="poll",code_namespace="dev.mayank.convoinsights.outbox.OutboxRelay",exception="none",outcome="UNKNOWN"} 0
+tasks_scheduled_execution_active_seconds_sum{code_function="poll",code_namespace="dev.mayank.convoinsights.outbox.OutboxRelay",exception="none",outcome="UNKNOWN"} 0.0
+# HELP tasks_scheduled_execution_active_seconds_max  
+# TYPE tasks_scheduled_execution_active_seconds_max gauge
+tasks_scheduled_execution_active_seconds_max{code_function="poll",code_namespace="dev.mayank.convoinsights.outbox.OutboxRelay",exception="none",outcome="UNKNOWN"} 0.0
+# HELP tasks_scheduled_execution_seconds  
+# TYPE tasks_scheduled_execution_seconds summary
+tasks_scheduled_execution_seconds_count{code_function="poll",code_namespace="dev.mayank.convoinsights.outbox.OutboxRelay",error="none",exception="none",outcome="SUCCESS"} 87324
+tasks_scheduled_execution_seconds_sum{code_function="poll",code_namespace="dev.mayank.convoinsights.outbox.OutboxRelay",error="none",exception="none",outcome="SUCCESS"} 1627.6072173
+# HELP tasks_scheduled_execution_seconds_max  
+# TYPE tasks_scheduled_execution_seconds_max gauge
+tasks_scheduled_execution_seconds_max{code_function="poll",code_namespace="dev.mayank.convoinsights.outbox.OutboxRelay",error="none",exception="none",outcome="SUCCESS"} 0.0237711
+# HELP tomcat_sessions_active_current_sessions  
+# TYPE tomcat_sessions_active_current_sessions gauge
+tomcat_sessions_active_current_sessions 0.0
+# HELP tomcat_sessions_active_max_sessions  
+# TYPE tomcat_sessions_active_max_sessions gauge
+tomcat_sessions_active_max_sessions 0.0
+# HELP tomcat_sessions_alive_max_seconds  
+# TYPE tomcat_sessions_alive_max_seconds gauge
+tomcat_sessions_alive_max_seconds 0.0
+# HELP tomcat_sessions_created_sessions_total  
+# TYPE tomcat_sessions_created_sessions_total counter
+tomcat_sessions_created_sessions_total 0.0
+# HELP tomcat_sessions_expired_sessions_total  
+# TYPE tomcat_sessions_expired_sessions_total counter
+tomcat_sessions_expired_sessions_total 0.0
+# HELP tomcat_sessions_rejected_sessions_total  
+# TYPE tomcat_sessions_rejected_sessions_total counter
+tomcat_sessions_rejected_sessions_total 0.0
