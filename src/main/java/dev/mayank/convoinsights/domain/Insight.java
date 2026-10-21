@@ -63,13 +63,16 @@ public class Insight {
     @Column(name = "llm_latency_ms")
     private Long llmLatencyMs;
 
+    @Column(name = "pii_redactions", nullable = false)
+    private int piiRedactions;
+
     @Column(name = "created_at", nullable = false)
     private Instant createdAt;
 
     protected Insight() {
     }
 
-    public static Insight of(ConversationEvent event, ExtractionResult result) {
+    public static Insight of(ConversationEvent event, ExtractionResult result, int piiRedactions) {
         Insight i = new Insight();
         i.eventId = event.eventId();
         i.conversationId = event.conversationId();
@@ -85,6 +88,7 @@ public class Insight {
         i.model = result.model();
         i.promptVersion = result.promptVersion();
         i.llmLatencyMs = result.llmLatencyMs();
+        i.piiRedactions = piiRedactions;
         i.createdAt = Instant.now();
         return i;
     }
@@ -104,5 +108,6 @@ public class Insight {
     public String getModel() { return model; }
     public String getPromptVersion() { return promptVersion; }
     public Long getLlmLatencyMs() { return llmLatencyMs; }
+    public int getPiiRedactions() { return piiRedactions; }
     public Instant getCreatedAt() { return createdAt; }
 }

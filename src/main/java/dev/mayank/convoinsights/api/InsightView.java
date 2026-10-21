@@ -24,12 +24,13 @@ public record InsightView(
         String model,
         String promptVersion,
         Long llmLatencyMs,
+        int piiRedactions,
         Instant createdAt) {
 
     public static InsightView of(Insight i) {
         return new InsightView(i.getEventId(), i.getConversationId(), i.getBrand(), i.getSource(),
                 i.getTurnCount(), i.getSummary(), i.getSentiment(), i.getIntent(), i.getConfidence(),
                 i.getExtractor(), i.getFallbackReason(), i.getModel(), i.getPromptVersion(),
-                i.getLlmLatencyMs(), i.getCreatedAt());
+                i.getLlmLatencyMs(), i.getPiiRedactions(), i.getCreatedAt());
     }
 }

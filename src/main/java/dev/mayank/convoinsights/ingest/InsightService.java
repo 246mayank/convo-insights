@@ -5,6 +5,7 @@ import dev.mayank.convoinsights.domain.ExtractionResult;
 import dev.mayank.convoinsights.domain.Insight;
 import dev.mayank.convoinsights.domain.InsightRepository;
 import dev.mayank.convoinsights.extract.InsightExtractor;
+import dev.mayank.convoinsights.privacy.PiiRedactor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -22,10 +23,12 @@ public class InsightService {
 
     private final InsightRepository repository;
     private final InsightExtractor extractor;
+    private final PiiRedactor redactor;
 
-    public InsightService(InsightRepository repository, InsightExtractor extractor) {
+    public InsightService(InsightRepository repository, InsightExtractor extractor, PiiRedactor redactor) {
         this.repository = repository;
         this.extractor = extractor;
+        this.redactor = redactor;
     }
 
     public Outcome process(ConversationEvent event) {
@@ -33,9 +36,11 @@ public class InsightService {
         if (existing.isPresent()) {
             return new Outcome(existing.get(), true);
         }
-        ExtractionResult result = extractor.extract(event);
+        // Redact before extraction so no extractor, local or hosted, ever sees raw personal data.
+        PiiRedactor.Redacted redacted = redactor.redact(event);
+        ExtractionResult result = extractor.extract(redacted.event());
         try {
-            return new Outcome(repository.saveAndFlush(Insight.of(event, result)), false);
+            return new Outcome(repository.saveAndFlush(Insight.of(event, result, redacted.total())), false);
         } catch (DataIntegrityViolationException e) {
             // Lost a race with a concurrent delivery of the same event: the other one won, use its row.
             log.info("duplicate insert for eventId={}, using existing row", event.eventId());

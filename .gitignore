@@ -35,3 +35,6 @@ build/
 ### data (TWCS is CC BY-NC-SA; never commit raw or derived dumps) ###
 data/
 *.log
+eval/results/dev/
+# per-row TWCS results contain tweet-derived text (CC BY-NC-SA); only aggregated metrics are committed
+eval/results/twcs-*.json

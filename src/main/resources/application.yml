@@ -48,4 +48,12 @@ insights:
     initial-interval-ms: 1000
     multiplier: 2.0
   llm:
-    provider: rules
+    provider: ${LLM_PROVIDER:ollama}
+    prompt-version: v1
+    timeout: 20s
+    max-input-chars: 2000
+    ollama:
+      base-url: ${OLLAMA_URL:http://localhost:11434}
+      model: ${OLLAMA_MODEL:qwen2.5:1.5b}
+      num-ctx: 2048
+      num-predict: 160

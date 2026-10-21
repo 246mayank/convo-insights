@@ -1,0 +1,1 @@
+ALTER TABLE insights ADD COLUMN pii_redactions INT NOT NULL DEFAULT 0;
