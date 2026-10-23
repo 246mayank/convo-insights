@@ -4,7 +4,7 @@
   "rows" : 60,
   "intentAccuracy" : 0.8667,
   "intentMacroF1" : 0.8747,
-  "latencyMsP95" : 3979,
+  "latencyMsP95" : 3758,
   "fallbackRate" : 0.0,
-  "createdAt" : "2026-10-23T06:44:23.730719974Z"
+  "createdAt" : "2026-10-23T10:10:18.166083539Z"
 }

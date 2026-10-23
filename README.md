@@ -14,7 +14,7 @@ The design goal is that **no conversation is lost or counted twice, even when th
 | Intent accuracy, LLM vs keyword rules | **86.0% vs 62.0%** synthetic, **43.8% vs 33.3%** on real hand-labelled tweets ([bake-off](eval/BAKEOFF.md)) |
 | Streaming analytics vs the database | **3,859 brand-day buckets, 0 mismatches** with every event delivered twice ([check](bench/analytics-20261023.md)) |
 | Read API under load | **500 req/s, 0 failures, p95 19.4 ms** ([k6](bench/k6.md)) |
-| Tests | **112** (103 unit, 9 against real Kafka + PostgreSQL), plus a CI gate that [blocked a bad prompt](https://github.com/246mayank/convo-insights/pull/1) |
+| Tests | **127** (118 unit, 9 against real Kafka + PostgreSQL), plus a CI gate that [blocked a bad prompt](https://github.com/246mayank/convo-insights/pull/1) |
 
 ## Why it is shaped like this
 
@@ -59,7 +59,7 @@ flowchart LR
 1. A conversation arrives on `conversations.raw`, keyed by conversationId so its updates stay in order on one partition.
 2. The consumer parses and validates it. Anything unparseable goes straight to the dead-letter topic; other failures get 3 retries with backoff (1 s, 2 s, 4 s) first.
 3. If its `eventId` (a SHA-256 content hash) is already stored, it's a redelivery: skip and ack.
-4. Personal data is replaced with tags (`[EMAIL]`, `[PHONE]`, Luhn-checked `[CARD]`, `[ID]`, `[HANDLE]`) before any model sees it.
+4. Personal data is replaced with tags (`[EMAIL]`, `[PHONE]`, Luhn-checked `[CARD]`, `[ID]`, `[HANDLE]`, `[NAME]`) before any model sees it. The rules were tuned by [auditing 20,000 real conversations](bench/redaction-audit-20261023.md).
 5. The LLM answers in a JSON schema. Every field is validated; a late, broken or invalid answer falls back to keyword rules, and the reason is stored (`MALFORMED_JSON`, `SCHEMA_VIOLATION`, `TIMEOUT`, `HTTP_ERROR`, `CIRCUIT_OPEN`).
 6. One transaction writes the insight and two outbox rows (enriched insight, Segment Track call). Only then is the Kafka offset acked.
 7. The relay publishes outbox rows, waits for broker acks and marks them sent. Several relays can run at once (`FOR UPDATE SKIP LOCKED`).
@@ -118,7 +118,7 @@ Scored by `EvalMain` on two labelled sets:
 
 The real-tweet set is small (one row is about 2 points), and it was used while tuning a prompt, so it's a development set. Prompt v2 scored lower and was rejected; see [BAKEOFF.md](eval/BAKEOFF.md).
 
-The **regression gate** scores the production model and prompt on 60 golden rows on every pull request, and fails if accuracy drops more than 5 points or p95 latency rises more than 50% against [eval/baseline.json](eval/baseline.json) (86.7%, 3,979 ms on the GitHub runner). [PR #1](https://github.com/246mayank/convo-insights/pull/1) removed the intent definitions from the prompt; accuracy fell to 25.0% and the gate failed it.
+The **regression gate** scores the production model and prompt on 60 golden rows on every pull request, and fails if accuracy drops more than 5 points or p95 latency rises more than 50% against [eval/baseline.json](eval/baseline.json) (86.7%, p95 3,758 ms on the GitHub runner, re-measured after redaction v2). [PR #1](https://github.com/246mayank/convo-insights/pull/1) removed the intent definitions from the prompt; accuracy fell to 25.0% and the gate failed it.
 
 ## Run it
 
@@ -155,7 +155,7 @@ Tools: `scripts/chaos.sh` (kill -9 during a replay, then reconcile), `scripts/pi
 ## Tests
 
 ```bash
-./mvnw test      # 103 unit tests, no Docker
+./mvnw test      # 118 unit tests, no Docker
 ./mvnw verify    # + 9 Testcontainers integration tests (real Kafka + PostgreSQL)
 ```
 
