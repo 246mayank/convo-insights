@@ -56,6 +56,9 @@ jobs:
 
       - name: Evaluate
         id: eval
+        # bash -eo pipefail: without pipefail the gate's exit code 1 is swallowed by `| tee` and a
+        # regression still shows a green check (found by the demo PR #1)
+        shell: bash
         run: |
           if [[ "${{ inputs.write_baseline }}" == "true" ]]; then
             MODE="--write-baseline=eval/baseline.json"
