@@ -1,0 +1,2067 @@
+{
+  "run" : "gemini-3.5-flash-lite@v1",
+  "dataset" : "golden",
+  "extractor" : "gemini",
+  "model" : "gemini-3.5-flash-lite",
+  "promptVersion" : "v1",
+  "createdAt" : "2026-10-23T14:29:00.065023300Z",
+  "wallSeconds" : 3059.2,
+  "metrics" : {
+    "n" : 200,
+    "intentAccuracy" : 0.91,
+    "intentMacroF1" : 0.9176,
+    "fallbackRate" : 0.04,
+    "fallbackByReason" : {
+      "TIMEOUT" : 8
+    },
+    "latencyMsP50" : 11197,
+    "latencyMsP95" : 24503,
+    "latencyMsMax" : 30016,
+    "intentConfusion" : {
+      "ACCOUNT" : {
+        "ACCOUNT" : 15,
+        "CANCEL" : 1,
+        "SUBSCRIPTION" : 2
+      },
+      "CANCEL" : {
+        "CANCEL" : 15,
+        "INVOICE" : 3
+      },
+      "CONTACT" : {
+        "CONTACT" : 18
+      },
+      "DELIVERY" : {
+        "DELIVERY" : 13,
+        "ORDER" : 5
+      },
+      "FEEDBACK" : {
+        "FEEDBACK" : 16,
+        "OTHER" : 1,
+        "REFUND" : 1
+      },
+      "INVOICE" : {
+        "INVOICE" : 18
+      },
+      "ORDER" : {
+        "CANCEL" : 1,
+        "DELIVERY" : 1,
+        "ORDER" : 15,
+        "OTHER" : 1
+      },
+      "PAYMENT" : {
+        "PAYMENT" : 19
+      },
+      "REFUND" : {
+        "OTHER" : 2,
+        "REFUND" : 16
+      },
+      "SHIPPING" : {
+        "SHIPPING" : 19
+      },
+      "SUBSCRIPTION" : {
+        "SUBSCRIPTION" : 18
+      }
+    }
+  },
+  "rows" : [ {
+    "eventId" : "773045214aa7c229d024ed3365a19848",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "ACCOUNT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 7199,
+    "summary" : "The customer wants to reset their user PIN code."
+  }, {
+    "eventId" : "638fd6492982ece35c3f1d526c9b6c60",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "ACCOUNT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1069,
+    "summary" : "The customer wants to know how to open standard accounts."
+  }, {
+    "eventId" : "b413db1fdd45a3020b801b8f67493adf",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "ACCOUNT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 5365,
+    "summary" : "The customer wants assistance with opening a gold account."
+  }, {
+    "eventId" : "86961738f789f4cdd68e29b3ba7e9a24",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "ACCOUNT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 2350,
+    "summary" : "The customer wants to update their standard account."
+  }, {
+    "eventId" : "c40e452943e021c15943d5817a702df7",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "ACCOUNT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 8282,
+    "summary" : "The customer needs help recovering their password."
+  }, {
+    "eventId" : "9d057dfa7380b7ca37c96b8565d21050",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "ACCOUNT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1331,
+    "summary" : "The customer wants to know how to restore their profile key."
+  }, {
+    "eventId" : "ec6c1ea5cb2c224753b043e3175f196d",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "CANCEL",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 916,
+    "summary" : "The customer wants information about cancelling a business account."
+  }, {
+    "eventId" : "52290d9e04b710d8131481042742c042",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "ACCOUNT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1183,
+    "summary" : "The customer wants to know how to use the standard profile."
+  }, {
+    "eventId" : "a0b262414364ea0b7546894b8a85175c",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "ACCOUNT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1043,
+    "summary" : "The customer needs help with a registration problem."
+  }, {
+    "eventId" : "96e053398edeaa7b220ebb3dd2c146c2",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "ACCOUNT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10039,
+    "summary" : "The customer wants to know if they can use the business profile."
+  }, {
+    "eventId" : "1d940441f6f6808b1a28729f88f6abd9",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "ACCOUNT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 902,
+    "summary" : "The customer wants to recover their user account password."
+  }, {
+    "eventId" : "632d5779ee2e9d63769cec7763adccfa",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "ACCOUNT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1165,
+    "summary" : "The customer wants to know how to open a freemium account."
+  }, {
+    "eventId" : "582f123229e92ba3cecbd483bb64e376",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "ACCOUNT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 945,
+    "summary" : "The customer wants to know how to report a sign-up issue."
+  }, {
+    "eventId" : "fe338eddebe40b76579333c837b7e83b",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "ACCOUNT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 979,
+    "summary" : "The customer wants to set up a family account."
+  }, {
+    "eventId" : "3f2dc196d506b74a52c28d0c46de50f2",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "ACCOUNT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1288,
+    "summary" : "The customer wants to open or access another business account."
+  }, {
+    "eventId" : "d2259c0b7efa611976cff9dbc6db322d",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1127,
+    "summary" : "The customer wants to open a gold account for their dad."
+  }, {
+    "eventId" : "fc4d48365fb24cb75ea624b4eae15503",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 14227,
+    "summary" : "The customer wants to upgrade their account to premium."
+  }, {
+    "eventId" : "5fb0de5ad4122c141f26a09d2c50fb9c",
+    "expectedIntent" : "ACCOUNT",
+    "predictedIntent" : "ACCOUNT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 9369,
+    "summary" : "The customer wants help recovering their user key."
+  }, {
+    "eventId" : "4fe8a04110b336a2763d67d20762e7a5",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "CANCEL",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 6052,
+    "summary" : "The customer wants to know if there are any cancellation charges."
+  }, {
+    "eventId" : "c74a6ea809f6383d478e1a10bcbebecf",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1322,
+    "summary" : "The customer wants to know how to view withdrawal charges."
+  }, {
+    "eventId" : "152bf40fd645e67732bdb27f4357a9a0",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "CANCEL",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 5393,
+    "summary" : "The customer wants to know where to check termination penalties."
+  }, {
+    "eventId" : "9d74abf4f2a60b3c15fa0cf354c43e04",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "CANCEL",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12167,
+    "summary" : "The customer wants to check the early exit charges."
+  }, {
+    "eventId" : "bb23f58e161c0a159b6713edce177eb0",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEGATIVE",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1130,
+    "summary" : "The customer wants to know where to find the withdrawal fees."
+  }, {
+    "eventId" : "6eedfd849315afb32843e1f229367577",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "CANCEL",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1674,
+    "summary" : "The customer wants to know about the withdrawal penalty."
+  }, {
+    "eventId" : "3e3802414c3a3fc1238235bbfc6101bb",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11451,
+    "summary" : "The customer wants to know where to check withdrawal charges."
+  }, {
+    "eventId" : "be0ebc37319ac09275c62c4e3d5768ab",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "CANCEL",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 16277,
+    "summary" : "The customer wants to see the early exit penalties."
+  }, {
+    "eventId" : "8c4e5fcced48a7d482836a1d1e9d05fc",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "CANCEL",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEGATIVE",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1054,
+    "summary" : "The customer wants to know the cancellation fee."
+  }, {
+    "eventId" : "38cc291c757ddf2190d6020ec9e39aa1",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "CANCEL",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1130,
+    "summary" : "The customer wants to check the early termination penalty."
+  }, {
+    "eventId" : "53399c0e2f4c7cfc6b45e4900f554799",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "CANCEL",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 997,
+    "summary" : "The customer wants to know how to view the cancellation penalties."
+  }, {
+    "eventId" : "07d72f1ef2ba191e73058e6c26540aef",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "CANCEL",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 799,
+    "summary" : "The customer wants to check the termination fees."
+  }, {
+    "eventId" : "c7cb0514534b2355eda94216ebba9bd5",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "CANCEL",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 920,
+    "summary" : "The customer wants to know about early exit charges."
+  }, {
+    "eventId" : "6316518993dd90c567ed62b7f11e04a2",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "CANCEL",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 7568,
+    "summary" : "The customer wants to know how to check early termination charges."
+  }, {
+    "eventId" : "4e840425c4ed36bf537cd848ef8e1d35",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "CANCEL",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 7206,
+    "summary" : "The customer wants to know the withdrawal penalties."
+  }, {
+    "eventId" : "f4c45a35b5806ed0bd12980a27266e7a",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "CANCEL",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 15943,
+    "summary" : "The customer wants to know the termination fee for their service."
+  }, {
+    "eventId" : "54e89e8902a9df81c9f54218a65ddb04",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "CANCEL",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 21399,
+    "summary" : "The customer wants to check the early termination charge."
+  }, {
+    "eventId" : "80888726c0d4368485a33d7ca835c96b",
+    "expectedIntent" : "CANCEL",
+    "predictedIntent" : "CANCEL",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11900,
+    "summary" : "The customer wants to check the early termination fee."
+  }, {
+    "eventId" : "74011415bc5436b62dde4d2fa09a5f3d",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 5106,
+    "summary" : "The customer wants to know the operating hours for customer assistance."
+  }, {
+    "eventId" : "5803b9b84881d265a30855e4193c4bec",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 2247,
+    "summary" : "The customer wants to know the operating hours for customer support."
+  }, {
+    "eventId" : "1eb1ba61525d1146efa5733f7fe34b7b",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEGATIVE",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 2277,
+    "summary" : "The customer wants to speak with a human support agent."
+  }, {
+    "eventId" : "d27444a01f8acd9773c57e3ccb04c70e",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12879,
+    "summary" : "The customer wants to speak with a human assistant."
+  }, {
+    "eventId" : "99da9bf6e77ae104faab8bfb38e2074d",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEGATIVE",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 2635,
+    "summary" : "The customer wants to speak with customer support to get help."
+  }, {
+    "eventId" : "06e1d2269751976377696bd3090c638a",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10352,
+    "summary" : "The customer wants to speak with a human assistant."
+  }, {
+    "eventId" : "b20e605c6b45d14066514ea940e962d7",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 8849,
+    "summary" : "The customer wants to know the operating hours for customer support."
+  }, {
+    "eventId" : "d81254f2d210f11775f097704923522f",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 17821,
+    "summary" : "The customer wants to speak with human customer service."
+  }, {
+    "eventId" : "ff4a4ca31beb9913ed40b8120af59904",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10551,
+    "summary" : "The customer wants to know how to call customer assistance."
+  }, {
+    "eventId" : "f20d903609e3b2112d2cd6d577e4bcee",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12834,
+    "summary" : "The customer wants to speak with customer support."
+  }, {
+    "eventId" : "cad29ea9775a950325802927f12b20cc",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13943,
+    "summary" : "The customer wants to speak with a human operator."
+  }, {
+    "eventId" : "68930cd4cd0add7b6bf41650f6d51ec6",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 17697,
+    "summary" : "The customer wants assistance to speak to a live agent."
+  }, {
+    "eventId" : "1d462e45ee312e4278e77eb7b7c3b7e3",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10609,
+    "summary" : "The customer wants to know the operating hours for customer service."
+  }, {
+    "eventId" : "a678ee4e6a7d7b84f34159b2d8bba45d",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13250,
+    "summary" : "The customer wants to contact customer support."
+  }, {
+    "eventId" : "6104669ab2c355a71a9839a2f8fb09ba",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11164,
+    "summary" : "The customer wants to speak with human customer service."
+  }, {
+    "eventId" : "01593ec9f08e7836a85da30e4e6338f7",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 8427,
+    "summary" : "The customer wants to know the company's customer support email address."
+  }, {
+    "eventId" : "9a965c9a4717761029a62d08865d4f6b",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10932,
+    "summary" : "The customer wants to speak with a human agent."
+  }, {
+    "eventId" : "73222d7b60a38600200a776752e3d80e",
+    "expectedIntent" : "CONTACT",
+    "predictedIntent" : "CONTACT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 8910,
+    "summary" : "The customer wants to know the operating hours for customer service."
+  }, {
+    "eventId" : "1689dfe7110137e5723903c43016e36f",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "DELIVERY",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 9113,
+    "summary" : "The customer wants to check the available delivery methods."
+  }, {
+    "eventId" : "690f96351b67d06f6af9d5d6bedee5c8",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11897,
+    "summary" : "The customer wants to know if they can place an order from Canada."
+  }, {
+    "eventId" : "04e5d10585e8b3fd1a2b8ed2c4420fad",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "DELIVERY",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 14504,
+    "summary" : "The customer wants to know how to view the available delivery methods."
+  }, {
+    "eventId" : "d26a8e6afb6ccb3c08018545630ab26d",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12542,
+    "summary" : "The customer wants to know if they can place an order from Canada."
+  }, {
+    "eventId" : "76a6ea0797f0fd5ea3a06481ef573841",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 9277,
+    "summary" : "The customer wants to know if they can place an order from Canada."
+  }, {
+    "eventId" : "9f556b4369c5b41d0c42359d2754ad0d",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "DELIVERY",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13122,
+    "summary" : "The customer wants to know about shipments to Pune."
+  }, {
+    "eventId" : "46847c4d33bc6c370d67050ea4873a80",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "DELIVERY",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13293,
+    "summary" : "The customer wants to know how long shipping takes."
+  }, {
+    "eventId" : "361ce117482b68b42f00c449a841aa2f",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "DELIVERY",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10236,
+    "summary" : "The customer wants to know when their order will arrive."
+  }, {
+    "eventId" : "f3a85bad529e490ddfe23e42f686d870",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "DELIVERY",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 19413,
+    "summary" : "The customer wants to know when their ordered article will arrive."
+  }, {
+    "eventId" : "ed6017e5cc9b474ae801e22817f2545b",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "DELIVERY",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13885,
+    "summary" : "The customer wants to know how to check the estimated arrival time for their shipment."
+  }, {
+    "eventId" : "c38d9df6f2ba3b833c75c5dffb4c549f",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "DELIVERY",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11156,
+    "summary" : "The customer wants to check the delivery time for their package."
+  }, {
+    "eventId" : "7f0d74d8a0637a4149055764fdb5878b",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "DELIVERY",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 8189,
+    "summary" : "The customer wants to know how to check the arrival time of their purchase."
+  }, {
+    "eventId" : "f16a6e6a9494bab4e96f02f231b5cc48",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "DELIVERY",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 9652,
+    "summary" : "The customer wants to check the available shipping options."
+  }, {
+    "eventId" : "58e3f4f38f1b59fcf53600283974b5fd",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "DELIVERY",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 6436,
+    "summary" : "The customer wants to know what delivery methods are available."
+  }, {
+    "eventId" : "3ffda490198ae66894fdd2f2213971c3",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "DELIVERY",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 4740,
+    "summary" : "The customer wants to know when their item will arrive."
+  }, {
+    "eventId" : "d7ed2d6247da2def286381c3a61edd48",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "DELIVERY",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11743,
+    "summary" : "The customer wants to know available delivery options."
+  }, {
+    "eventId" : "ced5cff39c5b599305c500ef4969650d",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10352,
+    "summary" : "The customer wants to know if they can place an order from Austin."
+  }, {
+    "eventId" : "d01cdf7bca2ecc68ea700b7f8cf7db2e",
+    "expectedIntent" : "DELIVERY",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "RULES",
+    "fallbackReason" : "TIMEOUT",
+    "latencyMs" : 30013,
+    "summary" : "I want help seeing how soon can I expect the purchase"
+  }, {
+    "eventId" : "d6048c511ae9e2e8cc7835a4d098b006",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "FEEDBACK",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1410,
+    "summary" : "The customer wants to know where to send feedback about products."
+  }, {
+    "eventId" : "a1e0f0d5b885cdb12512711ca4ce5ce1",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "FEEDBACK",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11720,
+    "summary" : "The customer wants to provide feedback about the services."
+  }, {
+    "eventId" : "9297a8b074732b688faaae1b8b895bfa",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "FEEDBACK",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1195,
+    "summary" : "The customer wants to know how to send feedback about the company's services."
+  }, {
+    "eventId" : "b1edc32b9f61db0b334e9572d836236c",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "FEEDBACK",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11295,
+    "summary" : "The customer wants to know how to leave feedback for the company's products."
+  }, {
+    "eventId" : "cd332eae7f618a8fe7e04efcde4c8867",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "FEEDBACK",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 18601,
+    "summary" : "The customer wants to lodge a complaint against the company."
+  }, {
+    "eventId" : "04961b4c69e074ed8803214e90d03eb3",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "FEEDBACK",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 8400,
+    "summary" : "The customer wants to submit feedback for the company."
+  }, {
+    "eventId" : "4ee6559aabdc90f9da450da8789362d4",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "OTHER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1405,
+    "summary" : "The customer wants to know how to make a claim."
+  }, {
+    "eventId" : "e8130de59a8a2484e0137ce7d48354ba",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "REFUND",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1336,
+    "summary" : "The customer wants assistance with making a reclamation."
+  }, {
+    "eventId" : "0e6fb6ea53dfcef849a2b34570ddc506",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "FEEDBACK",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1476,
+    "summary" : "The customer wants to submit feedback for the company."
+  }, {
+    "eventId" : "fc86ceca6b14ac498cb8ca2dc730c391",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "FEEDBACK",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 8770,
+    "summary" : "The customer wants assistance to submit feedback about the company's services."
+  }, {
+    "eventId" : "be44e4f0b7e2b4bae669beca9182879e",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "FEEDBACK",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1261,
+    "summary" : "The customer wants to file a claim against the business."
+  }, {
+    "eventId" : "951d153e002495ca3b65a4038490fce1",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "FEEDBACK",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1410,
+    "summary" : "The customer wants to leave feedback for the company."
+  }, {
+    "eventId" : "b7e415806cc81cf04e55300d4d45466f",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "FEEDBACK",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 995,
+    "summary" : "The customer wants help leaving a comment."
+  }, {
+    "eventId" : "1178113607df7d515e05fae2abe4a0ce",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "FEEDBACK",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12325,
+    "summary" : "The customer wants help to send feedback for a service."
+  }, {
+    "eventId" : "3dc3e97d92942b58fcf2f1672d170a0a",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "FEEDBACK",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1921,
+    "summary" : "The customer wants to file a reclamation or general complaint."
+  }, {
+    "eventId" : "df4ad8d25b3abdbe04d3a32d8152fb8c",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "FEEDBACK",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 17940,
+    "summary" : "The customer wants assistance writing an opinion for a product."
+  }, {
+    "eventId" : "e4626aa44c5570d92b4ce1537ad3bd3d",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "FEEDBACK",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEGATIVE",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 9760,
+    "summary" : "The customer is unhappy with the service and wants to lodge a formal complaint."
+  }, {
+    "eventId" : "dc9ce47564bd4f4aa17da86f95bf929a",
+    "expectedIntent" : "FEEDBACK",
+    "predictedIntent" : "FEEDBACK",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1061,
+    "summary" : "The customer wants to know how to file a reclamation or complaint against the company."
+  }, {
+    "eventId" : "56b3758c5b4fe47a836d9f3141e6e621",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1055,
+    "summary" : "The customer wants to view their bill."
+  }, {
+    "eventId" : "48751ed3b9ad63544a7d084b4b893148",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1469,
+    "summary" : "The customer wants to obtain billing documents from Daniel."
+  }, {
+    "eventId" : "b76cf222495c4a3513e4b92d9e09a43c",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12162,
+    "summary" : "The customer wants to get bill #00108."
+  }, {
+    "eventId" : "0dc6e3397dcb9231855e70b2d132f726",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 2225,
+    "summary" : "The customer wants to know how to download invoice number 12588."
+  }, {
+    "eventId" : "446909fe72a25ac61d2ac2ede8a5522b",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 14692,
+    "summary" : "The customer wants to download invoice number 37777."
+  }, {
+    "eventId" : "2530650a4a69a2ac5a4dd81c203459e1",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1331,
+    "summary" : "The customer wants to know how to view bill number 37777."
+  }, {
+    "eventId" : "6b9eb8b3ab6dd7b08ec0fd99b69033e3",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11597,
+    "summary" : "The customer wants to see bills from Ana."
+  }, {
+    "eventId" : "2b0e06e4940c708a205dfd0151d2f710",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12290,
+    "summary" : "The customer wants to know how to download their bill."
+  }, {
+    "eventId" : "c607d6122ac99757f5238e9286dbc59a",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 2781,
+    "summary" : "The customer wants to find a specific bill from Daniel."
+  }, {
+    "eventId" : "b17d33a602922828b25ddd2357ee878f",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13964,
+    "summary" : "The customer wants help locating their invoice number 00108."
+  }, {
+    "eventId" : "5db13f7f9b4c980f4f8ced22592f9b73",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13764,
+    "summary" : "The customer wants assistance viewing invoice number 85632."
+  }, {
+    "eventId" : "1ae0810b746abad6a4bbeb4e353fbd42",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11997,
+    "summary" : "The customer wants help finding their bill."
+  }, {
+    "eventId" : "b099b5d6ee31362914568aa4169bfa7d",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11237,
+    "summary" : "The customer needs assistance finding an invoice from Daniel."
+  }, {
+    "eventId" : "4af595e293fb5331f7c44b594cf5d9f6",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12918,
+    "summary" : "The customer wants help downloading invoices."
+  }, {
+    "eventId" : "27c29ba5a663051bde982f40d15eee02",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 16786,
+    "summary" : "The customer wants to get bill number 85632."
+  }, {
+    "eventId" : "9d4fbe5416d67a438ae1879a15b01369",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12093,
+    "summary" : "The customer wants to know how to check invoice #00108."
+  }, {
+    "eventId" : "a5929546f6c816d9c2263bd5e5169649",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEGATIVE",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12887,
+    "summary" : "The customer wants to find their invoice."
+  }, {
+    "eventId" : "4ae938e8da1fb1b80639469c675f6b54",
+    "expectedIntent" : "INVOICE",
+    "predictedIntent" : "INVOICE",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 16732,
+    "summary" : "The customer needs help downloading their invoices from Ana."
+  }, {
+    "eventId" : "09f62bfe7d89f06ac93a663b239bbebd",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "CANCEL",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEGATIVE",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 18635,
+    "summary" : "The customer cannot afford the purchase and wants to cancel it."
+  }, {
+    "eventId" : "4170ac4c0fd5eda759a51a9c6243d7bb",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 24650,
+    "summary" : "The customer wants to know how to cancel a specific purchase."
+  }, {
+    "eventId" : "b6471e0a5fcbd4bf60bcb4ba1624d9f1",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "OTHER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "RULES",
+    "fallbackReason" : "TIMEOUT",
+    "latencyMs" : 30016,
+    "summary" : "canceling purechase [ID]"
+  }, {
+    "eventId" : "a0a7fb9f27a6579c874e2b9937abb935",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11962,
+    "summary" : "The customer wants to know how to acquire or purchase an item."
+  }, {
+    "eventId" : "c474fd2ece66e2d4e079b2594f463212",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEGATIVE",
+    "extractor" : "RULES",
+    "fallbackReason" : "TIMEOUT",
+    "latencyMs" : 30005,
+    "summary" : "I do not know how I could check the ETA of purchase [ID]"
+  }, {
+    "eventId" : "f2efc136439501b27fd3fecca0ea922e",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11197,
+    "summary" : "The customer wants to know how to cancel a specific purchase."
+  }, {
+    "eventId" : "afa9ead55036d854d7ac26ae126b2204",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 27314,
+    "summary" : "The customer wants to check the status of their purchase."
+  }, {
+    "eventId" : "1f9a642443a0e92dce73cf028145e3d7",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12422,
+    "summary" : "The customer wants assistance with purchasing a product."
+  }, {
+    "eventId" : "34b4b35334bcf8059e35e329a8df324e",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEGATIVE",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 17022,
+    "summary" : "The customer wants to swap several items from their purchase."
+  }, {
+    "eventId" : "b0a4946aff45de55bc0b4d0760e61c0f",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 18454,
+    "summary" : "The customer wants help shopping for a few articles."
+  }, {
+    "eventId" : "cb9d217a9072cae9503574598be42a87",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 19864,
+    "summary" : "The customer wants to edit an order."
+  }, {
+    "eventId" : "9481e0f0b9cc024aa8355f8f70c3dd14",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "DELIVERY",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 16103,
+    "summary" : "The customer wants to check the estimated time of arrival for their order."
+  }, {
+    "eventId" : "7a91d0df8dfa0b252360fef6ae938824",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13194,
+    "summary" : "The customer wants to check the current status of their purchase."
+  }, {
+    "eventId" : "6eea601cba2fe9b8371c2e3db096221d",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 14220,
+    "summary" : "The customer wants assistance to purchase items."
+  }, {
+    "eventId" : "c02055c5e1179f98dd2ba0ae7f7534d3",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 3268,
+    "summary" : "The customer wants to know how to track their purchase using ID."
+  }, {
+    "eventId" : "21bdebadabe65ba53f45dd4a0d16ac66",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 14453,
+    "summary" : "The customer wants to edit an existing purchase."
+  }, {
+    "eventId" : "90005bb813c973f0ca8cc89f546aaf2e",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13816,
+    "summary" : "The customer wants help to place an order."
+  }, {
+    "eventId" : "b9538d6b4616353b6c26e51b4c5b6004",
+    "expectedIntent" : "ORDER",
+    "predictedIntent" : "ORDER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12720,
+    "summary" : "The customer wants to remove a product from an existing purchase order."
+  }, {
+    "eventId" : "62bac382485cb2f30d0a589b78635191",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 14637,
+    "summary" : "The customer wants to know what payment methods are available."
+  }, {
+    "eventId" : "34bf0713399a25dd47a8045609eb01ee",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEGATIVE",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 17339,
+    "summary" : "The customer wants to know the available payment methods."
+  }, {
+    "eventId" : "7cbaf0036421c0ddac8ba76a0fcf63ac",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 15993,
+    "summary" : "The customer wants help reporting issues with payment."
+  }, {
+    "eventId" : "3d13b4c9fc700a9eb0a3f70fdcea77e4",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 17549,
+    "summary" : "The customer wants to know what payment methods are accepted."
+  }, {
+    "eventId" : "04a9f1debc630b0e41dd551354d447fb",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11884,
+    "summary" : "The customer wants help solving a payment issue."
+  }, {
+    "eventId" : "13aa3c254cfaeb590a8f23df83930d7e",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEGATIVE",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13481,
+    "summary" : "The customer wants to report issues with making an online payment."
+  }, {
+    "eventId" : "f981f60388cfa882f54f8f729a6b615f",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 992,
+    "summary" : "The customer wants to know the accepted payment methods."
+  }, {
+    "eventId" : "c9e9f53b834bc2cf6b91161790990a5c",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13832,
+    "summary" : "The customer wants to know the allowed payment options."
+  }, {
+    "eventId" : "3675152aeb3a24adcc5bfda9c0f6af23",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 14233,
+    "summary" : "The customer wants to know how to report payment problems."
+  }, {
+    "eventId" : "f0cb3869881e1a10e02da124abf55b7b",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEGATIVE",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12472,
+    "summary" : "The customer wants assistance with a payment issue."
+  }, {
+    "eventId" : "17ab994a9e93e5a2591b90c882bb4c0a",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13902,
+    "summary" : "The customer wants to know what payment options are allowed."
+  }, {
+    "eventId" : "9ca351df4577f714cfdfd47528e541d1",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12792,
+    "summary" : "The customer wants to know how to list the available payment methods."
+  }, {
+    "eventId" : "8c8afe19a71c649545da26f3ca33c127",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12646,
+    "summary" : "The customer needs help reporting payment troubles."
+  }, {
+    "eventId" : "0a77bd9322ce04fc36802ce9e38ffd4c",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13379,
+    "summary" : "The customer wants to know what payment options are accepted."
+  }, {
+    "eventId" : "44ec06a602eb4fefa31e4ad45141f202",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 15246,
+    "summary" : "The customer wants to know which payment methods are accepted."
+  }, {
+    "eventId" : "5190accbde28d5043532b7c67b4b94fe",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 14413,
+    "summary" : "The customer wants to know the available payment modalities."
+  }, {
+    "eventId" : "44f230c7df60e2af0747830ba0ab120b",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEGATIVE",
+    "extractor" : "RULES",
+    "fallbackReason" : "TIMEOUT",
+    "latencyMs" : 30004,
+    "summary" : "I do not know how I can check the available payment options"
+  }, {
+    "eventId" : "f475dd227aa23a7fb1fef91676223c23",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1269,
+    "summary" : "The customer wants to know how to report online payment troubles."
+  }, {
+    "eventId" : "79aedbdac9a5cf317679f20ba3d39c4e",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "REFUND",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 15444,
+    "summary" : "The customer wants a refund of $45."
+  }, {
+    "eventId" : "91c60fe47623263f7492193e48e768ec",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "REFUND",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 14357,
+    "summary" : "The customer wants to know how long refunds take to process."
+  }, {
+    "eventId" : "f3d7255966866c007aefe0a5ac744c45",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "REFUND",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 15346,
+    "summary" : "The customer wants to know the status of their rebate."
+  }, {
+    "eventId" : "8c0e6cb27fd9ec6ca8180a4ef7ccc385",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "OTHER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "RULES",
+    "fallbackReason" : "TIMEOUT",
+    "latencyMs" : 30002,
+    "summary" : "rebating Rs 1,200 dollars"
+  }, {
+    "eventId" : "d0957263ca01f6551a74f095887f9eb5",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "REFUND",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11830,
+    "summary" : "The customer wants to know the status of their $45 rebate."
+  }, {
+    "eventId" : "7ac83692ffedd52badad35999cd31bd6",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "REFUND",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12912,
+    "summary" : "The customer wants help requesting reimbursements."
+  }, {
+    "eventId" : "e375efd3381e870ca7fbc17cfeafc9ed",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "REFUND",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 15181,
+    "summary" : "The customer wants to know the status of their compensation."
+  }, {
+    "eventId" : "6c4fc8576645145974e948f90545e7a1",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "REFUND",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEGATIVE",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10863,
+    "summary" : "The customer is demanding a reimbursement."
+  }, {
+    "eventId" : "69e06bddee00815803f9729ae1c95c0e",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "REFUND",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11096,
+    "summary" : "The customer wants to know where to find the reimbursement policy."
+  }, {
+    "eventId" : "5a916aff082000224684f18beeafdc0f",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "REFUND",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10081,
+    "summary" : "The customer wants to know the processing time for refunds."
+  }, {
+    "eventId" : "87d5ed680479ab7409cda541339a3b54",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "REFUND",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10833,
+    "summary" : "The customer wants to check the status of their refund."
+  }, {
+    "eventId" : "7961e60f3bad37bd09ce8c4fb435d8c3",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "REFUND",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEGATIVE",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 14075,
+    "summary" : "The customer wants to obtain a refund for a recently purchased item."
+  }, {
+    "eventId" : "4f879b1d1cde1d6c74a045690029846f",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "REFUND",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12870,
+    "summary" : "The customer wants to know if there are any updates regarding their refund."
+  }, {
+    "eventId" : "93ab58f18922ce853bd05c79c5eca54e",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "REFUND",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10916,
+    "summary" : "The customer wants to know about the money back guarantee policy."
+  }, {
+    "eventId" : "2aede4379ffd6335bb6045afb249023d",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "REFUND",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11517,
+    "summary" : "The customer wants to get a refund for an item they paid $1,200 for."
+  }, {
+    "eventId" : "13429aa20919a592473a061e46972eeb",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "REFUND",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13458,
+    "summary" : "The customer wants to know how to request a refund for their money."
+  }, {
+    "eventId" : "5573432618c317e894d69a84258567c7",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "REFUND",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 12747,
+    "summary" : "The customer is checking the status of their forty-five dollar reimbursement."
+  }, {
+    "eventId" : "a190fa4466b90b660c02dc96e73f5a36",
+    "expectedIntent" : "REFUND",
+    "predictedIntent" : "OTHER",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "RULES",
+    "fallbackReason" : "TIMEOUT",
+    "latencyMs" : 30005,
+    "summary" : "need help to see my rebate current status"
+  }, {
+    "eventId" : "fc8916f65d10a7db9857cc9686dd6f64",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13270,
+    "summary" : "The customer wants to know how to modify a shipping address."
+  }, {
+    "eventId" : "8090e2c8b45d5f69cf1d69c683e85a03",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13408,
+    "summary" : "The customer wants assistance with changing their shipping address."
+  }, {
+    "eventId" : "0981ffbe12202ca6dd6ea86e706cb8a3",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 14166,
+    "summary" : "The customer wants help to submit a shipping address."
+  }, {
+    "eventId" : "e21eded989a203753d3061b6509226b5",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11051,
+    "summary" : "The customer wants support to change their address."
+  }, {
+    "eventId" : "ab1bc08423b2b99ad8033ccb961c9c6b",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 14093,
+    "summary" : "The customer wants help submitting a new delivery address."
+  }, {
+    "eventId" : "e2a4bcdb79450fc0eaf4a17b8788b7b6",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10272,
+    "summary" : "The customer wants help setting up their shipping address."
+  }, {
+    "eventId" : "212d3ac6213b65a7c2ca0ae3ea1d80b9",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 9336,
+    "summary" : "The customer wants to know how to update their shipping address."
+  }, {
+    "eventId" : "dc6826730ca00e6c6ed95ac0662e68b6",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13561,
+    "summary" : "The customer wants help setting up a secondary shipping address."
+  }, {
+    "eventId" : "786259f400392b28b6aef32346289f0c",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 14121,
+    "summary" : "The customer wants help to correct their shipping address."
+  }, {
+    "eventId" : "e29615907eee324c13b9174491f2c9f7",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 15274,
+    "summary" : "The customer wants to set up a new delivery address."
+  }, {
+    "eventId" : "cda439b702e3b965e096be8ce7406bcc",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEGATIVE",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13412,
+    "summary" : "The customer is experiencing issues entering their shipping address."
+  }, {
+    "eventId" : "7ad6b83a53a3475b96320c8ed174481b",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEGATIVE",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 13454,
+    "summary" : "The customer wants help with submitting their shipping address."
+  }, {
+    "eventId" : "19b17acf8cd8fb4f8016ed605313e476",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 9269,
+    "summary" : "The customer wants help entering their delivery address."
+  }, {
+    "eventId" : "970c3663f13353a683414a12f78690df",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "RULES",
+    "fallbackReason" : "TIMEOUT",
+    "latencyMs" : 30003,
+    "summary" : "i need help setting up my new delivery address"
+  }, {
+    "eventId" : "e9a3ca9e3bcb6f8740b1f39e1289fe88",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 11455,
+    "summary" : "The customer wants assistance correcting their shipping address."
+  }, {
+    "eventId" : "67715b11b15877734c8c148d0022c855",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10749,
+    "summary" : "The customer wants to know how to set up a new shipping address."
+  }, {
+    "eventId" : "6db7bfd6efcf37cd3f329b53145e1136",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 15194,
+    "summary" : "The customer wants to know how to correct their delivery address."
+  }, {
+    "eventId" : "d5c021811003264a0793222144582698",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 9738,
+    "summary" : "The customer wants to know how to correct a shipping address."
+  }, {
+    "eventId" : "3ae65d1fee623898572b0d7ee69f01ba",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 24503,
+    "summary" : "The customer wants to cancel their company newsletter subscription."
+  }, {
+    "eventId" : "534dbb56ac2218184d5bb5b5f5adbb4e",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 7269,
+    "summary" : "The customer wants to cancel their company newsletter subscription."
+  }, {
+    "eventId" : "9bd3cac284914b6154cecf4b8fb0f099",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 9450,
+    "summary" : "The customer wants to receive the company newsletter."
+  }, {
+    "eventId" : "5c909ae35f00ef34e2c46a01303c8f2a",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "RULES",
+    "fallbackReason" : "TIMEOUT",
+    "latencyMs" : 30002,
+    "summary" : "assistance signing up to the company newsletter"
+  }, {
+    "eventId" : "ca1b1ecf00823b1a83b441dcc1526e9d",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10091,
+    "summary" : "The customer wants to unsubscribe from the newsletter."
+  }, {
+    "eventId" : "521312111a20ef11db64129ab04d9689",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 9043,
+    "summary" : "The customer wants to know how to sign up for the corporate newsletter."
+  }, {
+    "eventId" : "fdd89629ae3105e88346cf3a62c30b94",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 5788,
+    "summary" : "The customer wants assistance to receive the corporate newsletter."
+  }, {
+    "eventId" : "f37065d8452dd281e888bd1d7601bb67",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 1158,
+    "summary" : "The customer wants help canceling their newsletter subscription."
+  }, {
+    "eventId" : "377d377eb5311303f28c9e428c1d4aa3",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 7971,
+    "summary" : "The customer wants information about the newsletter subscription."
+  }, {
+    "eventId" : "6b1b63f0b3693c82a4055fee661ccfba",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 7181,
+    "summary" : "The customer wants assistance to receive the company newsletter."
+  }, {
+    "eventId" : "14dfc8aa6321d3f7734ac9a26251149c",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 18704,
+    "summary" : "The customer wants to subscribe to the newsletter but is unable to do so."
+  }, {
+    "eventId" : "a8a4bef1e50425f6e78c076412a9f92d",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 7917,
+    "summary" : "The customer wants to know how to cancel their subscription to the newsletter."
+  }, {
+    "eventId" : "8f5717c9a9f690515ce219c1133dc8ad",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10743,
+    "summary" : "The customer wants to know how to cancel their newsletter subscription."
+  }, {
+    "eventId" : "18ec4c40b883dce578ec41ae1e7f9d7f",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 7111,
+    "summary" : "The customer wants to know how to receive the company newsletter."
+  }, {
+    "eventId" : "95d92ef62626a78a9dc128387543ff76",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 8292,
+    "summary" : "The customer wants help unsubscribing from the company newsletter."
+  }, {
+    "eventId" : "1c2453df4aca45de3b7e093c07a614a9",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10430,
+    "summary" : "The customer wants to subscribe to the newsletter but is unable to do so."
+  }, {
+    "eventId" : "29d77e57f6d458b455fed6159457e3a7",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 8850,
+    "summary" : "The customer wants to subscribe to the company newsletter."
+  }, {
+    "eventId" : "70e291a56f17def911515adf68f379e0",
+    "expectedIntent" : "SUBSCRIPTION",
+    "predictedIntent" : "SUBSCRIPTION",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10711,
+    "summary" : "The customer wants to unsubscribe from the company newsletter."
+  }, {
+    "eventId" : "fce94b752f8e12fe5b8f36bd7fb59844",
+    "expectedIntent" : "PAYMENT",
+    "predictedIntent" : "PAYMENT",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 10590,
+    "summary" : "The customer wants help resolving payment errors."
+  }, {
+    "eventId" : "c1cdf70167cf601696c4d071128165ef",
+    "expectedIntent" : "SHIPPING",
+    "predictedIntent" : "SHIPPING",
+    "expectedSentiment" : null,
+    "predictedSentiment" : "NEUTRAL",
+    "extractor" : "LLM",
+    "fallbackReason" : null,
+    "latencyMs" : 8061,
+    "summary" : "The customer wants help editing their shipping address."
+  } ]
+}

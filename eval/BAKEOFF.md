@@ -19,6 +19,22 @@ for qwen2.5:3b, 7 of 48 real-tweet predictions changed (2 went from right to wro
 both times) and 5 of 200 golden predictions changed. On a 48-row set, 2 rows is within noise. The ranking and the
 decision are unchanged. Results: `eval/results/v2/`.
 
+## Hosted model: Gemini 3.5 Flash-Lite (23 Oct, redaction v2)
+
+Same harness, same prompt, through `GeminiClient` (`--extractor=gemini`), free tier, one call every 4.5 s to stay under
+the rate limit (the wait is outside the measured latency), 30 s timeout.
+
+| Set | Intent acc. | Macro-F1 | Sentiment acc. | p50 | p95 | Fallback |
+|---|---:|---:|---:|---:|---:|---:|
+| golden (200) | **91.0%** | 0.918 | | 11,197 ms | 24,503 ms | 4.0% (8 timeouts) |
+| real tweets (48) | **54.2%** | 0.281 | 77.1% | 9,590 ms | 20,836 ms | 0% |
+
+Against local qwen2.5:3b (85.0% / 39.6%, p95 3.6 s / 5.5 s): the hosted model is clearly more accurate, especially
+on real tweets (+14.6 points), but on the free tier it is about 3x slower and 4% of calls timed out at 30 s. The
+local model stays the default for the pipeline (no rate limits, no data leaves the machine, reproducible in CI);
+Gemini is one config switch away (`insights.llm.provider=gemini`), and PII redaction is what makes sending text to it
+acceptable. Latency includes the network round trip from Goa to Google.
+
 ## First run (redaction v1, 21 Oct)
 
 Every extractor was run through the same harness (`EvalMain`) on two labelled sets:
