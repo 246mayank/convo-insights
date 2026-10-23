@@ -4,6 +4,7 @@ import dev.mayank.convoinsights.domain.ConversationEvent;
 import dev.mayank.convoinsights.domain.ExtractionResult;
 import dev.mayank.convoinsights.extract.InsightExtractor;
 import dev.mayank.convoinsights.extract.RuleBasedExtractor;
+import dev.mayank.convoinsights.extract.llm.GeminiClient;
 import dev.mayank.convoinsights.extract.llm.LlmInsightExtractor;
 import dev.mayank.convoinsights.extract.llm.LlmOutputValidator;
 import dev.mayank.convoinsights.extract.llm.OllamaClient;
@@ -58,14 +59,27 @@ public final class EvalMain {
                     new OllamaClient(args.getOrDefault("ollama-url", "http://localhost:11434"), model,
                             Duration.ofSeconds(Long.parseLong(args.getOrDefault("timeout-s", "30"))), 2048, 160),
                     new LlmOutputValidator(MAPPER), rules, Prompts.load(prompt), prompt, 2000);
+            case "gemini" -> new LlmInsightExtractor(
+                    new GeminiClient(org.springframework.web.client.RestClient.builder(), System.getenv("GEMINI_API_KEY"), model,
+                            Duration.ofSeconds(Long.parseLong(args.getOrDefault("timeout-s", "30"))), 256),
+                    new LlmOutputValidator(MAPPER), rules, Prompts.load(prompt), prompt, 2000);
             default -> throw new IllegalArgumentException("unknown --extractor " + extractorName);
         };
         var redactor = new PiiRedactor();
+        long paceMs = Long.parseLong(args.getOrDefault("pace-ms", "0")); // stay under a hosted API's rate limit
 
         List<Map<String, Object>> results = new ArrayList<>();
         long started = System.nanoTime();
         for (int i = 0; i < rows.size(); i++) {
             LabelledRow row = rows.get(i);
+            if (paceMs > 0 && i > 0) {
+                try {
+                    Thread.sleep(paceMs); // outside the measured latency
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
+                    break;
+                }
+            }
             ExtractionResult r = extractor.extract(redactor.redact(row.event()).event());
             Map<String, Object> out = new LinkedHashMap<>();
             out.put("eventId", row.event().eventId());
