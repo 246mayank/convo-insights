@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>convo-insights live</title>
+<style>
+  :root {
+    --bg: #f4f6f8; --card: #ffffff; --fg: #17202a; --muted: #5d6b79; --line: #dde3e9;
+    --neg: #c0392b; --neu: #7f8c8d; --pos: #1e8449; --accent: #0d6b66;
+    --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #11161b; --card: #182027; --fg: #e3e9ee; --muted: #93a1ad; --line: #2a343d;
+            --neg: #ef7a6c; --neu: #a5b1bb; --pos: #6fcf8f; --accent: #4fc2b9; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.45 "Segoe UI", system-ui, sans-serif; }
+  header { padding: 16px 20px; border-bottom: 1px solid var(--line); display: flex; gap: 24px; align-items: baseline; flex-wrap: wrap; }
+  h1 { font-size: 18px; margin: 0; }
+  .stat { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+  .stat b { color: var(--fg); font-size: 15px; }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--neu); margin-right: 6px; }
+  .dot.on { background: var(--pos); }
+  main { padding: 16px 20px; display: grid; gap: 10px; max-width: 980px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--neu); border-radius: 8px;
+          padding: 10px 14px; display: grid; gap: 4px; animation: in .25s ease-out; }
+  .card.NEGATIVE { border-left-color: var(--neg); } .card.POSITIVE { border-left-color: var(--pos); }
+  .meta { display: flex; gap: 10px; flex-wrap: wrap; font-size: 12.5px; color: var(--muted); }
+  .chip { font-family: var(--mono); font-size: 12px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); color: var(--fg); }
+  .chip.intent { border-color: var(--accent); color: var(--accent); }
+  .summary { font-size: 15px; }
+  .empty { color: var(--muted); padding: 24px 0; }
+  @keyframes in { from { opacity: .3; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .card { animation: none; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>convo-insights · live insights</h1>
+  <span class="stat"><span id="dot" class="dot"></span><span id="conn">connecting</span></span>
+  <span class="stat">received <b id="n">0</b></span>
+  <span class="stat">negative <b id="neg">0%</b></span>
+  <span class="stat">LLM <b id="llm">0%</b></span>
+  <span class="stat">PII redacted <b id="pii">0</b></span>
+</header>
+<main id="list"><p class="empty" id="empty">Waiting for insights. Replay some conversations or send a Twilio webhook, and they appear here as they are processed.</p></main>
+<script>
+  const list = document.getElementById('list');
+  let n = 0, neg = 0, llm = 0, pii = 0;
+  const pct = (a, b) => b ? Math.round(100 * a / b) + '%' : '0%';
+  function add(i) {
+    document.getElementById('empty')?.remove();
+    n++; if (i.sentiment === 'NEGATIVE') neg++; if (i.extractor === 'LLM') llm++; pii += i.piiRedactions || 0;
+    document.getElementById('n').textContent = n;
+    document.getElementById('neg').textContent = pct(neg, n);
+    document.getElementById('llm').textContent = pct(llm, n);
+    document.getElementById('pii').textContent = pii;
+    const card = document.createElement('article');
+    card.className = 'card ' + i.sentiment;
+    const meta = document.createElement('div'); meta.className = 'meta';
+    const chip = (text, cls) => { const s = document.createElement('span'); s.className = 'chip ' + (cls || ''); s.textContent = text; return s; };
+    meta.append(chip(i.intent, 'intent'), chip(i.sentiment), chip(i.channel || i.source));
+    const who = document.createElement('span'); who.textContent = '@' + (i.brand || 'unknown'); meta.append(who);
+    const how = document.createElement('span');
+    how.textContent = i.extractor === 'LLM' ? `${i.model} · ${i.llmLatencyMs} ms` : `rules${i.fallbackReason ? ' (' + i.fallbackReason + ')' : ''}`;
+    meta.append(how);
+    const summary = document.createElement('div'); summary.className = 'summary'; summary.textContent = i.summary;
+    card.append(meta, summary);
+    list.prepend(card);
+    while (list.children.length > 50) list.lastChild.remove();
+  }
+  function connect() {
+    const es = new EventSource('/api/insights/stream');
+    es.onopen = () => { document.getElementById('dot').className = 'dot on'; document.getElementById('conn').textContent = 'live'; };
+    es.addEventListener('insight', e => add(JSON.parse(e.data)));
+    es.onerror = () => { document.getElementById('dot').className = 'dot'; document.getElementById('conn').textContent = 'reconnecting'; };
+  }
+  // Show the most recent insights first, then stream new ones as they are processed.
+  fetch('/api/insights?size=15').then(r => r.json()).then(p => {
+    (p.content || []).slice().reverse().forEach(add);
+  }).catch(() => {}).finally(connect);
+</script>
+</body>
+</html>

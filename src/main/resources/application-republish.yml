@@ -10,3 +10,5 @@ insights:
     relay-enabled: false
   analytics:
     enabled: false
+  live-feed:
+    enabled: false
