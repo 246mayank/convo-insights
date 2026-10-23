@@ -43,7 +43,7 @@ class InsightServiceTest {
         extractor = spy(new RuleBasedExtractor());
         var tx = new TransactionTemplate(mock(PlatformTransactionManager.class));
         service = new InsightService(insights, outbox, extractor, new PiiRedactor(), tx,
-                JsonMapper.builder().build(), "insights.enriched", new InsightMetrics(new SimpleMeterRegistry(), outbox));
+                JsonMapper.builder().build(), "insights.enriched", "insights.segment", new InsightMetrics(new SimpleMeterRegistry(), outbox));
         when(insights.saveAndFlush(any())).thenAnswer(inv -> inv.getArgument(0));
     }
 
@@ -58,12 +58,17 @@ class InsightServiceTest {
         var outcome = service.process(TestEvents.customer("e1", "refund please"));
         assertThat(outcome.duplicate()).isFalse();
         assertThat(outcome.insight().getEventId()).isEqualTo("e1");
-        ArgumentCaptor<OutboxEvent> row = ArgumentCaptor.forClass(OutboxEvent.class);
-        verify(outbox).save(row.capture());
-        assertThat(row.getValue().getTopic()).isEqualTo("insights.enriched");
-        assertThat(row.getValue().getRecordKey()).isEqualTo("e1");
-        assertThat(row.getValue().getPayload()).contains("\"eventId\":\"e1\"").contains("\"intent\":\"REFUND\"");
-        assertThat(row.getValue().getSentAt()).isNull();
+        ArgumentCaptor<OutboxEvent> rows = ArgumentCaptor.forClass(OutboxEvent.class);
+        verify(outbox, org.mockito.Mockito.times(2)).save(rows.capture());
+        var enriched = rows.getAllValues().get(0);
+        assertThat(enriched.getTopic()).isEqualTo("insights.enriched");
+        assertThat(enriched.getRecordKey()).isEqualTo("e1");
+        assertThat(enriched.getPayload()).contains("\"eventId\":\"e1\"").contains("\"intent\":\"REFUND\"");
+        assertThat(enriched.getSentAt()).isNull();
+        var track = rows.getAllValues().get(1);
+        assertThat(track.getTopic()).isEqualTo("insights.segment");
+        assertThat(track.getRecordKey()).isEqualTo("e1");
+        assertThat(track.getPayload()).contains("\"type\":\"track\"").contains("\"messageId\":\"e1\"");
     }
 
     @Test

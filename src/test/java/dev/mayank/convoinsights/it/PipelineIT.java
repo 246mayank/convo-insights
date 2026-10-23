@@ -115,6 +115,11 @@ class PipelineIT {
         assertThat(downstream).hasSize(1);
         assertThat(downstream.getFirst().value()).contains("\"eventId\":\"" + id + "\"").contains("TECHNICAL_SUPPORT");
         await().atMost(Duration.ofSeconds(10)).until(() -> pendingOutboxFor(id) == 0);
+
+        List<ConsumerRecord<String, String>> segment = readAll("insights.segment", r -> id.equals(r.key()), 1);
+        assertThat(segment).hasSize(1);
+        assertThat(segment.getFirst().value()).contains("\"type\":\"track\"").contains("\"event\":\"Conversation Analyzed\"")
+                .contains("\"messageId\":\"" + id + "\"");
     }
 
     @Test
@@ -127,7 +132,8 @@ class PipelineIT {
         awaitInsight(id);
         awaitConsumerCaughtUp();
         assertThat(jdbc.queryForObject("select count(*) from insights where event_id = ?", Long.class, id)).isEqualTo(1);
-        assertThat(jdbc.queryForObject("select count(*) from outbox where record_key = ?", Long.class, id)).isEqualTo(1);
+        assertThat(jdbc.queryForObject("select count(*) from outbox where record_key = ?", Long.class, id))
+                .as("one enriched + one Segment row, written once").isEqualTo(2);
         // the model was asked once, not twice
         assertThat(model.seenMessages().stream().filter(m -> m.contains("app crashes when I open it")).count()).isEqualTo(1);
     }

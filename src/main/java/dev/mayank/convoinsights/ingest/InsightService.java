@@ -24,8 +24,9 @@ import java.time.Duration;
  * <ol>
  *   <li>Dedupe on eventId before the slow LLM call.</li>
  *   <li>Redact PII, then extract. No DB transaction is open while waiting on the model.</li>
- *   <li>One short transaction writes the insight and its outbox row together, so a stored
- *       insight always has a pending publish and a publish never exists without its insight.</li>
+ *   <li>One short transaction writes the insight and its outbox rows (enriched insight + Segment
+ *       Track call) together, so a stored insight always has its pending publishes and a publish
+ *       never exists without its insight.</li>
  * </ol>
  * The unique index on {@code event_id} is the real dedupe guarantee if two deliveries race.
  */
@@ -41,11 +42,13 @@ public class InsightService {
     private final TransactionTemplate tx;
     private final ObjectMapper mapper;
     private final String enrichedTopic;
+    private final String segmentTopic;
     private final InsightMetrics metrics;
 
     public InsightService(InsightRepository insights, OutboxRepository outbox, InsightExtractor extractor,
                           PiiRedactor redactor, TransactionTemplate tx, ObjectMapper mapper,
-                          @Value("${insights.topics.enriched}") String enrichedTopic, InsightMetrics metrics) {
+                          @Value("${insights.topics.enriched}") String enrichedTopic,
+                          @Value("${insights.topics.segment}") String segmentTopic, InsightMetrics metrics) {
         this.insights = insights;
         this.outbox = outbox;
         this.extractor = extractor;
@@ -53,6 +56,7 @@ public class InsightService {
         this.tx = tx;
         this.mapper = mapper;
         this.enrichedTopic = enrichedTopic;
+        this.segmentTopic = segmentTopic;
         this.metrics = metrics;
     }
 
@@ -73,6 +77,8 @@ public class InsightService {
                 Insight s = insights.saveAndFlush(insight);
                 outbox.save(OutboxEvent.of(enrichedTopic, s.getEventId(),
                         mapper.writeValueAsString(InsightView.of(s))));
+                outbox.save(OutboxEvent.of(segmentTopic, s.getEventId(),
+                        mapper.writeValueAsString(SegmentTrack.of(s))));
                 return s;
             });
             metrics.processed(result, Duration.ofNanos(System.nanoTime() - start));

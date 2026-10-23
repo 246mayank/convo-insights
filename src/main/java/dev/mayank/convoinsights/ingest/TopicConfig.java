@@ -24,6 +24,11 @@ class TopicConfig {
     }
 
     @Bean
+    NewTopic segmentTopic(@Value("${insights.topics.segment}") String name) {
+        return TopicBuilder.name(name).partitions(6).replicas(1).build();
+    }
+
+    @Bean
     NewTopic deadLetterTopic(@Value("${insights.topics.dead-letter}") String name) {
         return TopicBuilder.name(name).partitions(1).replicas(1).build();
     }

@@ -55,6 +55,7 @@ insights:
   topics:
     raw: conversations.raw
     enriched: insights.enriched
+    segment: insights.segment
     dead-letter: conversations.raw.DLT
     brand-sentiment: analytics.brand-sentiment
     alerts: alerts.sentiment-spike
