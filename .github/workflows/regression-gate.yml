@@ -1,0 +1,77 @@
+name: Regression gate
+
+# Scores the production model + prompt on an evenly spread 60-row subset of the golden set and fails
+# the PR if intent accuracy drops more than 5 points or p95 model latency grows more than 50% versus
+# eval/baseline.json. The baseline comes from this same workflow (run it manually with
+# write_baseline), because only latency measured on the CI runner is comparable to the CI runner.
+on:
+  pull_request:
+    paths:
+      - "src/main/**"
+      - "src/main/resources/prompts/**"
+      - "eval/**"
+      - "pom.xml"
+      - ".github/workflows/regression-gate.yml"
+  workflow_dispatch:
+    inputs:
+      write_baseline:
+        description: "Write a new eval/baseline.json (uploaded as an artifact) instead of gating"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+env:
+  MODEL: qwen2.5:3b
+  PROMPT: v1
+  SUBSET: "60"
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    services:
+      ollama:
+        image: ollama/ollama:0.40.7
+        ports:
+          - 11434:11434
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Pull the model
+        run: |
+          for i in $(seq 1 30); do curl -sf localhost:11434/api/version && break; sleep 2; done
+          curl -sf localhost:11434/api/pull -d "{\"model\":\"$MODEL\",\"stream\":false}" | tail -c 200
+          curl -s localhost:11434/api/tags
+
+      - name: Build
+        run: ./mvnw -B -ntp -q -DskipTests compile dependency:build-classpath -Dmdep.outputFile=cp.txt -Dmdep.includeScope=runtime
+
+      - name: Evaluate
+        id: eval
+        run: |
+          if [[ "${{ inputs.write_baseline }}" == "true" ]]; then
+            MODE="--write-baseline=eval/baseline.json"
+          else
+            MODE="--baseline=eval/baseline.json"
+          fi
+          java -cp "target/classes:$(cat cp.txt)" dev.mayank.convoinsights.eval.EvalMain \
+            --dataset=golden:eval/golden.jsonl --extractor=ollama --model="$MODEL" --prompt="$PROMPT" \
+            --subset="$SUBSET" --timeout-s=120 --out=target/gate-report.json $MODE | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-report
+          path: |
+            target/gate-report.json
+            eval/baseline.json
+          retention-days: 30

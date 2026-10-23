@@ -48,6 +48,8 @@ public final class EvalMain {
 
         List<LabelledRow> rows = load(dataset);
         if (limit > 0 && rows.size() > limit) rows = rows.subList(0, limit);
+        int subset = Integer.parseInt(args.getOrDefault("subset", "0"));
+        if (subset > 0 && rows.size() > subset) rows = evenlySpaced(rows, subset);
 
         var rules = new RuleBasedExtractor();
         InsightExtractor extractor = switch (extractorName) {
@@ -98,6 +100,26 @@ public final class EvalMain {
         if (out.getParent() != null) Files.createDirectories(out.getParent());
         MAPPER.writerWithDefaultPrettyPrinter().writeValue(out.toFile(), report);
         System.err.println("wrote " + out + " " + MAPPER.writeValueAsString(report.get("metrics")));
+
+        @SuppressWarnings("unchecked")
+        Map<String, Object> metrics = (Map<String, Object>) report.get("metrics");
+        if (args.containsKey("write-baseline")) {
+            Gate.writeBaseline(Path.of(args.get("write-baseline")), runName, setName, rows.size(), metrics);
+        }
+        if (args.containsKey("baseline")) {
+            Gate.Result gate = Gate.check(Path.of(args.get("baseline")), runName, rows.size(), metrics,
+                    Double.parseDouble(args.getOrDefault("max-accuracy-drop", "0.05")),
+                    Double.parseDouble(args.getOrDefault("max-p95-increase", "0.5")));
+            System.out.println(gate.markdown());
+            if (!gate.passed()) System.exit(1);
+        }
+    }
+
+    /** n rows spread evenly over the list, so a small CI subset still covers every category of a sorted file. */
+    static <T> List<T> evenlySpaced(List<T> all, int n) {
+        List<T> out = new ArrayList<>(n);
+        for (int i = 0; i < n; i++) out.add(all.get((int) ((long) i * all.size() / n)));
+        return out;
     }
 
     record LabelledRow(ConversationEvent event, String intent, String sentiment) {
