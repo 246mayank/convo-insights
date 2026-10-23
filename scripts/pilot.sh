@@ -12,12 +12,14 @@ MODEL=${3:-qwen2.5:3b}
 OFFSET_LINE=${OFFSET_LINE:-15001}
 PORT=${PORT:-0}                      # 8080 lets Prometheus scrape the run
 REPORT=${REPORT:-bench/pilot.md}
+DB=${DB:-insights}                   # a separate database keeps a re-run apart from earlier data
+APP_ARGS=${APP_ARGS:-}               # extra service args, e.g. separate topics for a re-run
 cd "$(dirname "$0")/.."
 TS=$(date +%Y%m%d-%H%M%S)
 WORK=target/pilot-$TS
 JAVA=${JAVA:-java}
 mkdir -p "$WORK" bench
-psql() { docker exec ci-postgres psql -U insights -d insights -tAc "$1"; }
+psql() { docker exec ci-postgres psql -U insights -d "$DB" -tAc "$1"; }
 
 sed -n "${OFFSET_LINE},$((OFFSET_LINE + M - 1))p" data/conversations.jsonl > "$WORK/events.jsonl"
 python -I -c "import json,sys;[print(json.loads(l)['eventId']) for l in open(sys.argv[1],encoding='utf-8')]" "$WORK/events.jsonl" | sort -u > "$WORK/ids.txt"
@@ -31,12 +33,12 @@ DISTINCT=$(wc -l < "$WORK/ids.txt")
 
 "$JAVA" -jar target/convo-insights-0.0.1-SNAPSHOT.jar --spring.kafka.consumer.group-id="pilot-$TS" \
     --insights.llm.provider=ollama --insights.llm.ollama.model="$MODEL" \
-    --spring.kafka.listener.concurrency="$C" --server.port="$PORT" > "$WORK/app.log" 2>&1 &
+    --spring.kafka.listener.concurrency="$C" --server.port="$PORT" $APP_ARGS > "$WORK/app.log" 2>&1 &
 APP=$!
 trap 'kill $APP 2>/dev/null || true' EXIT
 until grep -q "partitions assigned" "$WORK/app.log"; do sleep 1; done
 "$JAVA" -jar target/convo-insights-0.0.1-SNAPSHOT.jar --spring.profiles.active=replay \
-    --replay.file="$WORK/events.jsonl" > "$WORK/replay.log" 2>&1
+    --replay.file="$WORK/events.jsonl" $APP_ARGS > "$WORK/replay.log" 2>&1
 
 until [[ "$(psql "select count(*) from insights where event_id in (select event_id from $T)")" == "$DISTINCT" ]]; do sleep 2; done
 
