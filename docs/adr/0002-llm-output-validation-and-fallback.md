@@ -33,4 +33,4 @@ partition blocks every conversation behind it.
 
 - **Retry the model until it answers well:** unbounded latency, and a deterministic bad answer never improves.
 - **Send failures to the dead-letter topic:** loses an insight for a problem that the rules can cover.
-- **Trust structured output without validation:** schema-constrained decoding still produced out-of-range values in testing.
+- **Trust structured output without validation:** the first probe returned a confidence of 90 under a schema that only said "number", and constrained decoding can't stop truncation at the token limit. The schema narrows the output; the validator decides.
