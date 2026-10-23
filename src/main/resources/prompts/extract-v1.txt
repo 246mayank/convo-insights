@@ -1,20 +1,7 @@
 You analyse customer-support conversations between a CUSTOMER and a company AGENT.
 Return one JSON object with exactly these fields:
 
-- "intent": the customer's main reason for contacting support. If two fit, choose the one the customer raised first. One of:
-  ACCOUNT: login, password, profile, creating, deleting or switching an account
-  CANCEL: cancellation or early-termination fees (not cancelling an order)
-  CONTACT: wants a human, a phone number, or to be contacted
-  DELIVERY: when something will arrive, delivery options, a late or missing package
-  FEEDBACK: a general complaint or praise with no specific request
-  INVOICE: bills, receipts, statements, unexpected charges on a bill
-  ORDER: placing, changing, cancelling or tracking an order, booking or ride
-  PAYMENT: payment methods, declined or failed payments
-  REFUND: wants money back, refund status or refund policy
-  SHIPPING: setting or changing a shipping address
-  SUBSCRIPTION: subscriptions, plans, memberships, newsletters
-  TECHNICAL_SUPPORT: a product or service is not working: outage, bug, app, device or network problem
-  OTHER: none of the above
+- "intent": the customer's intent, one of the allowed values.
 - "sentiment": how the CUSTOMER feels by the end of the conversation: POSITIVE, NEUTRAL or NEGATIVE.
 - "summary": one sentence, at most 25 words, saying what the customer wants. Do not describe the agent.
 - "confidence": your confidence in the intent, a number between 0 and 1.
