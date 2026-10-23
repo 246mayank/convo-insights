@@ -9,7 +9,7 @@ The design goal is that **no conversation is lost or counted twice, even when th
 
 | | |
 |---|---|
-| Real conversations through the LLM | **4,000 / 4,000**, 0 fallbacks, 0 dead-lettered ([run](bench/run-official.md)) |
+| Real conversations through the LLM | **4,000 / 4,000**, 0 fallbacks, 0 dead-lettered, model p95 6.6 s ([run on current code](bench/run-official-v2.md), [first run](bench/run-official.md)) |
 | Hard kills (`kill -9`) during a replay | **6 mid-stream → 3,000 / 3,000 stored, 0 duplicates** ([chaos run](bench/chaos-20261021-204552.md)) |
 | Intent accuracy, LLM vs keyword rules | **85.0% vs 62.0%** synthetic, **39.6% vs 33.3%** on real hand-labelled tweets ([bake-off](eval/BAKEOFF.md)) |
 | Streaming analytics vs the database | **3,859 brand-day buckets, 0 mismatches** with every event delivered twice ([check](bench/analytics-20261023.md)) |
@@ -115,8 +115,9 @@ Scored by `EvalMain` on two labelled sets:
 | qwen2.5:1.5b | 75.0% | 27.1% | 79.2% | 3.0 s |
 | keyword rules | 62.0% | 33.3% | 56.2% | |
 | qwen2.5:0.5b | 41.0% | 10.4% | 56.2% | 1.6 s |
+| gemini-3.5-flash-lite (hosted, free tier) | 91.0% | 54.2% | 77.1% | 20.8 s |
 
-The real-tweet set is small (one row is about 2 points), and it was used while tuning a prompt, so it's a development set. Prompt v2 scored lower and was rejected. Measured with redaction v2; the first run (86.0% / 43.8%, redaction v1) is kept in [BAKEOFF.md](eval/BAKEOFF.md).
+The real-tweet set is small (one row is about 2 points), and it was used while tuning a prompt, so it's a development set. Gemini is more accurate but about 3x slower on the free tier (4% of golden calls timed out at 30 s), so the local model stays the default; it's one config switch away. Prompt v2 scored lower and was rejected. Measured with redaction v2; the first run (86.0% / 43.8%, redaction v1) is kept in [BAKEOFF.md](eval/BAKEOFF.md).
 
 The **regression gate** scores the production model and prompt on 60 golden rows on every pull request, and fails if accuracy drops more than 5 points or p95 latency rises more than 50% against [eval/baseline.json](eval/baseline.json) (86.7%, p95 3,758 ms on the GitHub runner, re-measured after redaction v2). [PR #1](https://github.com/246mayank/convo-insights/pull/1) removed the intent definitions from the prompt; accuracy fell to 25.0% and the gate failed it.
 
