@@ -37,8 +37,7 @@ public class PiiRedactor {
         List<Turn> turns = event.turns().stream()
                 .map(t -> new Turn(t.speaker(), redact(t.text(), counts), t.ts()))
                 .toList();
-        var redacted = new ConversationEvent(event.eventId(), event.conversationId(), event.brand(),
-                event.source(), turns);
+        var redacted = event.withTurns(turns);
         return new Redacted(redacted, Map.copyOf(counts));
     }
 

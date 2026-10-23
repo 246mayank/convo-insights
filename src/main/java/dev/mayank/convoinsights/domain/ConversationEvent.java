@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
+import java.time.Instant;
 import java.util.List;
 
 /**
@@ -16,7 +17,19 @@ public record ConversationEvent(
         @NotBlank @Size(max = 64) String conversationId,
         @Size(max = 64) String brand,
         @NotBlank @Size(max = 32) String source,
-        @NotEmpty @Valid List<Turn> turns) {
+        @NotEmpty @Valid List<Turn> turns,
+        @Size(max = 16) String channel,
+        @Size(max = 64) String customerId,
+        Instant startedAt) {
+
+    /** Events from producers that predate channel / customerId / startedAt. */
+    public ConversationEvent(String eventId, String conversationId, String brand, String source, List<Turn> turns) {
+        this(eventId, conversationId, brand, source, turns, null, null, null);
+    }
+
+    public ConversationEvent withTurns(List<Turn> newTurns) {
+        return new ConversationEvent(eventId, conversationId, brand, source, newTurns, channel, customerId, startedAt);
+    }
 
     public String customerText() {
         return turns.stream()

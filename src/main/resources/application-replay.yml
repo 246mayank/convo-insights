@@ -8,3 +8,5 @@ spring:
 insights:
   outbox:
     relay-enabled: false
+  analytics:
+    enabled: false

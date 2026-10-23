@@ -72,8 +72,11 @@ def build_event(root, ids, tweets):
     return {
         "eventId": event_id,
         "conversationId": f"twcs-{root}",
+        "channel": "twitter",
+        "customerId": f"twcs-user-{tweets[root][0]}",  # anonymised Twitter author id from the corpus
         "brand": brand,
         "source": "twcs",
+        "startedAt": turns[0]["ts"] if turns else None,
         "turns": turns,
     }
 
@@ -86,6 +89,8 @@ def main():
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--max-turns", type=int, default=12)
     ap.add_argument("--min-turns", type=int, default=2)
+    ap.add_argument("--sort-by-time", action="store_true",
+                    help="write events in conversation start order (for event-time analytics demos)")
     args = ap.parse_args()
 
     tweets, children, roots = load(args.input)
@@ -94,21 +99,27 @@ def main():
     roots.sort(key=int)
     random.Random(args.seed).shuffle(roots)
 
-    written = skipped = 0
+    skipped = 0
+    events = []
+    for root in roots:
+        if len(events) >= args.limit:
+            break
+        ids = thread(root, tweets, children, args.max_turns)
+        event = build_event(root, ids, tweets)
+        has_agent = any(t["speaker"] == "AGENT" for t in event["turns"])
+        if len(event["turns"]) < args.min_turns or not has_agent or not all(t["text"] for t in event["turns"]):
+            skipped += 1
+            continue
+        events.append(event)
+    if args.sort_by_time:
+        events.sort(key=lambda e: e["startedAt"])
+
     brands = defaultdict(int)
     with open(args.output, "w", encoding="utf-8", newline="\n") as out:
-        for root in roots:
-            if written >= args.limit:
-                break
-            ids = thread(root, tweets, children, args.max_turns)
-            event = build_event(root, ids, tweets)
-            has_agent = any(t["speaker"] == "AGENT" for t in event["turns"])
-            if len(event["turns"]) < args.min_turns or not has_agent or not all(t["text"] for t in event["turns"]):
-                skipped += 1
-                continue
+        for event in events:
             out.write(json.dumps(event, ensure_ascii=False) + "\n")
             brands[event["brand"]] += 1
-            written += 1
+    written = len(events)
 
     top = sorted(brands.items(), key=lambda kv: -kv[1])[:10]
     print(f"written={written} skipped={skipped} brands={len(brands)} top={top}", file=sys.stderr)

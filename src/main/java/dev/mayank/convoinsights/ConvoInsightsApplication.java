@@ -12,9 +12,9 @@ public class ConvoInsightsApplication {
 
 	public static void main(String[] args) {
 		var ctx = SpringApplication.run(ConvoInsightsApplication.class, args);
-		// Replay and re-drive are one-shot tools: close the context once their runner has finished.
+		// Replay, re-drive and republish are one-shot tools: close the context once their runner has finished.
 		var profiles = Arrays.asList(ctx.getEnvironment().getActiveProfiles());
-		if (profiles.contains("replay") || profiles.contains("redrive")) {
+		if (profiles.contains("replay") || profiles.contains("redrive") || profiles.contains("republish")) {
 			System.exit(SpringApplication.exit(ctx));
 		}
 	}

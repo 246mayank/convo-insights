@@ -1,0 +1,12 @@
+# Republish mode: queue every stored insight on the outbox, then exit. The running service relays it.
+spring:
+  main:
+    web-application-type: none
+  kafka:
+    listener:
+      auto-startup: false
+insights:
+  outbox:
+    relay-enabled: false
+  analytics:
+    enabled: false

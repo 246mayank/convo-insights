@@ -31,6 +31,13 @@ spring:
       properties:
         enable.idempotence: true
         linger.ms: 5
+    streams:
+      application-id: convo-insights-analytics
+      replication-factor: 1
+      properties:
+        # Kafka -> Kafka is where exactly-once really applies: aggregates stay exact if Streams crashes.
+        processing.guarantee: exactly_once_v2
+        state.dir: ${java.io.tmpdir}/convo-insights-streams
     listener:
       ack-mode: manual_immediate
       concurrency: 3
@@ -49,6 +56,14 @@ insights:
     raw: conversations.raw
     enriched: insights.enriched
     dead-letter: conversations.raw.DLT
+    brand-sentiment: analytics.brand-sentiment
+    alerts: alerts.sentiment-spike
+  analytics:
+    enabled: true
+    bucket: DAY
+    spike:
+      min-conversations: 20
+      negative-share: 0.8
   outbox:
     relay-enabled: true
     poll-ms: 200

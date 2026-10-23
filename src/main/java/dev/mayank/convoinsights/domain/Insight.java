@@ -63,6 +63,15 @@ public class Insight {
     @Column(name = "llm_latency_ms")
     private Long llmLatencyMs;
 
+    @Column(length = 16)
+    private String channel;
+
+    @Column(name = "customer_id", length = 64)
+    private String customerId;
+
+    @Column(name = "started_at")
+    private Instant startedAt;
+
     @Column(name = "pii_redactions", nullable = false)
     private int piiRedactions;
 
@@ -89,6 +98,9 @@ public class Insight {
         i.promptVersion = result.promptVersion();
         i.llmLatencyMs = result.llmLatencyMs();
         i.piiRedactions = piiRedactions;
+        i.channel = event.channel();
+        i.customerId = event.customerId();
+        i.startedAt = event.startedAt();
         i.createdAt = Instant.now();
         return i;
     }
@@ -109,5 +121,8 @@ public class Insight {
     public String getPromptVersion() { return promptVersion; }
     public Long getLlmLatencyMs() { return llmLatencyMs; }
     public int getPiiRedactions() { return piiRedactions; }
+    public String getChannel() { return channel; }
+    public String getCustomerId() { return customerId; }
+    public Instant getStartedAt() { return startedAt; }
     public Instant getCreatedAt() { return createdAt; }
 }
