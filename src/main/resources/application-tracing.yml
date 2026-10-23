@@ -1,0 +1,10 @@
+# Export traces to Jaeger: docker compose --profile observability up -d, then run with --spring.profiles.active=tracing
+management:
+  tracing:
+    export:
+      enabled: true
+  opentelemetry:
+    tracing:
+      export:
+        otlp:
+          endpoint: ${OTLP_TRACES_ENDPOINT:http://localhost:4318/v1/traces}

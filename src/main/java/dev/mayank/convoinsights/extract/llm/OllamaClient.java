@@ -27,10 +27,15 @@ public class OllamaClient implements LlmClient {
     private final int numPredict;
 
     public OllamaClient(String baseUrl, String model, Duration timeout, int numCtx, int numPredict) {
+        this(RestClient.builder(), baseUrl, model, timeout, numCtx, numPredict);
+    }
+
+    /** With Spring's auto-configured builder, each model call becomes a client span in the trace. */
+    public OllamaClient(RestClient.Builder builder, String baseUrl, String model, Duration timeout, int numCtx, int numPredict) {
         var jdk = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(3)).build();
         var factory = new JdkClientHttpRequestFactory(jdk);
         factory.setReadTimeout(timeout);
-        this.http = RestClient.builder().baseUrl(baseUrl).requestFactory(factory).build();
+        this.http = builder.clone().baseUrl(baseUrl).requestFactory(factory).build();
         this.model = model;
         this.numCtx = numCtx;
         this.numPredict = numPredict;

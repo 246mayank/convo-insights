@@ -38,11 +38,19 @@ public class OutboxEvent {
     @Column(name = "last_error", length = 500)
     private String lastError;
 
+    @Column(name = "trace_parent", length = 64)
+    private String traceParent;
+
     protected OutboxEvent() {
     }
 
     public static OutboxEvent of(String topic, String key, String payload) {
+        return of(topic, key, payload, null);
+    }
+
+    public static OutboxEvent of(String topic, String key, String payload, String traceParent) {
         OutboxEvent e = new OutboxEvent();
+        e.traceParent = traceParent;
         e.topic = topic;
         e.recordKey = key;
         e.payload = payload;
@@ -69,4 +77,5 @@ public class OutboxEvent {
     public Instant getSentAt() { return sentAt; }
     public int getAttempts() { return attempts; }
     public String getLastError() { return lastError; }
+    public String getTraceParent() { return traceParent; }
 }

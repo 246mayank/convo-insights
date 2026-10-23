@@ -31,7 +31,8 @@ class OutboxRelayTest {
     void setUp() {
         repository = mock(OutboxRepository.class);
         template = mock(KafkaTemplate.class);
-        relay = new OutboxRelay(repository, template, new TransactionTemplate(mock(PlatformTransactionManager.class)), 2);
+        relay = new OutboxRelay(repository, template, new TransactionTemplate(mock(PlatformTransactionManager.class)), 2,
+                OutboxTracing.disabled());
     }
 
     private static CompletableFuture<SendResult<String, String>> acked(String topic, String key) {

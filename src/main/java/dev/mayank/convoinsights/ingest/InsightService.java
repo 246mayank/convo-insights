@@ -8,6 +8,7 @@ import dev.mayank.convoinsights.domain.InsightRepository;
 import dev.mayank.convoinsights.extract.InsightExtractor;
 import dev.mayank.convoinsights.outbox.OutboxEvent;
 import dev.mayank.convoinsights.outbox.OutboxRepository;
+import dev.mayank.convoinsights.outbox.OutboxTracing;
 import dev.mayank.convoinsights.privacy.PiiRedactor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,11 +45,13 @@ public class InsightService {
     private final String enrichedTopic;
     private final String segmentTopic;
     private final InsightMetrics metrics;
+    private final OutboxTracing tracing;
 
     public InsightService(InsightRepository insights, OutboxRepository outbox, InsightExtractor extractor,
                           PiiRedactor redactor, TransactionTemplate tx, ObjectMapper mapper,
                           @Value("${insights.topics.enriched}") String enrichedTopic,
-                          @Value("${insights.topics.segment}") String segmentTopic, InsightMetrics metrics) {
+                          @Value("${insights.topics.segment}") String segmentTopic, InsightMetrics metrics,
+                          OutboxTracing tracing) {
         this.insights = insights;
         this.outbox = outbox;
         this.extractor = extractor;
@@ -58,6 +61,7 @@ public class InsightService {
         this.enrichedTopic = enrichedTopic;
         this.segmentTopic = segmentTopic;
         this.metrics = metrics;
+        this.tracing = tracing;
     }
 
     public Outcome process(ConversationEvent event) {
@@ -73,12 +77,13 @@ public class InsightService {
         ExtractionResult result = extractor.extract(redacted.event());
         Insight insight = Insight.of(event, result, redacted.total());
         try {
+            String traceParent = tracing.currentTraceParent();
             Insight saved = tx.execute(status -> {
                 Insight s = insights.saveAndFlush(insight);
                 outbox.save(OutboxEvent.of(enrichedTopic, s.getEventId(),
-                        mapper.writeValueAsString(InsightView.of(s))));
+                        mapper.writeValueAsString(InsightView.of(s)), traceParent));
                 outbox.save(OutboxEvent.of(segmentTopic, s.getEventId(),
-                        mapper.writeValueAsString(SegmentTrack.of(s))));
+                        mapper.writeValueAsString(SegmentTrack.of(s)), traceParent));
                 return s;
             });
             metrics.processed(result, Duration.ofNanos(System.nanoTime() - start));

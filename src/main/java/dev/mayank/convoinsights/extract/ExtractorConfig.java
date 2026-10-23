@@ -9,12 +9,14 @@ import dev.mayank.convoinsights.extract.llm.Prompts;
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import io.micrometer.core.instrument.Gauge;
 import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.observation.ObservationRegistry;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.web.client.RestClient;
 import tools.jackson.databind.ObjectMapper;
 
 import java.time.Duration;
@@ -32,10 +34,15 @@ class ExtractorConfig {
     @Bean
     @Primary
     InsightExtractor insightExtractor(LlmProperties props, RuleBasedExtractor rules, ObjectMapper mapper,
-                                      ObjectProvider<LlmClient> suppliedClient, MeterRegistry registry) {
+                                      ObjectProvider<LlmClient> suppliedClient, MeterRegistry registry,
+                                      ObjectProvider<RestClient.Builder> restClients,
+                                      ObjectProvider<ObservationRegistry> observations) {
         return switch (props.provider()) {
             case "rules" -> rules;
-            case "ollama" -> llm(props, rules, mapper, registry, new OllamaClient(props.ollama().baseUrl(),
+            case "ollama" -> llm(props, rules, mapper, registry, new OllamaClient(
+                    restClients.getIfAvailable(() -> RestClient.builder()
+                            .observationRegistry(observations.getIfAvailable(() -> ObservationRegistry.NOOP))),
+                    props.ollama().baseUrl(),
                     props.ollama().model(), props.timeout(), props.ollama().numCtx(), props.ollama().numPredict()));
             case "client" -> llm(props, rules, mapper, registry, suppliedClient.getObject());
             default -> throw new IllegalArgumentException("Unknown insights.llm.provider: " + props.provider());

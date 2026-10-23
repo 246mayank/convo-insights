@@ -1,0 +1,10 @@
+{
+  "run" : "qwen2.5:3b@v1",
+  "dataset" : "golden",
+  "rows" : 60,
+  "intentAccuracy" : 0.8667,
+  "intentMacroF1" : 0.8747,
+  "latencyMsP95" : 3979,
+  "fallbackRate" : 0.0,
+  "createdAt" : "2026-10-23T06:44:23.730719974Z"
+}

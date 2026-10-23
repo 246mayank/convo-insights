@@ -38,11 +38,23 @@ spring:
         # Kafka -> Kafka is where exactly-once really applies: aggregates stay exact if Streams crashes.
         processing.guarantee: exactly_once_v2
         state.dir: ${java.io.tmpdir}/convo-insights-streams
+    template:
+      observation-enabled: true   # producer spans + W3C traceparent header on every record
     listener:
+      observation-enabled: true   # consumer spans continue the producer's trace
       ack-mode: manual_immediate
       concurrency: 3
 
 management:
+  tracing:
+    sampling:
+      probability: 1.0
+    export:
+      enabled: false              # turned on by the 'tracing' profile (Jaeger via OTLP)
+  otlp:
+    metrics:
+      export:
+        enabled: false            # metrics go to Prometheus; OTLP is used for traces only
   endpoints:
     web:
       exposure:

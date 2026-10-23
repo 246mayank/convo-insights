@@ -34,9 +34,11 @@ public class OutboxRelay {
     private final KafkaTemplate<String, String> template;
     private final TransactionTemplate tx;
     private final int batchSize;
+    private final OutboxTracing tracing;
 
     public OutboxRelay(OutboxRepository repository, KafkaTemplate<String, String> template, TransactionTemplate tx,
-                       @Value("${insights.outbox.batch-size:200}") int batchSize) {
+                       @Value("${insights.outbox.batch-size:200}") int batchSize, OutboxTracing tracing) {
+        this.tracing = tracing;
         this.repository = repository;
         this.template = template;
         this.tx = tx;
@@ -59,7 +61,9 @@ public class OutboxRelay {
 
         List<CompletableFuture<SendResult<String, String>>> futures = new ArrayList<>(batch.size());
         for (OutboxEvent e : batch) {
-            futures.add(template.send(e.getTopic(), e.getRecordKey(), e.getPayload()));
+            // continue the trace of the transaction that wrote the row
+            futures.add(tracing.inChildSpan(e.getTraceParent(), "outbox publish " + e.getTopic(),
+                    () -> template.send(e.getTopic(), e.getRecordKey(), e.getPayload())));
         }
         template.flush();
 

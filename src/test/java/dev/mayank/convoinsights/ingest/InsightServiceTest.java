@@ -43,7 +43,8 @@ class InsightServiceTest {
         extractor = spy(new RuleBasedExtractor());
         var tx = new TransactionTemplate(mock(PlatformTransactionManager.class));
         service = new InsightService(insights, outbox, extractor, new PiiRedactor(), tx,
-                JsonMapper.builder().build(), "insights.enriched", "insights.segment", new InsightMetrics(new SimpleMeterRegistry(), outbox));
+                JsonMapper.builder().build(), "insights.enriched", "insights.segment", new InsightMetrics(new SimpleMeterRegistry(), outbox),
+                dev.mayank.convoinsights.outbox.OutboxTracing.disabled());
         when(insights.saveAndFlush(any())).thenAnswer(inv -> inv.getArgument(0));
     }
 
