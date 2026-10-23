@@ -102,3 +102,6 @@ insights:
       model: ${OLLAMA_MODEL:qwen2.5:3b}
       num-ctx: 2048
       num-predict: 160
+    gemini:
+      api-key: ${GEMINI_API_KEY:}
+      model: ${GEMINI_MODEL:gemini-2.5-flash-lite}

@@ -1,6 +1,7 @@
 package dev.mayank.convoinsights.extract;
 
 import dev.mayank.convoinsights.extract.llm.CircuitBreakingLlmClient;
+import dev.mayank.convoinsights.extract.llm.GeminiClient;
 import dev.mayank.convoinsights.extract.llm.LlmClient;
 import dev.mayank.convoinsights.extract.llm.LlmInsightExtractor;
 import dev.mayank.convoinsights.extract.llm.LlmOutputValidator;
@@ -23,7 +24,7 @@ import java.time.Duration;
 
 /**
  * Selects the extractor via {@code insights.llm.provider}:
- * {@code rules}, {@code ollama}, or {@code client} (an {@link LlmClient} bean supplied by the
+ * {@code rules}, {@code ollama}, {@code gemini}, or {@code client} (an {@link LlmClient} bean supplied by the
  * context, which is how tests plug in a scripted model). Model clients are wrapped in a
  * circuit breaker whose state is exported as {@code insights.llm.circuit.state}.
  */
@@ -44,6 +45,10 @@ class ExtractorConfig {
                             .observationRegistry(observations.getIfAvailable(() -> ObservationRegistry.NOOP))),
                     props.ollama().baseUrl(),
                     props.ollama().model(), props.timeout(), props.ollama().numCtx(), props.ollama().numPredict()));
+            case "gemini" -> llm(props, rules, mapper, registry, new GeminiClient(
+                    restClients.getIfAvailable(() -> RestClient.builder()
+                            .observationRegistry(observations.getIfAvailable(() -> ObservationRegistry.NOOP))),
+                    props.gemini().apiKey(), props.gemini().model(), props.timeout(), 256));
             case "client" -> llm(props, rules, mapper, registry, suppliedClient.getObject());
             default -> throw new IllegalArgumentException("Unknown insights.llm.provider: " + props.provider());
         };
@@ -67,12 +72,15 @@ class ExtractorConfig {
 
     @ConfigurationProperties("insights.llm")
     record LlmProperties(String provider, String promptVersion, Duration timeout, int maxInputChars,
-                         Duration circuitOpenFor, Ollama ollama) {
+                         Duration circuitOpenFor, Ollama ollama, Gemini gemini) {
         LlmProperties {
             if (circuitOpenFor == null) circuitOpenFor = Duration.ofSeconds(30);
         }
 
         record Ollama(String baseUrl, String model, int numCtx, int numPredict) {
+        }
+
+        record Gemini(String apiKey, String model) {
         }
     }
 }
