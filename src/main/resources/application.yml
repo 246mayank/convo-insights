@@ -64,6 +64,12 @@ insights:
     spike:
       min-conversations: 20
       negative-share: 0.8
+  twilio:
+    # Empty token = webhook disabled (503). The URL must be the exact public URL Twilio calls,
+    # because it is part of what the signature covers.
+    auth-token: ${TWILIO_AUTH_TOKEN:}
+    webhook-url: ${TWILIO_WEBHOOK_URL:http://localhost:8080/webhooks/twilio/conversations}
+    brand: ${TWILIO_BRAND:twilio-demo}
   outbox:
     relay-enabled: true
     poll-ms: 200

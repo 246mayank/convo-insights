@@ -142,6 +142,21 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<!-- only to cross-check our signature code against Twilio's own RequestValidator -->
+			<groupId>com.twilio.sdk</groupId>
+			<artifactId>twilio</artifactId>
+			<version>11.4.0</version>
+			<scope>test</scope>
+			<exclusions>
+				<!-- its old commons-io breaks Testcontainers' tar copy (NoSuchMethodError FileTimes.toUnixTime),
+				     which silently leaves the Kafka test container waiting for its start script -->
+				<exclusion>
+					<groupId>commons-io</groupId>
+					<artifactId>commons-io</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
 			<groupId>org.awaitility</groupId>
 			<artifactId>awaitility</artifactId>
 			<scope>test</scope>

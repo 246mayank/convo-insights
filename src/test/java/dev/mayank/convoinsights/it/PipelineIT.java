@@ -6,6 +6,7 @@ import dev.mayank.convoinsights.domain.FallbackReason;
 import dev.mayank.convoinsights.domain.Insight;
 import dev.mayank.convoinsights.domain.InsightRepository;
 import dev.mayank.convoinsights.domain.Intent;
+import dev.mayank.convoinsights.ingest.twilio.TwilioSignature;
 import dev.mayank.convoinsights.outbox.OutboxRepository;
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.OffsetSpec;
@@ -16,6 +17,9 @@ import org.apache.kafka.common.TopicPartition;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
@@ -36,6 +40,8 @@ import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
  * End-to-end tests against real Kafka and PostgreSQL (Testcontainers) with a scripted model.
@@ -50,7 +56,10 @@ import static org.awaitility.Awaitility.await;
         // fail fast instead of hanging when the database is paused
         "spring.datasource.hikari.connection-timeout=2000",
         "spring.datasource.hikari.data-source-properties.socketTimeout=2",
+        "insights.twilio.auth-token=it-token",
+        "insights.twilio.webhook-url=https://insights.example.com/webhooks/twilio/conversations",
 })
+@AutoConfigureMockMvc
 @Import({TestcontainersConfiguration.class, PipelineIT.ScriptedModel.class})
 class PipelineIT {
 
@@ -70,6 +79,7 @@ class PipelineIT {
     @Autowired JdbcTemplate jdbc;
     @Autowired ScriptedLlmClient model;
     @Autowired PostgreSQLContainer postgres;
+    @Autowired MockMvc mvc;
 
     private static String event(String eventId, String customerText) {
         return """
@@ -181,6 +191,51 @@ class PipelineIT {
         awaitInsight(id);
         awaitConsumerCaughtUp();
         assertThat(jdbc.queryForObject("select count(*) from insights where event_id = ?", Long.class, id)).isEqualTo(1);
+    }
+
+    /** Cross-channel ingest: a signed Twilio Conversations webhook (SMS) ends up as an insight like any tweet. */
+    @Test
+    void signedTwilioWebhookBecomesAnInsight() throws Exception {
+        String conv = "CH" + newId();
+        postWebhook(conv, "IM" + newId(), "+15550001111", "SMS", 0,
+                "my internet has been down all day, call me back on 555-123-4567", "it-token", 200);
+        String agentMsg = "IM" + newId();
+        postWebhook(conv, agentMsg, "agent.priya", "SDK", 1, "Sorry about that, we are checking the line now.", "it-token", 200);
+        postWebhook(conv, agentMsg, "agent.priya", "SDK", 1, "Sorry about that, we are checking the line now.", "it-token", 200); // Twilio retry
+
+        Insight insight = await().atMost(Duration.ofSeconds(30)).until(
+                () -> insights.findAll().stream().filter(i -> conv.equals(i.getConversationId()) && i.getTurnCount() == 2).findFirst(),
+                Optional::isPresent).get();
+        assertThat(insight.getSource()).isEqualTo("twilio");
+        assertThat(insight.getChannel()).isEqualTo("sms");
+        assertThat(insight.getCustomerId()).startsWith("tw-").doesNotContain("5550001111");
+        assertThat(insight.getPiiRedactions()).isGreaterThanOrEqualTo(1);
+        assertThat(jdbc.queryForObject("select count(*) from webhook_messages where conversation_sid = ?", Long.class, conv))
+                .as("the retried message is stored once").isEqualTo(2);
+    }
+
+    @Test
+    void webhookWithABadSignatureIsRejected() throws Exception {
+        String conv = "CH" + newId();
+        postWebhook(conv, "IM" + newId(), "+15550002222", "SMS", 0, "hello", "not-the-token", 403);
+        assertThat(jdbc.queryForObject("select count(*) from webhook_messages where conversation_sid = ?", Long.class, conv)).isZero();
+    }
+
+    private void postWebhook(String conv, String msg, String author, String source, int index, String body,
+                             String signWith, int expectedStatus) throws Exception {
+        Map<String, String> params = new java.util.LinkedHashMap<>();
+        params.put("EventType", "onMessageAdded");
+        params.put("ConversationSid", conv);
+        params.put("MessageSid", msg);
+        params.put("Author", author);
+        params.put("Source", source);
+        params.put("Index", String.valueOf(index));
+        params.put("Body", body);
+        params.put("DateCreated", "2026-10-23T10:0" + index + ":00Z");
+        String sig = TwilioSignature.compute(signWith, "https://insights.example.com/webhooks/twilio/conversations", params);
+        var req = post("/webhooks/twilio/conversations").contentType(MediaType.APPLICATION_FORM_URLENCODED).header("X-Twilio-Signature", sig);
+        params.forEach((k, v) -> req.param(k, v));
+        mvc.perform(req).andExpect(status().is(expectedStatus));
     }
 
     // ---- helpers ----
