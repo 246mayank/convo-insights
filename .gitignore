@@ -38,3 +38,4 @@ data/
 eval/results/dev/
 # per-row TWCS results contain tweet-derived text (CC BY-NC-SA); only aggregated metrics are committed
 eval/results/twcs-*.json
+eval/results/**/twcs-*.json

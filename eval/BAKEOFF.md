@@ -1,5 +1,26 @@
 # Extractor bake-off
 
+**Current numbers (redaction v2, commit `5c0279a` and later):**
+
+| Dataset | Extractor | n | Intent acc. | Intent macro-F1 | Sentiment acc. | p50 ms | p95 ms | Fallback |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| golden | qwen2.5:0.5b@v1 | 200 | 41.0% | 0.398 |  | 867 | 1015 | 0.0% |
+| golden | qwen2.5:1.5b@v1 | 200 | 75.0% | 0.763 |  | 1791 | 2064 | 0.0% |
+| golden | qwen2.5:3b@v1 | 200 | 85.0% | 0.864 |  | 3133 | 3570 | 0.0% |
+| golden | rules | 200 | 62.0% | 0.720 |  |  |  | 0.0% |
+| twcs | qwen2.5:0.5b@v1 | 48 | 10.4% | 0.199 | 56.2% | 1154 | 1563 | 0.0% |
+| twcs | qwen2.5:1.5b@v1 | 48 | 27.1% | 0.163 | 79.2% | 2421 | 2953 | 0.0% |
+| twcs | qwen2.5:3b@v1 | 48 | 39.6% | 0.271 | 70.8% | 4017 | 5502 | 0.0% |
+| twcs | rules | 48 | 33.3% | 0.331 | 56.2% |  |  | 0.0% |
+
+These replace the first run below. Redaction v2 (`bench/redaction-audit-20261023.md`) changes the text the model sees
+(names become `[NAME]`, phones and ids are tagged differently), and a small model's borderline answers move with it:
+for qwen2.5:3b, 7 of 48 real-tweet predictions changed (2 went from right to wrong, 0 the other way; 5 were wrong
+both times) and 5 of 200 golden predictions changed. On a 48-row set, 2 rows is within noise. The ranking and the
+decision are unchanged. Results: `eval/results/v2/`.
+
+## First run (redaction v1, 21 Oct)
+
 Every extractor was run through the same harness (`EvalMain`) on two labelled sets:
 
 - **golden**: 200 synthetic customer messages from the Bitext dataset, stratified across its 11 categories (`eval/golden.jsonl`). Bitext's labels are its own categories; no sentiment labels.
@@ -23,7 +44,7 @@ Latency is the time spent waiting on the model per conversation.
 
 ## Decision
 
-**Default: `qwen2.5:3b` with prompt v1.**
+**Default: `qwen2.5:3b` with prompt v1.** (Figures in this section are from the first run; v2 confirms the choice: 85.0% golden and 39.6% real vs 62.0% and 33.3% for the rules.)
 
 - 3B is the only model that beats the keyword rules on *both* sets: +24 points on golden (86.0% vs 62.0%) and +10.5 points on real tweets (43.8% vs 33.3%).
 - 1.5B wins on the synthetic set but loses to the rules on real intent (25.0%). It has the best sentiment accuracy (79.2%), which shows that sentiment and intent difficulty don't move together.

@@ -11,7 +11,7 @@ The design goal is that **no conversation is lost or counted twice, even when th
 |---|---|
 | Real conversations through the LLM | **4,000 / 4,000**, 0 fallbacks, 0 dead-lettered ([run](bench/run-official.md)) |
 | Hard kills (`kill -9`) during a replay | **6 mid-stream → 3,000 / 3,000 stored, 0 duplicates** ([chaos run](bench/chaos-20261021-204552.md)) |
-| Intent accuracy, LLM vs keyword rules | **86.0% vs 62.0%** synthetic, **43.8% vs 33.3%** on real hand-labelled tweets ([bake-off](eval/BAKEOFF.md)) |
+| Intent accuracy, LLM vs keyword rules | **85.0% vs 62.0%** synthetic, **39.6% vs 33.3%** on real hand-labelled tweets ([bake-off](eval/BAKEOFF.md)) |
 | Streaming analytics vs the database | **3,859 brand-day buckets, 0 mismatches** with every event delivered twice ([check](bench/analytics-20261023.md)) |
 | Read API under load | **500 req/s, 0 failures, p95 19.4 ms** ([k6](bench/k6.md)) |
 | Tests | **127** (118 unit, 9 against real Kafka + PostgreSQL), plus a CI gate that [blocked a bad prompt](https://github.com/246mayank/convo-insights/pull/1) |
@@ -111,12 +111,12 @@ Scored by `EvalMain` on two labelled sets:
 
 | Extractor | Golden (200 synthetic) | Real tweets (48 hand-labelled) | Real sentiment | p95, real |
 |---|---:|---:|---:|---:|
-| **qwen2.5:3b** (default) | **86.0%** | **43.8%** | 70.8% | 5.2 s |
-| qwen2.5:1.5b | 72.5% | 25.0% | 79.2% | 3.0 s |
+| **qwen2.5:3b** (default) | **85.0%** | **39.6%** | 70.8% | 5.5 s |
+| qwen2.5:1.5b | 75.0% | 27.1% | 79.2% | 3.0 s |
 | keyword rules | 62.0% | 33.3% | 56.2% | |
-| qwen2.5:0.5b | 35.5% | 8.3% | 56.2% | 1.4 s |
+| qwen2.5:0.5b | 41.0% | 10.4% | 56.2% | 1.6 s |
 
-The real-tweet set is small (one row is about 2 points), and it was used while tuning a prompt, so it's a development set. Prompt v2 scored lower and was rejected; see [BAKEOFF.md](eval/BAKEOFF.md).
+The real-tweet set is small (one row is about 2 points), and it was used while tuning a prompt, so it's a development set. Prompt v2 scored lower and was rejected. Measured with redaction v2; the first run (86.0% / 43.8%, redaction v1) is kept in [BAKEOFF.md](eval/BAKEOFF.md).
 
 The **regression gate** scores the production model and prompt on 60 golden rows on every pull request, and fails if accuracy drops more than 5 points or p95 latency rises more than 50% against [eval/baseline.json](eval/baseline.json) (86.7%, p95 3,758 ms on the GitHub runner, re-measured after redaction v2). [PR #1](https://github.com/246mayank/convo-insights/pull/1) removed the intent definitions from the prompt; accuracy fell to 25.0% and the gate failed it.
 
@@ -175,7 +175,7 @@ They found real bugs, each fixed and explained in the commit history:
 ## Limitations
 
 - CPU-only model: about 0.2 conversations/s. More consumer threads only queue inside Ollama ([pilot](bench/pilot.md)); production needs GPU serving or a hosted model.
-- Real-tweet intent accuracy (43.8%) is far below synthetic accuracy; real threads mix several issues and venting.
+- Real-tweet intent accuracy (39.6%) is far below synthetic accuracy; real threads mix several issues and venting.
 - Single broker, replication factor 1. JSON messages without a schema registry.
 - The analytics KTable keeps every eventId forever; production needs retention.
 - The webhook is tested with correctly signed fixtures, not live Twilio traffic.

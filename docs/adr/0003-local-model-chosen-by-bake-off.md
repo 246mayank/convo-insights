@@ -16,12 +16,12 @@ categories) and 48 real TWCS conversations hand-labelled for intent and sentimen
 
 | Extractor | Golden accuracy | Real accuracy | p95 (real) |
 |---|---:|---:|---:|
-| qwen2.5:3b | 86.0% | 43.8% | 5.2 s |
-| qwen2.5:1.5b | 72.5% | 25.0% | 3.0 s |
+| qwen2.5:3b | 85.0% | 39.6% | 5.5 s |
+| qwen2.5:1.5b | 75.0% | 27.1% | 3.0 s |
 | rules | 62.0% | 33.3% | |
-| qwen2.5:0.5b | 35.5% | 8.3% | 1.4 s |
+| qwen2.5:0.5b | 41.0% | 10.4% | 1.6 s |
 
-**qwen2.5:3b is the default**: the only model that beats the rules on both sets.
+**qwen2.5:3b is the default**: the only model that beats the rules on both sets. (Numbers re-measured after redaction v2; the first run gave 86.0% / 43.8% for 3B, same ranking.)
 
 ## Consequences
 

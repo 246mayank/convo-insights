@@ -26,7 +26,7 @@ partition blocks every conversation behind it.
 
 - The stream keeps moving through bad answers, timeouts and outages. Every fallback is visible per row and in
   metrics (`insights_fallback_total{reason}`).
-- Fallback insights are lower quality (rules score 62.0% vs 86.0% on the golden set). Dashboards should watch the fallback rate.
+- Fallback insights are lower quality (rules score 62.0% vs 85.0% on the golden set). Dashboards should watch the fallback rate.
 - In the official run of 4,000 real conversations the fallback rate was 0%.
 
 ## Alternatives rejected
